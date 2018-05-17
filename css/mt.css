@@ -1,0 +1,436 @@
+@media (max-width: 768px) {
+	 	footer{
+	 		display: none;
+	 	}
+	 	.footer{
+	 		background: transparent;
+	 		bottom: 30px;
+	 	}
+	 	.palette_control{
+	 		width: 100%;
+	 		height: 30px;
+	 		bottom: 0;
+	 	}	
+	 	#hoverPic{
+	 		overflow: hidden;
+			height: 0;
+	 		position: fixed;
+	 		bottom: 0px;
+	 		right: 0;
+	 		z-index: 99999;
+	 	}
+	 	.chartBox{
+	 		width: 100%;
+	 		bottom: 0;
+	 		visibility:visible;
+	 	}
+	 	.zhankai{
+	 		width: 100%;
+	 		height: 310px;
+	 	}
+	.zhankai canvas{
+		height:270px;
+	}
+	 	.iconBox{
+	 		display: none;
+	 	}
+	 	#nover{
+	 		width: 100%;
+	 	}
+	 	.colse{
+	 		display: block;
+	 		width: 25px;
+		    height: 25px;
+		    position: absolute;
+		    right: 4px;
+		    top: 30px;
+		    z-index: 9999;
+	 	}
+	 	#notice{
+	 		bottom: 140px;
+	 	}
+	 	.index_down_left{
+	 		top: 110px;
+	 	}
+	 	.Universal_tool{
+	 		display: none;
+	 	}	 		 	
+	 	
+	 	#ceshi{
+	 		display: block;
+	 	}
+	 	.searchDiv{
+	 		width: 80%;
+	 		margin: 15px;
+	 		top: 0;
+	 		left: 0;
+	 	}
+	 	.newText{
+	 		width: 70%;
+	 	}
+	 	.Universal_tool{
+	 		top: 60px;
+	 	}
+	 	.images span{
+	 		font-size: 12px;
+	 	}
+	 	.chart{
+	 		padding: 0;
+	 	}
+	 	#showLat{
+	 		display: none;
+	 	}
+	 	.palette_control canvas{
+	 		margin-left: 8px;
+	 	}
+	 	.index_menu_left{
+	 		height: 39px;
+	 		line-height: 47px;
+	 	}
+	 	#reminder{
+	 		display: none;
+	 	}
+	.index_menu_righ_list {
+		width: 176px;
+	}
+	.list_title {
+		width: 88px;}
+	/*设置时序图的图表切换*/
+
+	#echarts11 div:nth-child(1){
+		/*width:10px;*/
+		height:100%;
+		/*padding-left:5px ;*/
+		float: left;
+		/*margin-top: 20px;*/
+	}
+	#echarts11 div:nth-child(2){
+		/*width:604px;*/
+		height:100%;
+		/*padding-left:5px ;*/
+		float: left;
+		/*margin-top:20px;*/
+		/*border-right: 1px solid #31b0d5;*/
+	}
+	.shixvTable td{
+		width:50px;
+		height: 30px;
+		border:1px solid #fff;
+		/*border-right: 0;*/
+		/*text-align: center;*/
+		line-height: 15px;
+		background: #A5CEF0;
+		color:#000;
+		font-weight: bold;
+	}
+	.shixvTable1{
+		border-right: 1px solid #31b0d5;
+		border-left: 1px solid #31b0d5;
+	}
+	.shixvTable1 td{
+		width:50px;
+		height: 30px;
+		border:1px solid #fff;
+		text-align: center;
+		line-height: 20px;
+		font-size: 12px;
+		background: #C1DCFA;
+	}
+	.shixvTable1 tr:nth-child(1) td{
+		background: #9DD929;
+		color:#000;
+		line-height: 10px;
+	}
+	#recordName{
+		display: none;
+	}
+	#recordName1{
+		display: block;
+	}
+	#changeTable{
+		display: none;
+	}
+	#export{
+		display: none;
+	}
+	.divide{
+		width: 2px;
+		height: 30px;
+		background: yellow;
+		position: absolute;
+		top: 32px;
+
+	}
+	body{
+		-webkit-touch-callout:none;
+		-ms-touch-callout:none;
+		-moz-touch-callout:none;
+		/*-webkit-touch-callout:none;*/
+		-o-touch-callout:none;
+	}
+	#web{
+		bottom: 40px;
+	}
+	}
+@media (min-width: 768px) and (max-width: 992px) {
+	 	/*body{
+	 		background: orange;
+	 	}*/
+	 	footer{
+	 		display: none;
+	 	}
+	 	.footer{
+	 		background: transparent;
+	 		bottom: 30px;
+	 	}
+	 	.palette_control{
+	 		width: 100%;
+	 		height: 30px;
+	 		bottom: 0;
+	 	}
+	 		
+	 	#hoverPic{
+	 		overflow: hidden;
+			height: 0;
+	 		position: fixed;
+	 		bottom: 0px;
+	 		right: 0;
+	 		z-index: 99999;
+	 	}
+	 	.chartBox{
+	 		width: 100%;
+	 		bottom: 0;
+	 		visibility:visible;
+	 	}
+	 	.zhankai{
+	 		width: 100%;
+	 		height: 310px;
+	 	}
+	.zhankai canvas{
+		height:270px;
+	}
+	 	.iconBox{
+	 		display: none;
+	 	}
+	.zhankai canvas{
+		height:270px;
+	}
+	 	#nover{
+	 		width: 100%;
+	 	}
+	 	.colse{
+	 		display: block;
+	 		width: 25px;
+		    height: 25px;
+		    position: absolute;
+		    right: 13px;
+		    top: 30px;
+		    z-index: 9999;
+	 	}
+	 	#showLat{
+	 		display: none;
+	 	}
+	 	.palette_control canvas{
+	 		margin-left: 8px;
+	 	}
+	.index_menu_righ_list {
+		width: 176px;
+	}
+	.list_title {
+		width: 88px;}
+	.selectElement{
+		display: none;
+	}
+	/*设置时序图的图表切换*/
+
+	#echarts11 div:nth-child(1){
+		/*width:10px;*/
+		height:100%;
+		/*padding-left:5px ;*/
+		float: left;
+		/*margin-top: 20px;*/
+	}
+	#echarts11 div:nth-child(2){
+		/*width:604px;*/
+		height:100%;
+		/*padding-left:5px ;*/
+		float: left;
+		/*margin-top:20px;*/
+		/*border-right: 1px solid #31b0d5;*/
+	}
+	.shixvTable td{
+		width:50px;
+		height: 30px;
+		border:1px solid #fff;
+		/*border-right: 0;*/
+		/*text-align: center;*/
+		line-height: 15px;
+		background: #A5CEF0;
+		color:#000;
+		font-weight: bold;
+	}
+	.shixvTable1{
+		border-right: 1px solid #31b0d5;
+		border-left: 1px solid #31b0d5;
+	}
+	.shixvTable1 td{
+		width:50px;
+		height: 30px;
+		border:1px solid #fff;
+		text-align: center;
+		line-height: 20px;
+		font-size: 12px;
+		background: #C1DCFA;
+	}
+	.shixvTable1 tr:nth-child(1) td{
+		background: #9DD929;
+		color:#000;
+		line-height: 10px;
+	}
+	#recordName{
+		display: none;
+	}
+	#recordName1{
+		display: block;
+	}
+	#changeTable{
+		display: none;
+	}
+	#export{
+		display: none;
+	}
+	.divide{
+		width: 2px;
+		height: 30px;
+		background: yellow;
+		position: absolute;
+		top: 32px;
+	}
+	body{
+		-webkit-touch-callout:none;
+		-ms-touch-callout:none;
+		-moz-touch-callout:none;
+		/*-webkit-touch-callout:none;*/
+		-o-touch-callout:none;
+	}
+	#web{
+		bottom: 30px;
+	}
+	}
+@media (min-width: 992px) and (max-width: 1200px) { 
+	 	/*body{
+	 		background: blueviolet;
+	 	}*/
+	 	.footer{
+	 		background: transparent;
+	 	}
+	 	footer{
+	 		display: none;
+	 	}
+	.index_menu_righ_list {
+		width: 176px;
+	}
+	.list_title {
+		width: 88px;}
+	.selectElement{
+		display: none;
+	}
+	/*设置时序图的图表切换*/
+
+	#echarts11 div:nth-child(1){
+		/*width:10px;*/
+		height:100%;
+		/*padding-left:5px ;*/
+		float: left;
+		/*margin-top: 20px;*/
+	}
+	#echarts11 div:nth-child(2){
+		/*width:604px;*/
+		height:100%;
+		/*padding-left:5px ;*/
+		float: left;
+		/*margin-top:20px;*/
+		/*border-right: 1px solid #31b0d5;*/
+	}
+	.shixvTable td{
+		width:50px;
+		height: 30px;
+		border:1px solid #fff;
+		/*border-right: 0;*/
+		/*text-align: center;*/
+		line-height: 15px;
+		background: #A5CEF0;
+		color:#000;
+		font-weight: bold;
+	}
+	.shixvTable1{
+		border-right: 1px solid #31b0d5;
+		border-left: 1px solid #31b0d5;
+	}
+	.shixvTable1 td{
+		width:50px;
+		height: 30px;
+		border:1px solid #fff;
+		text-align: center;
+		line-height: 20px;
+		font-size: 12px;
+		background: #C1DCFA;
+	}
+	.shixvTable1 tr:nth-child(1) td{
+		line-height: 10px;
+		background: #9DD929;
+		color:#000;
+	}
+	#recordName{
+		display: none;
+	}
+	#recordName1{
+		display: block;
+	}
+	#changeTable{
+		display: none;
+	}
+	#export{
+		display: none;
+	}
+	.divide{
+		width: 2px;
+		height: 30px;
+		background: yellow;
+		position: absolute;
+		top: 32px;
+	}
+	body{
+		-webkit-touch-callout:none;
+		-ms-touch-callout:none;
+		-moz-touch-callout:none;
+		/*-webkit-touch-callout:none;*/
+		-o-touch-callout:none;
+	}
+	#web{
+		bottom: 30px;
+	}
+	}
+@media (min-width: 1200px) {
+	 	/*body{
+	 		background: skyblue;
+	 	}*/
+	 	/*#web{*/
+	 		/*display: block;*/
+	 	/*}*/
+	 	/*footer{*/
+	 		/*display: none;*/
+	 	/*}*/
+	#web{
+		display: none;
+	}
+	footer{
+		display: block;
+	}
+	#recordName{
+		display: block;
+	}
+	#recordName1{
+		display: none;
+	}
+	}

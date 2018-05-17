@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<palette>
+
+  <entry value="950" rgba="0,0,220,127" />
+  <entry value="960" rgba="1,1,221,127" />
+  <entry value="970" rgba="38,44,244,127" />
+  <entry value="980" rgba="66,75,254,127" />
+  <entry value="990" rgba="83,98,255,127" />
+  <entry value="1000" rgba="125,145,255,127" />
+  <entry value="1010" rgba="177,201,255,127" />
+  <entry value="1020" rgba="255,255,250,127" />
+  <entry value="1030" rgba="255,249,204,127" />
+  <entry value="1040" rgba="255,243,169,127" />
+  <entry value="1050" rgba="255,184,84,127" />
+  <entry value="1060" rgba="255,135,49,127" />
+  <entry value="1070" rgba="254,117,13,127" />
+  <entry value="1080" rgba="255,80,6,127" />
+  <entry value="1090" rgba="234,56,8,127" />
+  <entry value="2000" rgba="201,30,4,127" />
+  
+</palette>
+  

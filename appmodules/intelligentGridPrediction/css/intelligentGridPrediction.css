@@ -1,0 +1,238 @@
+.zhankai{
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    bottom: 0;
+    right:0px;
+    /*visibility: hidden;*/
+    z-index: 2000;
+    background: rgb(37,42,48);
+    /*background: red;*/
+}
+.iconBox{
+    width:50px;
+    height:13px;
+    margin: 0 auto;
+}
+.chartBox{
+    width:100%;
+    background: rgb(64,69,75);
+    position: absolute;
+    right:0px;top: 0px;
+}
+.button{
+    width:70px;
+    height:30px;
+    color:#fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+}
+.button1{
+    background:#2579D5;
+}
+.chart{
+    /*padding:10px;*/
+    width: 100%;
+    height: 100%;
+    position:relative;
+
+}
+.box{
+    margin-top: 5px;
+}
+.det{
+    width: 100%;height: auto;
+    z-index:1000;
+    /*margin-left:1%;*/
+}
+.quX1{
+    width:100%;
+    height:13px;
+    background: url("../../../images/hide.png")  center no-repeat;
+}
+.flodSx{
+    width:100%;
+    height:13px;
+    background: url("../../../images/show.png")  center no-repeat;
+}
+.chart .detail{
+    width: 100%;height: auto;
+    /*visibility: hidden;*/
+}
+.box{
+    display: inline-block;
+    /*width: 33.33%;*/
+    height: 25px;
+    font-size: 14px;
+    padding-right: 15px;
+    line-height: 20px;
+    color: #fff;
+    /*font-weight: bold;*/
+}
+.table2{
+    width: 100%;
+}
+table .images{
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 30px;
+    border: 1px solid #36ABCF;
+    box-sizing:border-box;
+    margin: 0;
+}
+table .images span{
+    margin: 0;
+    padding: 0;
+}
+#wenTable{
+    position:absolute;
+    top:30%;
+    left: 0;
+    line-height: 30px;
+    box-sizing:border-box;
+}
+#fengTable{
+    position:absolute;
+    top:57%;
+    left: 0;
+    color: #fff;
+    line-height: 30px;
+    box-sizing:border-box;
+}
+.tr2{
+    background: #D5DBE9;
+}
+#fengTable  td,#wenTable td,#rainTable #echarts1{
+    border-top:0;
+    border-left: 0;
+}
+
+#echarts11{
+    display: none;
+}
+#echarts11 div:nth-child(1){
+    /*width:100px;*/
+    height:100%;
+    /*padding-left:5px ;*/
+    float: left;
+    /*margin-top: 20px;*/
+}
+#echarts11 div:nth-child(2){
+    width:254px;
+    height:100%;
+    /*padding-left:5px ;*/
+    float: left;
+    /*margin-top:20px;*/
+    /*border-right: 1px solid #31b0d5;*/
+}
+.shixvTable td{
+    width:80px;
+    height: 30px;
+padding-right: 10px;
+    border:0px solid #fff;
+    /*border-right: 0;*/
+    text-align: right;
+    line-height: 20px;
+    /*background: #9DD929;*/
+    background: rgb(197,205,218);
+    color:#6E6E6E;
+    font-weight: bold;
+}
+.shixvTable1 {
+    /*border-right: 1px solid #31b0d5;*/
+    /*border-left: 1px solid #31b0d5;*/
+    background: rgb(226,230,242);
+    /*background: linear-gradient(to right,rgb( 184, 224, 255),rgb( 157, 210, 255),rgb( 134, 258, 192),rgb( 89, 171, 248),rgb( 134, 258, 192),rgb( 157, 210, 255),rgb( 184, 224, 255))*/
+}
+.shixvTable1 tr {
+    height: 30px;
+    line-height: 20px;
+    font-size: 12px;
+}
+/*.shixvTable1 tr:nth-child(1) {*/
+    /*height: 54px;*/
+    /*line-height: 20px;*/
+    /*font-size: 12px;*/
+/*}*/
+
+.shixvTable1 td {
+    /*width: 60px;*/
+    border: 0 solid #fff;
+    text-align: center;
+    /*line-height: 20px;*/
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.shixvTable tr:nth-child(1) td{
+     /*padding-bottom: 4px;*/
+    height:54px;
+}
+.shixvTable1 tr:nth-child(1) td{
+    /*background: #9DD929;*/
+    border-bottom: 1px solid #BEC3D5;
+    padding-bottom: 3px;
+    color:#000;
+}
+.shixvTable1 tr:nth-child(1) td{
+    color:#2579D5;
+}
+#changeTable{
+    display: block;
+}
+#export{
+    border:1px solid #fff;
+    /*border-radius: 7px;*/
+    /*background: rgba(0,0,0,.7);*/
+    display: block;
+    height:25px;
+    line-height: 25px;
+    z-index: 2000;
+    color:#000;
+}
+.nav1:last-child{
+    overflow-x: hidden;
+}
+.chartsClose{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:30px;
+    height:30px;
+    background: #7E0308;
+    z-index:1000;
+}
+.chartsClose div{
+    width:25px;
+    height:25px;margin-top: 3px;
+    background: url("../image/colse.png") no-repeat;
+    background-size: cover;
+
+}
+.provinceDiv{
+    width:45%;
+    height:25px;
+    margin: 0 auto;
+}
+
+
+
+
+::-webkit-scrollbar{
+    width: 12px;height:7px;
+}/* ¹ö¶¯²Û */
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(180,206,216,1);
+    /*border-radius: 5px;*/
+}
+/* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">¹ö¶¯Ìõ</a>»¬¿é */
+::-webkit-scrollbar-thumb
+{
+    /*width:6px;*/
+    /*background: rgba(0,0,0,0.1);*/
+    background:#9CA9B4;
+    /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*/
+}

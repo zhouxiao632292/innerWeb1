@@ -1,0 +1,496 @@
+/*实况数据部分*/
+/*实况数据部分*/
+.bigDataShiKCenter{
+    width:100%;
+    position: absolute;
+    top:0px;bottom: 0;
+    left:0;right:0;
+    margin:auto;
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+.bigDataLeft,.bigDataRight{
+    position: relative;
+    width:25%;
+    height:100%;
+    float: left;
+}
+.bigDataMid{
+    position: relative;
+    width:50%;
+    height:100%;
+    float: left;
+}
+/*左侧布局*/
+.bigDataRain,.bigDataTemperature,.bigDataWind,.bigDataRain1,.bigDataTemperature1,.bigDataWind1{
+    width:95%;
+    height:29.5%;
+    margin-bottom: 5%;
+    border:1px solid #39769E;
+    position: relative;
+}
+.bigDataRain1,.bigDataTemperature1,.bigDataWind1{
+    margin-left: 4.5%;
+}
+.bigDataWind,.bigDataWind1{
+    margin-bottom: 0;
+}
+.bigRainTitle,.bigRainTitle1{
+    color: #fff;
+    width: 100px;
+    height:20px;
+    background: url("../image/tableTitle.png") center no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin: -11px auto;
+    font-size: 14px;
+    line-height: 20px;
+}
+.bigRainTitle1{
+    width: 150px;
+}
+.litleLeft,.litleLeft1, .litleRight,.litleRight1{
+    height:10px;
+    border-left:2px solid #4DBAF2;
+    position: absolute;
+}
+.litleLeft{
+    top: 0;left: -1px;
+}
+.litleLeft1{
+    bottom: 0;left: -1px;
+}
+.litleRight{
+    top: 0;right: -1px;
+}
+.litleRight1{
+    bottom: 0;right: -1px;
+}
+.litleTop,.litleTop1,.litleBottom,.litleBottom1{
+    width:20px;
+    border-top:2px solid #4DBAF2;
+    position: absolute;
+}
+.litleTop{
+    top:-1px;left:0;
+}
+.litleTop1{
+    top: -1px; right:0
+}
+
+.litleBottom{
+    bottom: -1px;left: 0px;
+}
+.litleBottom1{
+    bottom: -1px;right: 0px;
+}
+.litleMid{
+    width:40px;
+    border-bottom:2px solid #4DBAF2;
+    position: absolute;
+    bottom: -1px;right:47%;
+}
+
+/*降水里边的样式设计*/
+/*.rainSelect{*/
+/*margin:20px auto;*/
+/*}*/
+
+.selectLi li:hover{
+    cursor: pointer;
+}
+.selectLi{
+    font-size: 12px;
+}
+.rainSelect .selectLi ol,.calendarSelect .selectLi ol,.temperatureSelect .selectLi ol,.windSelect .selectLi ol,.historySelect .selectLi ol,.weatherSelect .selectLi ol,.mapShiXvSelect .selectLi ol{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height:30px;
+    float: left;
+}
+
+.rainSelect li{
+    width:16%;
+    float: left;
+    color:#3A9CCE;
+    position: relative;
+    /*margin-right: 10px;*/
+}
+.temperatureSelect li,.calendarSelect li,.windSelect li,.historySelect li,.weatherSelect li,.mapShiXvSelect li{
+    /*width:20%;*/
+    float: left;
+    color:#3A9CCE;
+    margin-right: 5px;
+    position: relative;
+}
+.temperatureOlBox{
+    overflow: hidden;
+    width:100%;
+    height:100%;
+}
+
+.calendarSelect li.calendarChecked,.rainSelect li.rainChecked,.windSelect li.windChecked,.temperatureSelect li.temperatureChecked{
+    float: left;
+    color:#F16743;
+}
+.selectLi li input[type="radio"] {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+}
+
+.selectLi li label {
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    background:#3CABE1;
+}
+.selectLi li{
+    cursor: pointer;
+}
+/*设置选中的input的样式*/
+/* + 是兄弟选择器,获取选中后的label元素*/
+.selectLi li input:checked+label {
+    background-color: #F06642;
+}
+.selectLi li input:checked+label+span {
+    color: #F06642;
+}
+.selectLi li input:checked+label::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 8px;
+    top: 0;
+    left: 2px;
+    border: 2px solid #3E323C;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg)
+}
+.rainTable,.temperatureTable,.windTable{
+    width:100%;
+    color: #fff;
+    position: absolute;
+    top:55px;left:0;
+    overflow: hidden;
+}
+.rainTable table,.temperatureTable table,.windTable table{
+    width:100%;
+    font-size: 12px;
+}
+.rainTable1,.temperatureTable1,.windTable1{
+    width:100%;
+    height:20px;
+    color: #fff;
+}
+.rainTable21,.temperatureTable21,.windTable21{
+    width:100%;
+    height:145px;
+    overflow-y: scroll;
+}
+.rainTable21 table,.temperatureTable21 table,.windTable21 table{
+
+}
+.rainTable td,.temperatureTable td,.windTable td{
+    text-align: center;
+    border: 1px solid #323A4C;
+}
+.rainTable1 tr td:nth-child(1),.rainTable2 tr td:nth-child(1),.temperatureTable1 tr td:nth-child(1),.windTable1 tr td:nth-child(1),.temperatureTable2 tr td:nth-child(1),.windTable2 tr td:nth-child(1){
+    width:40px;
+}
+.rainTable1 tr td:nth-child(4),.temperatureTable1 tr td:nth-child(4),.windTable1 tr td:nth-child(4){
+    width:60px;
+}
+.rainTable2 tr td:nth-child(4),.temperatureTable2 tr td:nth-child(4),.windTable2 tr td:nth-child(4){
+    width:52px;
+}
+.rainTable1 tr td:nth-child(3),.rainTable2 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3),.temperatureTable2  tr td:nth-child(3),.windTable2 tr td:nth-child(3){
+    width:65px;
+}
+.rainTable1 tr td:nth-child(5),.rainTable2 tr td:nth-child(5),.temperatureTable1  tr td:nth-child(5),.windTable1 tr td:nth-child(5),.temperatureTable2  tr td:nth-child(5),.windTable2 tr td:nth-child(5){
+    display: none;
+}
+::-webkit-scrollbar{
+    width: 8px;
+}/* 滚动槽 */
+/*::-webkit-scrollbar-track {*/
+/*/!*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*!/*/
+/*border-radius: 5px;*/
+/*}*/
+/* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 */
+::-webkit-scrollbar-thumb
+{
+    /*width:6px;*/
+    border-radius: 8px;
+    /*background: rgba(0,0,0,0.1);*/
+    background:#285376;
+    /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*/
+}
+
+.seriesProvince li{
+    min-width:40px ;
+    float: left;
+    font-size: 12px;
+}
+.seriesProvince li.provinceSelect{
+    min-width:40px;
+    float: left;
+    color:#F06642;
+}
+.seriesProvince .province{
+    display: inline-block;
+    width:10px;
+    height:10px;
+    background: url("../image/cityUnSelect.png") center no-repeat;
+    background-size: cover;
+
+}
+.seriesProvince .provinceSelectImg{
+    display: inline-block;
+    width:10px;
+    height:10px;
+    background: url("../image/citySelect.png") center no-repeat;
+    background-size: cover;
+}
+
+
+
+/*中间地图部分*/
+
+.bigMidMap{
+    width:100%;
+    height:62%;
+    border:1px solid #323A4C;
+    position: relative;
+    float: left;
+    margin-bottom: 2.45%;
+}
+.bigMidShiXV{
+    width:100%;
+    height:29.5%;
+    position: relative;
+    border:1px solid #39769E;
+    float: left;
+}
+.bigMap{
+    width:100%;
+    height:90%;
+    position: absolute;
+    left:0;top:0;
+    border:1px solid #323A4C;
+}
+.seriesProvince ol{
+    display: inline-block;
+    width:100%;
+    height:auto;
+}
+.seriesProvince ol li{
+    height:16px;
+}
+.seriesProvince li:hover{
+    cursor:pointer;
+}
+.seriesProvince{
+    width:100%;
+    height: auto;
+    /*max-height:47px;*/
+    /*min-height:35px;*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 12px;
+    color: #fff;
+    /*border-top: 1px solid #323A4C;*/
+}
+.seriesProvinceBox{
+    display: inline-block;
+    width: 100%;
+    height:auto;
+}
+
+
+/*查询*/
+.bigDataSearch{
+    position: absolute;
+    left:5%;
+    top: -36px;
+    width: 94.5%;
+    height: 21px;
+    border: 1px solid #3CABE1;
+    border-radius: 10px;
+    overflow: hidden;"
+}
+.bigDataText{
+    display: none;
+    position:absolute;
+    left:5%;
+    top:-14px;
+    width:94.5%;
+    height:auto;
+    max-height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #22293B;
+    z-index:1000;
+    color:#fff;
+    border:1px solid #3CABE1;
+    border-radius: 10px;
+}
+.bigDataText span{
+    display: inline-block;
+    width: 100%;
+    height:20px;
+    font-size: 12px;padding-left: 15px;
+    /*text-align: center;*/
+    line-height: 20px;
+    color: #fff;
+    border-bottom: 1px solid #285376;
+}
+.bigDataText span:nth-child(1){
+    background: #39769E;
+}
+.bigDataSearch input{
+    width:100%;
+    height:21px;
+    text-indent: 10px;
+    background: none;
+    border: 0;
+    color:#fff;
+}
+/*.bigDataSearch */
+.bigDataSearch input:-moz-placeholder {
+    color: #fff;
+}
+.bigDataSearch input::-moz-placeholder {
+    color: #fff;
+}
+.bigDataSearch input::-webkit-input-placeholder {
+    color: #fff;
+}
+.bigDataSearch input:-ms-input-placeholder {
+    color: #fff;
+}
+.bigDataSearch button{
+    width:15px;
+    height:15px;
+    position: absolute;
+    top:3px;
+    right:10px;
+    border:0;
+    background: none;
+    background-image: url(../image/lupa.svg);
+    background-size: cover;
+}
+#calendarChart,#historyChart,#climateChart,#sequenceChart{
+    width: 100%;
+}
+/*设置查询日期样式*/
+.bigMidDate{
+    width: 50%;
+    height:21px;
+    position: absolute;
+    left:24%;top: -32px;
+    border: 1px solid #3CABE1;
+    border-radius: 10px;
+    text-indent: 10px;
+}
+.bigMidDate input{
+    background: none;
+    border: 0;
+    line-height: 20px;
+}
+.bigMidDate select {
+    background: none;
+    color: #fff;
+    border: 1px solid #3CABE1;
+    border-bottom: 0;
+    border-top: 0;
+
+}
+.bigMidDate option{
+    background: rgb(34, 41, 59);
+    color: #fff;
+    scrollbar-face-color:#FEFAF1; /*(立体滚动条凸出部分的颜色*/
+    scrollbar-highlight-color:#FEFAF1; /*(滚动条空白部分的颜色) */
+    scrollbar-shadow-color:#FEFAF1; /*(立体滚动条阴影的颜色) */
+    scrollbar-arrow-color:#E6C3B9;/*(上下按钮上三角箭头的颜色) */
+    scrollbar-base-color:red; /*(滚动条的基本颜色)*/
+    scrollbar-darkshadow-color:#E6C3B9; /*(立体滚动条强阴影的颜色)*/
+    scrollbar-3dlight-color:#E6C3B9; /*(滚动条亮边的颜色)*/
+    scrollbar-track-color:#FEFAF1;
+}
+
+select::-webkit-scrollbar{
+    width: 8px;
+}/* 滚动槽 */
+/*::-webkit-scrollbar-track {*/
+/*/!*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*!/*/
+/*border-radius: 5px;*/
+/*}*/
+/* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 */
+select::-webkit-scrollbar-thumb
+{
+    /*width:6px;*/
+    border-radius: 8px;
+    /*background: rgba(0,0,0,0.1);*/
+    background:#285376;
+    /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*/
+}
+
+/*模拟select*/
+.analogySelect{
+    width:39px;
+    height:21px;
+    color: #fff;
+    border:1px solid #3CABE1;
+    background: url("../image/xiala.png") 23px 3px no-repeat;
+    float: left;
+    position: relative;
+    border-top: 0;
+    border-bottom: 0;
+}
+.analogySelect span{
+    width:43px;
+    display: inline-block;
+    /*padding-left: 5px;*/
+    line-height: 21px;
+    position: absolute;
+    left:-4px;
+    cursor: pointer;
+}
+.analogySelect ul{
+    /*display: none;*/
+    /*display:inline-block;*/
+    width:39px;
+    height: 200px;
+    position: absolute;
+    left:-1px;
+    top:21px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #3CABE1;
+    overflow-y: scroll;
+    background: rgb(34, 41, 59);
+    z-index:9999;
+
+}
+.analogySelect ul li{
+    width:31px;
+    /*text-align: center;*/
+    line-height: 16px;
+    float: left;
+    /*overflow-y: scroll;*/
+    background: rgb(34, 41, 59);
+    cursor: pointer;
+    text-indent: 4px;
+    padding:2px 0;
+}
+.analogySelect ul li.liSelect{
+    /*color:red;*/
+    background: rgb(60,171,225);
+}

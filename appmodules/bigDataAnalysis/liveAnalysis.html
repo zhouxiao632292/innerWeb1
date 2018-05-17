@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/default.css?v=20180206">
+	<link rel="stylesheet" type="text/css" href="css/liveAnalysis.css?v=20180206"/>
+	<link rel="stylesheet" type="text/css" href="../../jquery-easyui-1.4.5/themes/default/easyui.css?v=20180206"/>
+</head>
+<style>
+	body{
+		padding:0;
+		/*overflow: hidden;*/
+	}
+
+	.uiMain:hover{
+		cursor: pointer;
+	}
+
+</style>
+<script>
+//		var livePath = "http://10.10.31.24:1024";
+		var livePath = "http://10.1.64.146/awsdsi";
+		var innerPath = "http://10.1.64.146";
+</script>
+<body>
+<!--实况数据-->
+	<div style="width:100%;height:100%;">
+		<div class="bigDataShiKCenter">
+			<div class="bigDataLeft">
+			<div class="bigDataRain">
+			<div class="bigRainTitle">降水</div>
+			<!--设置边框的样式-->
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="rainSelect">
+			<div class="selectLi">
+			<ol>
+			<li>
+			<input id="rainChecked1" class="rainChecked" type="radio" name="rainSelect" value="rain1" checked/>
+			<label for="rainChecked1"></label>
+			<span>1H</span>
+
+			</li>
+			<li>
+			<input id="rainChecked2" class="rainChecked" type="radio" name="rainSelect" value="rain6"/>
+			<label for="rainChecked2"></label>
+			<span>6H</span>
+			</li>
+			<li>
+			<input id="rainChecked3" class="rainChecked" type="radio" name="rainSelect" value="rain12"/>
+			<label for="rainChecked3"></label>
+			<span>12H</span>
+			</li>
+			<li>
+			<input id="rainChecked4" class="rainChecked" type="radio" name="rainSelect" value="rain24"/>
+			<label for="rainChecked4"></label>
+			<span>24H</span>
+			</li>
+			<li>
+			<input id="rainChecked5" class="rainChecked" type="radio" name="rainSelect" value="rain48"/>
+			<label for="rainChecked5"></label>
+			<span>48H</span>
+			</li>
+			<li>
+			<input id="rainChecked6" class="rainChecked" type="radio" name="rainSelect" value="rain72"/>
+			<label for="rainChecked6"></label>
+			<span>72H</span>
+			</li>
+			</ol>
+			</div>
+			<div style="width:100%;height:16px;position: absolute;top:35px;left:0;border-top:1px solid #323A4C;color:#fff;font-size: 12px;">
+				<span id="rainInfo" style="position: absolute;left:10px;top:0;">来源2416个国家级自动站</span>
+				<span id="rainPublish" style="position: absolute;right:10px;top:0;">08月28日15时</span>
+			</div>
+			<div class="rainTable">
+			<table class="rainTable1">
+			<tr>
+			<td>序号</td>
+			<td>站名</td>
+			<td>值</td>
+			<td>是否预警</td>
+			</tr>
+			</table>
+			<div class="rainTable21">
+			<table class="rainTable2" id="rain">
+
+			</table>
+			</div>
+
+			</div>
+
+			</div>
+
+			</div>
+			<div class="bigDataTemperature">
+			<div class="bigRainTitle">温度</div>
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="temperatureSelect">
+			<div class="selectLi">
+			<div class="temperatureOlBox">
+			<ol>
+			<li>
+			<input id="temperatrueChecked1" class="temperatrueChecked" type="radio" name="temperatrueSelect" value="temp" checked/>
+			<label for="temperatrueChecked1"> </label>
+			<span>温度</span>
+			</li>
+			<!--<li>
+			<input id="temperatrueChecked2" class="temperatrueChecked" type="radio" name="temperatrueSelect" value="平均温度"/>
+			<label for="temperatrueChecked2"> </label>
+			<span>平均温度</span>
+			</li>-->
+			<li>
+			<input id="temperatrueChecked3" class="temperatrueChecked" type="radio" name="temperatrueSelect" value="tmax"/>
+			<label for="temperatrueChecked3"> </label>
+			<span>最高温度</span>
+			</li>
+			<li>
+			<input id="temperatrueChecked4" class="temperatrueChecked" type="radio" name="temperatrueSelect" value="tmin"/>
+			<label for="temperatrueChecked4"> </label>
+			<span>最低温度</span>
+			</li>
+
+			</ol>
+			</div>
+
+			</div>
+			<div style="width:100%;height:16px;position: absolute;top:35px;left:0;border-top:1px solid #323A4C;color:#fff;font-size: 12px;">
+			<span id="temperatureInfo" style="position: absolute;left:10px;top:0;">来源2416个国家级自动站</span>
+			<span id="temperaturePublish" style="position: absolute;right:10px;top:0;">08月28日15时</span>
+			</div>
+			<div class="temperatureTable">
+			<table class="temperatureTable1">
+			<tr>
+			<td>序号</td>
+			<td>站名</td>
+			<td>值</td>
+			<td>是否预警</td>
+			</tr>
+			</table>
+			<div class="temperatureTable21">
+			<table class="temperatureTable2" id="temperature">
+
+			</table>
+			</div>
+
+			</div>
+
+			</div>
+
+			</div>
+			<div class="bigDataWind">
+			<div class="bigRainTitle">风</div>
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="windSelect">
+				<div class="selectLi">
+					<div class="temperatureOlBox">
+						<ol>
+						<li>
+						<input id="windChecked1" class="windChecked" type="radio" name="windSelect" value="wind" checked/>
+						<label for="windChecked1"> </label>
+						<span>风速</span>
+						</li>
+
+						</ol>
+					</div>
+
+				</div>
+
+			<div style="width:100%;height:16px;position: absolute;top:35px;left:0;border-top:1px solid #323A4C;color:#fff;font-size: 12px;">
+			<span id="windInfo" style="position: absolute;left:10px;top:0;">来源2416个国家级自动站</span>
+			<span id="windPublish" style="position: absolute;right:10px;top:0;">08月28日15时</span>
+			</div>
+
+			<div class="windTable">
+			<table class="windTable1">
+			<tr>
+			<td>序号</td>
+			<td>站名</td>
+			<td>值</td>
+			<td>是否预警</td>
+			</tr>
+			</table>
+			<div class="windTable21">
+			<table class="windTable2" id="wind">
+
+			</table>
+			</div>
+
+			</div>
+
+			</div>
+
+			</div>
+			</div>
+			<div class="bigDataMid">
+			<div class="bigMidDate" >
+				<div style="width:270px;height:100%;position: absolute;left: 0;right: 0;top:0;bottom:0;margin: auto;">
+					<span  style="display:inline-block;float:left;color:#fff;">查询日期：</span>
+					<div id="rainStartTimeInput" class="uiMain" style="float:left;width:85px;border:1px solid #39769E;line-height: 21px;color:#fff;border-bottom:0;border-top: 0"></div>
+					<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+						<div class="easyui-calendar" id="rainStartTime" style="width:200px;height:200px;"></div>
+					</div>
+					<span  style="display:inline-block;float:left;color:#fff">小时：</span>
+					<!--模拟select-->
+					<div class="analogySelect selectli0">
+						<span class="selectli0">00</span>
+						<div class="selectli0" style="display:none;width:43px;height:200px;position: absolute;left:0;top:0px;">
+							<ul class="selectli0">
+								<li class="selectli0">00</li>
+								<li class="selectli0">01</li>
+								<li class="selectli0">02</li>
+								<li class="selectli0">03</li>
+								<li class="selectli0">04</li>
+								<li class="selectli0">05</li>
+								<li class="selectli0">06</li>
+								<li class="selectli0">07</li>
+								<li class="selectli0">08</li>
+								<li class="selectli0">09</li>
+								<li class="selectli0">10</li>
+								<li class="selectli0">11</li>
+								<li class="selectli0">12</li>
+								<li class="selectli0">13</li>
+								<li class="selectli0">14</li>
+								<li class="selectli0">15</li>
+								<li class="selectli0">16</li>
+								<li class="selectli0">17</li>
+								<li class="selectli0">18</li>
+								<li class="selectli0">19</li>
+								<li class="selectli0">20</li>
+								<li class="selectli0">21</li>
+								<li class="selectli0">22</li>
+								<li class="selectli0">23</li>
+							</ul>
+						</div>
+
+					</div>
+					<!--<select name="" id="hour">-->
+						<!--<option value="00">00</option>-->
+						<!--<option value="01">01</option>-->
+						<!--<option value="02">02</option>-->
+						<!--<option value="03">03</option>-->
+						<!--<option value="04">04</option>-->
+						<!--<option value="05">05</option>-->
+						<!--<option value="06">06</option>-->
+						<!--<option value="07">07</option>-->
+						<!--<option value="08">08</option>-->
+						<!--<option value="09">09</option>-->
+						<!--<option value="10">10</option>-->
+						<!--<option value="11">11</option>-->
+						<!--<option value="12">12</option>-->
+						<!--<option value="13">13</option>-->
+						<!--<option value="14">14</option>-->
+						<!--<option value="15">15</option>-->
+						<!--<option value="16">16</option>-->
+						<!--<option value="17">17</option>-->
+						<!--<option value="18">18</option>-->
+						<!--<option value="19">19</option>-->
+						<!--<option value="20">20</option>-->
+						<!--<option value="21">21</option>-->
+						<!--<option value="22">22</option>-->
+						<!--<option value="23">23</option>-->
+
+					<!--</select>-->
+				</div>
+
+
+			</div>
+			<div class="bigMidMap">
+
+			<div id="echartMap" class="bigMap">
+
+			</div>
+			<div class="seriesProvince">
+			<div class="seriesProvinceBox">
+			<ol>
+			<li class="provinceSelect"><span class="province provinceSelectImg"></span><span>全国</span></li>
+			<li><span class="province"></span><span>北京</span></li>
+			<li><span class="province"></span><span>天津</span></li>
+			<li><span class="province"></span><span>河北</span></li>
+			<li><span class="province"></span><span>山西</span></li>
+			<li><span class="province" ></span><span>内蒙古</span></li>
+			<li><span class="province"></span><span>辽宁</span></li>
+			<li><span class="province"></span><span>吉林</span></li>
+			<li><span class="province"></span><span>黑龙江</span></li>
+			<li><span class="province"></span><span>上海</span></li>
+			<li><span class="province"></span><span>江苏</span></li>
+			<li><span class="province"></span><span>浙江</span></li>
+			<li><span class="province"></span><span>安徽</span></li>
+			<li><span class="province"></span><span>福建</span></li>
+
+			<li><span class="province"></span><span>江西</span></li>
+			<li><span class="province"></span><span>山东</span></li>
+			<li><span class="province"></span><span>河南</span></li>
+			<li><span class="province"></span><span>湖北</span></li>
+			<li><span class="province" ></span><span>湖南</span></li>
+			<li><span class="province"></span><span>广东</span></li>
+			<li><span class="province"></span><span>广西</span></li>
+			<li><span class="province"></span><span>海南</span></li>
+			<li><span class="province"></span><span>重庆</span></li>
+			<li><span class="province"></span><span>四川</span></li>
+			<li><span class="province"></span><span>贵州</span></li>
+			<li><span class="province"></span><span>云南</span></li>
+			<li><span class="province"></span><span>西藏</span></li>
+
+			<li><span class="province"></span><span>陕西</span></li>
+			<li><span class="province"></span><span>甘肃</span></li>
+			<li><span class="province"></span><span>青海</span></li>
+			<li><span class="province"></span><span>宁夏</span></li>
+			<li><span class="province" ></span><span>新疆</span></li>
+			<li><span class="province"></span><span>香港</span></li>
+			<li><span class="province"></span><span>澳门</span></li>
+			<li><span class="province"></span><span>台湾</span></li>
+			<li><span class="province"></span><span>极地</span></li>
+
+			</ol>
+			</div>
+
+
+			</div>
+			</div>
+			<div class="bigMidShiXV">
+			<div class="bigRainTitle">时序图</div>
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="litleMid"></div>
+			<div class="mapShiXvSelect">
+			<div class="selectLi">
+			<div class="temperatureOlBox">
+			<ol>
+			<li>
+			<input id="mapShiXvChecked1" class="mapShiXvChecked" type="radio" name="sequenceSelect" value="rain1" checked/>
+			<label for="mapShiXvChecked1"></label>
+			<span>降水</span>
+
+			</li>
+			<li>
+			<input id="mapShiXvChecked2" class="mapShiXvChecked" type="radio" name="sequenceSelect" value="temp"/>
+			<label for="mapShiXvChecked2"></label>
+			<span>温度</span>
+			</li>
+			<li>
+			<input id="mapShiXvChecked3" class="mapShiXvChecked" type="radio" name="sequenceSelect" value="rh"/>
+			<label for="mapShiXvChecked3"></label>
+			<span>相对湿度</span>
+			</li>
+			<li>
+			<input id="mapShiXvChecked4" class="mapShiXvChecked" type="radio" name="sequenceSelect" value="wind"/>
+			<label for="mapShiXvChecked4"></label>
+			<span>风</span>
+			</li>
+			</ol>
+			</div>
+
+			</div>
+
+
+			<div id="sequenceChart" class="mapShiXvChart1">
+
+			</div>
+
+
+			</div>
+			</div>
+			</div>
+			<div class="bigDataRight">
+			<div class="bigDataSearch">
+			<input id="search" type="search" name="searchText" placeholder="请输入站号/站名"/>
+			<button></button>
+			</div>
+			<div class="bigDataText"></div>
+			<div class="bigDataRain1">
+			<div class="bigRainTitle">日历图</div>
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="calendarSelect">
+					<div class="selectLi">
+						<div class="temperatureOlBox">
+							<ol>
+								<li>
+									<input id="calendarChecked1" class="calendarChecked" type="radio" name="calendarSelect" value="rain08" checked/>
+									<label for="calendarChecked1"></label>
+									<span>08时降水</span>
+								</li>
+								<li>
+									<input id="calendarChecked2" class="calendarChecked" type="radio" name="calendarSelect" value="rain20"/>
+									<label for="calendarChecked2"></label>
+									<span>20时降水</span>
+								</li>
+								<li>
+									<input id="calendarChecked3" class="calendarChecked" type="radio" name="calendarSelect" value="temp"/>
+									<label for="calendarChecked3"></label>
+									<span>温度</span>
+								</li>
+							<!--<li>-->
+							<!--<input id="calendarChecked4" class="rainChecked" type="radio" name="calendarSelect" value="rain24"/>-->
+							<!--<label for="calendarChecked4"></label>-->
+							<!--<span>24H</span>-->
+							<!--</li>-->
+							<!--<li>-->
+							<!--<input id="calendarChecked5" class="rainChecked" type="radio" name="calendarSelect" value="rain48"/>-->
+							<!--<label for="calendarChecked5"></label>-->
+							<!--<span>48H</span>-->
+							<!--</li>-->
+							<!--<li>-->
+							<!--<input id="calendarChecked6" class="rainChecked" type="radio" name="calendarSelect" value="rain72"/>-->
+							<!--<label for="calendarChecked6"></label>-->
+							<!--<span>72H</span>-->
+							<!--</li>-->
+							</ol>
+						</div>
+
+					</div>
+
+
+					<div id="calendarChart" class="calendarChart1">
+
+					</div>
+
+
+				</div>
+			</div>
+
+			<div class="bigDataTemperature1">
+			<div class="bigRainTitle">历史同期</div>
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="historySelect">
+			<div class="selectLi">
+			<div class="temperatureOlBox">
+			<ol>
+			<li>
+			<input id="historyChecked1" class="historyChecked" type="radio" name="historySelect" value="rain" checked/>
+			<label for="historyChecked1"></label>
+			<span>降水</span>
+			</li>
+			<li>
+			<input id="historyChecked2" class="historyChecked" type="radio" name="historySelect" value="tmax"/>
+			<label for="historyChecked2"></label>
+			<span>最高温度</span>
+			</li>
+			<li>
+			<input id="historyChecked3" class="historyChecked" type="radio" name="historySelect" value="tmin"/>
+			<label for="historyChecked3"></label>
+			<span>最低温度</span>
+			</li>
+			</ol>
+			</div>
+
+			</div>
+
+
+			<div id="historyChart" class="historyChart1">
+
+			</div>
+
+
+			</div>
+			</div>
+			<div class="bigDataWind1">
+			<div class="bigRainTitle1">气候态及距平图</div>
+			<div class="litleLeft"></div>
+			<div class="litleLeft1"></div>
+			<div class="litleTop"></div>
+			<div class="litleTop1"></div>
+			<div class="litleRight"></div>
+			<div class="litleRight1"></div>
+			<div class="litleBottom"></div>
+			<div class="litleBottom1"></div>
+			<div class="weatherSelect">
+			<div class="selectLi">
+			<div class="temperatureOlBox">
+			<ol>
+			<li>
+			<input id="weatherChecked1" class="weatherChecked" type="radio" name="climateSelect" value="rain08" checked/>
+			<label for="weatherChecked1"></label>
+			<span>08时降水</span>
+
+			</li>
+			<li>
+			<input id="weatherChecked2" class="weatherChecked" type="radio" name="climateSelect" value="rain20"/>
+			<label for="weatherChecked2"></label>
+			<span>20时降水</span>
+			</li>
+			<li>
+			<input id="weatherChecked3" class="weatherChecked" type="radio" name="climateSelect" value="temp"/>
+			<label for="weatherChecked3"></label>
+			<span>温度</span>
+			</li>
+			</ol>
+			</div>
+
+			</div>
+
+
+			<div id="climateChart" class="weatherChart1">
+
+			</div>
+
+
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+<script src="../../lib/dependencies.js?v=20180206"></script>
+<script src="js/jquery-1.7.1.js?v=20180206"></script>
+<script src="js/jquery.xml2json.js?v=20180206"></script>
+
+<script src="js/echarts.min.js?v=20180206"></script>
+<script src="js/china.js?v=20180206"></script>
+<script src="js/Aws.js?v=20180206"></script>
+<script src="js/national.js?v=20180206"></script>
+<script src="liveAnalysis.js?v=20180206"></script>
+<script src="../../jquery-easyui-1.4.5/jquery.easyui.min.js?v=20180206"></script>
+<script src="../../jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js?v=20180206"></script>
+
+<script>
+		
+	  //模块操作
+		var liveAnalysis = new LiveAnalysis({});
+		liveAnalysis.initUI();
+		liveAnalysis.handler();
+</script>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/default.css?v=20180206">
+	<link rel="stylesheet" type="text/css" href="css/historyExtreme.css?v=20180206"/>
+</head>
+<style>
+	body{
+		padding: 0px;
+		/*overflow: hidden;*/
+	}
+</style>
+<script>
+//		var livePath = "http://10.10.31.24:1024";
+		var livePath = "http://10.1.64.146/awsdsi";
+		var innerPath = "http://10.1.64.146";
+</script>
+<body>
+<!--<div style="width:100%;height:100%;display:block;position: absolute;top:30px;left:0;z-index:3;background: #22293B;">-->
+	<!--实况数据-->
+	<!--<div class="bigDataShiK">-->
+		<div class="bigDataShiKCenter">
+			<div class="bigDataLeft">
+				
+				<div class="bigDataMaxTemperature">
+					<div class="bigRainTitle">高温</div>
+					<div class="litleLeft"></div>
+					<div class="litleLeft1"></div>
+					<div class="litleTop"></div>
+					<div class="litleTop1"></div>
+					<div class="litleRight"></div>
+					<div class="litleRight1"></div>
+					<div class="litleBottom"></div>
+					<div class="litleBottom1"></div>
+					<div class="temperatureSelect">
+						<div class="selectLi">
+							<div class="temperatureOlBox">
+								<ol>
+									<li>
+										<input id="maxTempChecked1" class="temperatrueChecked" type="radio" name="maxTempSelect" value="todayTmaxTop10" checked/>
+										<label for="maxTempChecked1"> </label>
+										<span>高温前十名监测</span>
+									</li>
+									<li>
+										<input id="maxTempChecked2" class="temperatrueChecked" type="radio" name="maxTempSelect" value="tmaxTop10"/>
+										<label for="maxTempChecked2"> </label>
+										<span>高温前十名查询</span>
+									</li>
+									<li>
+										<input id="maxTempChecked3" class="temperatrueChecked" type="radio" name="maxTempSelect" value="tmaxTop3SinceThisYear"/>
+										<label for="maxTempChecked3"> </label>
+										<span>今年以来前三位</span>
+									</li>
+									<li>
+										<input id="maxTempChecked4" class="temperatrueChecked" type="radio" name="maxTempSelect" value="tmaxTop3SinceTheStation"/>
+										<label for="maxTempChecked4"> </label>
+										<span>建站以来前三</span>
+									</li>
+									<li>
+										<input id="maxTempChecked5" class="temperatrueChecked" type="radio" name="maxTempSelect" value="tmaxTop3HistorySameMonth"/>
+										<label for="maxTempChecked5"> </label>
+										<span>达到历史同月前三</span>
+									</li>
+									<li>
+										<input id="maxTempChecked6" class="temperatrueChecked" type="radio" name="maxTempSelect" value="tmaxTop3HistorySameDay"/>
+										<label for="maxTempChecked6"> </label>
+										<span>达到历史同旬前三</span>
+									</li>
+	
+								</ol>
+							</div>
+	
+						</div>
+						<div style="width:100%;height:16px;position: relative;border-top:1px solid #323A4C;color:#fff;font-size: 8px;float:left;">
+							<span id="temperatureInfo" style="position: absolute;left:10px;top:0;">来源2416个国家级自动站</span>
+							<span id="maxtemperaturePublish" style="position: absolute;right:10px;top:0;">08月28日15时</span>
+						</div>
+						<div class="temperatureTable">
+							<table class="temperatureTable1">
+								<tr>
+									<td>序号</td>
+									<td>站名</td>
+									<td>值</td>
+									<td>历史极值</td>
+								</tr>
+							</table>
+							<div class="temperatureTable21">
+								<table class="temperatureTable2" id="maxtemperature">
+
+								</table>
+							</div>
+	
+						</div>
+	
+					</div>
+	
+				</div>
+				
+				<div class="bigDataMinTemperature">
+					<div class="bigRainTitle">低温</div>
+					<div class="litleLeft"></div>
+					<div class="litleLeft1"></div>
+					<div class="litleTop"></div>
+					<div class="litleTop1"></div>
+					<div class="litleRight"></div>
+					<div class="litleRight1"></div>
+					<div class="litleBottom"></div>
+					<div class="litleBottom1"></div>
+					<div class="temperatureSelect">
+						<div class="selectLi">
+							<div class="temperatureOlBox">
+								<ol>
+									<li>
+										<input id="minTempChecked1" class="temperatrueChecked" type="radio" name="minTempSelect" value="todayTminTop10" checked/>
+										<label for="minTempChecked1"> </label>
+										<span>低温前十名监测</span>
+									</li>
+									<li>
+										<input id="minTempChecked2" class="temperatrueChecked" type="radio" name="minTempSelect" value="tminTop10"/>
+										<label for="minTempChecked2"> </label>
+										<span>低温前十名查询</span>
+									</li>
+									<!--<li>
+										<input id="minTempChecked3" class="temperatrueChecked" type="radio" name="minTempSelect" value="tminTop3SinceThisYear"/>
+										<label for="minTempChecked3"> </label>
+										<span>入秋以来前三位</span>
+									</li>-->
+									<li>
+										<input id="minTempChecked4" class="temperatrueChecked" type="radio" name="minTempSelect" value="tminTop3SinceTheStation"/>
+										<label for="minTempChecked4"> </label>
+										<span>建站以来前三</span>
+									</li>
+									<li>
+										<input id="minTempChecked5" class="temperatrueChecked" type="radio" name="minTempSelect" value="tminTop3HistorySameMonth"/>
+										<label for="minTempChecked5"> </label>
+										<span>达到历史同月前三</span>
+									</li>
+									<li>
+										<input id="minTempChecked6" class="temperatrueChecked" type="radio" name="minTempSelect" value="tminTop3HistorySameDay"/>
+										<label for="minTempChecked6"> </label>
+										<span>达到历史同旬前三</span>
+									</li>
+	
+								</ol>
+							</div>
+	
+						</div>
+						<div style="width:100%;height:16px;position: relative;border-top:1px solid #323A4C;color:#fff;font-size: 8px;float:left;">
+							<span id="temperatureInfo1" style="position: absolute;left:10px;top:0;">来源2416个国家级自动站</span>
+							<span id="mintemperaturePublish" style="position: absolute;right:10px;top:0;">08月28日15时</span>
+						</div>
+						<div class="temperatureTable">
+							<table class="temperatureTable1">
+								<tr>
+									<td>序号</td>
+									<td>站名</td>
+									<td>值</td>
+									<td>历史极值</td>
+								</tr>
+							</table>
+							<div class="temperatureTable21">
+								<table class="temperatureTable2" id="mintemperature">
+
+								</table>
+							</div>
+	
+						</div>
+	
+					</div>
+	
+				</div>
+			</div>
+			<div class="bigDataMid">
+				<div class="bigMidMap">
+					<div id="echartMap" class="bigMap">
+							
+					</div>
+					
+				</div>
+				<div class="bigMidShiXV">
+					<div class="bigRainTitle">直方图</div>
+					<div class="litleLeft"></div>
+					<div class="litleLeft1"></div>
+					<div class="litleTop"></div>
+					<div class="litleTop1"></div>
+					<div class="litleRight"></div>
+					<div class="litleRight1"></div>
+					<div class="litleBottom"></div>
+					<div class="litleBottom1"></div>
+					<div class="litleMid"></div>
+					<div class="mapShiXvSelect">
+						<!--
+						<div class="selectLi">
+							<div class="temperatureOlBox">
+								<ol>
+									
+									<li>
+										<input id="mapShiXvChecked1" class="mapShiXvChecked" type="radio" name="sequenceSelect" value="rain1" checked/>
+										<label for="mapShiXvChecked1"></label>
+										<span>降水</span>
+
+									</li>
+									
+								</ol>
+							</div>
+
+						</div>
+						-->
+						
+						<div id="barChart" class="mapShiXvChart1" style="width: 100%;height:185px;position: absolute;left:0;right:0;top:0px;bottom:0;margin:auto;margin-top: 8px;">
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="bigDataRight">
+
+				<div class="bigDataRain">
+					<div class="bigRainTitle">降水</div>
+					<div class="litleLeft"></div>
+					<div class="litleLeft1"></div>
+					<div class="litleTop"></div>
+					<div class="litleTop1"></div>
+					<div class="litleRight"></div>
+					<div class="litleRight1"></div>
+					<div class="litleBottom"></div>
+					<div class="litleBottom1"></div>
+					<div class="rainSelect">
+						<div class="selectLi">
+							<ol>
+								<li>
+									<input id="rainChecked1" class="rainChecked" type="radio" name="rainSelect" value="rain20Top" checked/>
+									<label for="rainChecked1"></label>
+									<span>20时降水量排名日值</span>
+
+								</li>
+								<li>
+									<input id="rainChecked2" class="rainChecked" type="radio" name="rainSelect" value="rain20SinceThisYear"/>
+									<label for="rainChecked2"></label>
+									<span>20时降水量突破历史极值_日值_今年以来</span>
+								</li>
+								<li>
+									<input id="rainChecked3" class="rainChecked" type="radio" name="rainSelect" value="rain20SinceTheStation"/>
+									<label for="rainChecked3"></label>
+									<span>20时降水量突破历史极值_日值_建站以来</span>
+								</li>
+								<li>
+									<input id="rainChecked4" class="rainChecked" type="radio" name="rainSelect" value="rain20HistorySameMonth"/>
+									<label for="rainChecked4"></label>
+									<span>20时降水量突破历史极值_日值_历史同月</span>
+								</li>
+								<li>
+									<input id="rainChecked5" class="rainChecked" type="radio" name="rainSelect" value="rain20HistorySameDay"/>
+									<label for="rainChecked5"></label>
+									<span>20时降水量突破历史极值_日值_历史同旬</span>
+								</li>
+								<li>
+									<input id="rainChecked6" class="rainChecked" type="radio" name="rainSelect" value="rain08Top"/>
+									<label for="rainChecked6"></label>
+									<span>08时降水量排名日值</span>
+								</li>
+								<li>
+									<input id="rainChecked7" class="rainChecked" type="radio" name="rainSelect" value="rain08SinceThisYear"/>
+									<label for="rainChecked7"></label>
+									<span>08时降水量突破历史极值_日值_今年以来</span>
+								</li>
+								<li>
+									<input id="rainChecked8" class="rainChecked" type="radio" name="rainSelect" value="rain08SinceTheStation"/>
+									<label for="rainChecked8"></label>
+									<span>08时降水量突破历史极值_日值_建站以来</span>
+								</li>
+								<li>
+									<input id="rainChecked9" class="rainChecked" type="radio" name="rainSelect" value="rain08HistorySameMonth"/>
+									<label for="rainChecked9"></label>
+									<span>08时降水量突破历史极值_日值_历史同月</span>
+								</li>
+								<li>
+									<input id="rainChecked10" class="rainChecked" type="radio" name="rainSelect" value="rain08HistorySameDay"/>
+									<label for="rainChecked10"></label>
+									<span>08时降水量突破历史极值_日值_历史同旬</span>
+								</li>
+							</ol>
+						</div>
+						<div style="width:100%;height:16px;position: relative;border-top:1px solid #323A4C;color:#fff;font-size: 8px;float:left;">
+							<span id="rainInfo" style="position: absolute;left:10px;top:0;">来源2416个国家级自动站</span>
+							<span id="rainPublish" style="position: absolute;right:10px;top:0;">08月28日15时</span>
+						</div>
+						<div class="rainTable">
+							<table class="rainTable1">
+								<tr>
+									<td>序号</td>
+									<td>站名</td>
+									<td>值</td>
+									<td>历史极值</td>
+								</tr>
+							</table>
+							<div class="rainTable21">
+								<table class="rainTable2" id="rain">
+
+								</table>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	<!--</div>-->
+ <!--</div>-->
+</body>
+
+<script src="../../lib/dependencies.js?v=20180206"></script>
+<script src="js/jquery-1.7.1.js?v=20180206"></script>
+<script src="js/jquery.xml2json.js?v=20180206"></script>
+<script src="js/echarts.min.js?v=20180206"></script>
+<script src="js/china.js?v=20180206"></script>
+<script src="js/Aws.js?v=20180206"></script>
+<script src="js/national.js?v=20180206"></script>
+<script src="historyExtreme.js?v=20180206"></script>
+<script>
+
+//	var bigDataShiKCenterHeight=$("body").height()-40;
+//	$(".bigDataShiKCenter").height(bigDataShiKCenterHeight);
+//    //设置map的高度
+//		var height1=$(".seriesProvince").height();
+//		var mapHeight=$(".bigMidMap").height();
+//		$(".bigMap").css({height:(mapHeight-height1-2)});
+		
+//    //设置右侧的left
+//    var leftRight=$(".bigDataRight").position().left;
+//    $(".bigDataRight").css({left:(leftRight-2)});
+		
+	  //模块操作
+		var historyExtreme = new HistoryExtreme({});
+		historyExtreme.initUI();
+		historyExtreme.handler();
+		
+
+</script>
+
+
+</html>

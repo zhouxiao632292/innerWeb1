@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/default.css?v=20180206">
+	<link rel="stylesheet" type="text/css" href="css/disastrousWeather.css?v=20180206"/>
+	<link rel="stylesheet" type="text/css" href="../../jquery-easyui-1.4.5/themes/default/easyui.css?v=20180206"/>
+</head>
+<style>
+	body{
+		padding: 0px;
+		/*overflow: hidden;*/
+	}
+</style>
+<script>
+//		var livePath = "http://10.10.31.24:1024";
+		var livePath = "http://10.1.64.146/awsdsi";
+		var innerPath = "http://10.1.64.146";
+</script>
+<body>
+<div class="disastrousWeather">
+	<div class="disastrousWeatherCenter">
+		<!--蓝色边框-->
+		<div class="litleLeft"></div>
+		<div class="litleLeft1"></div>
+		<div class="litleTop"></div>
+		<div class="litleTop1"></div>
+		<div class="litleRight"></div>
+		<div class="litleRight1"></div>
+		<div class="litleBottom"></div>
+		<div class="litleBottom1"></div>
+		<!--左边操作面板-->
+		<div class="disastrousWeatherLeft">
+
+			<div class="navTitle">
+				<ul>
+					<li class="active"><span>降雨</span></li>
+					<li ><span>高温</span></li>
+					<li ><span>低温</span></li>
+					<li ><span>干旱</span></li>
+				</ul>
+			</div>
+
+			<div class="liPage">
+
+				<li class="show">
+					<div class="nav" >
+						<div class="nav1">
+							<div>
+								<div class="statisticsType"></div>
+								<span>统计类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="rainStatisticsChecked1" class="statisticsChecked" type="radio" name="rainStatisticsSelect" value="uptonow" checked/>
+										<label for="rainStatisticsChecked1"></label>
+										<span>截至当前时间连续降雨日</span>
+									</li>
+									<li>
+										<input id="rainStatisticsChecked2" class="statisticsChecked" type="radio" name="rainStatisticsSelect" value="days" />
+										<label for="rainStatisticsChecked2"></label>
+										<span>降雨日数</span>
+									</li>
+									<li>
+										<input id="rainStatisticsChecked3" class="statisticsChecked" type="radio" name="rainStatisticsSelect" value="days/longest" />
+										<label for="rainStatisticsChecked3"></label>
+										<span>最大连续降雨日数</span>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="nav1">
+							<div>
+								<div class="lowTemperature lowTemperature1"></div>
+								<span>降雨类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="rainTypeChecked1" class="lowTemperatureTypeChecked" type="radio" name="rainTypeSelect" value=">=0.1" checked/>
+										<label for="rainTypeChecked1"></label>
+										<span>小雨</span>
+									</li>
+									<li>
+										<input id="rainTypeChecked2" class="lowTemperatureTypeChecked" type="radio" name="rainTypeSelect" value=">=25"/>
+										<label for="rainTypeChecked2"></label>
+										<span>中雨</span>
+									</li>
+									<li>
+										<input id="rainTypeChecked3" class="lowTemperatureTypeChecked" type="radio" name="rainTypeSelect" value=">=50"/>
+										<label for="rainTypeChecked3"></label>
+										<span>大雨</span>
+									</li>
+									<li>
+										<input id="rainTypeChecked4" class="lowTemperatureTypeChecked" type="radio" name="rainTypeSelect" value=">=100"/>
+										<label for="rainTypeChecked4"></label>
+										<span>暴雨</span>
+									</li>
+									<li>
+										<input id="rainTypeChecked5" class="lowTemperatureTypeChecked" type="radio" name="rainTypeSelect" value=">=250"/>
+										<label for="rainTypeChecked5"></label>
+										<span>大暴雨</span>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<div class="nav1">
+							<div>
+								<div class="timeType"></div>
+								<span>时间类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<span  style="display:inline-block;float:left;">起始时间：</span>
+										<div id="rainStartTimeInput" class="uiMain" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="rainStartTime" style="width:200px;height:200px;"></div>
+										</div>
+									</li>
+									<li>
+										<span  style="display:inline-block;float:left;">结束时间：</span>
+										<div id="rainEndTimeInput" class="uiMain1" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="rainEndTime" style="width:200px;height:200px;"></div></div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</li>
+				<li style="display: none;">
+					<div class="nav" >
+						<div class="nav1">
+							<div>
+								<div class="statisticsType"></div>
+								<span>统计类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="maxTempStatisticsChecked1" class="statisticsChecked" type="radio" name="maxTempStatisticsSelect" value="top" checked/>
+										<label for="maxTempStatisticsChecked1"></label>
+										<span>最高气温及出现时间</span>
+									</li>
+									<li>
+										<input id="maxTempStatisticsChecked2" class="statisticsChecked" type="radio" name="maxTempStatisticsSelect" value="days" />
+										<label for="maxTempStatisticsChecked2"></label>
+										<span>日最高气温日数</span>
+									</li>
+									<li>
+										<input id="maxTempStatisticsChecked3" class="statisticsChecked" type="radio" name="maxTempStatisticsSelect" value="days/longest" />
+										<label for="maxTempStatisticsChecked3"></label>
+										<span>最大连续高温日数</span>
+									</li>
+
+								</ul>
+							</div>
+
+						</div>
+						<div class="nav1">
+							<div>
+								<div class="lowTemperature lowTemperature2"></div>
+								<span>高温类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="maxTempTypeChecked1"  type="radio" class="lowTemperatureTypeChecked" name="maxTempTypeSelect" value=">=35" checked/>
+										<label for="maxTempTypeChecked1"></label>
+										<span>35℃</span>
+									</li>
+									<li>
+										<input id="maxTempTypeChecked2" type="radio" class="lowTemperatureTypeChecked" name="maxTempTypeSelect" value=">=37"/>
+										<label for="maxTempTypeChecked2"></label>
+										<span>37℃</span>
+									</li>
+									<li>
+										<input id="maxTempTypeChecked3" type="radio" class="lowTemperatureTypeChecked" name="maxTempTypeSelect" value=">=40"/>
+										<label for="maxTempTypeChecked3"></label>
+										<span>40℃</span>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<div class="nav1">
+							<div>
+								<div class="timeType"></div>
+								<span>时间类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<span  style="display:inline-block;float:left;">起始时间：</span>
+										<div id="maxTempStartTimeInput" class="uiMain" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="maxTempStartTime" style="width:200px;height:200px;"></div></div>
+									</li>
+									<li>
+										<span  style="display:inline-block;float:left;">结束时间：</span>
+										<div id="maxTempEndTimeInput" class="uiMain1" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="maxTempEndTime" style="width:200px;height:200px;"></div></div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</li>
+				<li style="display: none;">
+					<div class="nav" >
+						<div class="nav1">
+							<div>
+								<div class="statisticsType"></div>
+								<span>统计类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="minTempStatisticsChecked1" class="statisticsChecked" type="radio" name="minTempStatisticsSelect" value="days" checked/>
+										<label for="minTempStatisticsChecked1"></label>
+										<span>日最低气温日数</span>
+
+									</li>
+									<li>
+										<input id="minTempStatisticsChecked2" class="statisticsChecked" type="radio" name="minTempStatisticsSelect" value="days/longest" />
+										<label for="minTempStatisticsChecked2"></label>
+										<span>最大连续低温日数</span>
+
+									</li>
+									<li>
+										<input id="minTempStatisticsChecked3" class="statisticsChecked" type="radio" name="minTempStatisticsSelect" value="top" />
+										<label for="minTempStatisticsChecked3"></label>
+										<span>日地表最低气温及出现日期</span>
+
+									</li>
+
+								</ul>
+							</div>
+
+						</div>
+						<div class="nav1">
+							<div>
+								<div class="lowTemperature lowTemperature3"></div>
+								<span>低温类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="minTempTypeChecked1" class="lowTemperatureTypeChecked" type="radio" name="minTempTypeSelect" value="<=0" checked/>
+										<label for="minTempTypeChecked1"></label>
+										<span>≤0℃</span>
+									</li>
+									<li>
+										<input id="minTempTypeChecked2" class="lowTemperatureTypeChecked" type="radio" name="minTempTypeSelect" value="<=2"/>
+										<label for="minTempTypeChecked2"></label>
+										<span>≤2℃</span>
+									</li>
+									<li>
+										<input id="minTempTypeChecked3" class="lowTemperatureTypeChecked" type="radio" name="minTempTypeSelect" value="<=5"/>
+										<label for="minTempTypeChecked3"></label>
+										<span>≤5℃</span>
+									</li>
+									<li>
+										<input id="minTempTypeChecked4" class="lowTemperatureTypeChecked" type="radio" name="minTempTypeSelect" value="<=20"/>
+										<label for="minTempTypeChecked4"></label>
+										<span>≤20℃</span>
+									</li>
+									<li>
+										<input id="minTempTypeChecked5" class="lowTemperatureTypeChecked" type="radio" name="minTempTypeSelect" value="<=22"/>
+										<label for="minTempTypeChecked5"></label>
+										<span>≤22℃</span>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<div class="nav1">
+							<div>
+								<div class="timeType"></div>
+								<span>时间类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<span  style="display:inline-block;float:left;">起始时间：</span>
+										<div id="minTempStartTimeInput" class="uiMain" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="minTempStartTime" style="width:200px;height:200px;"></div></div>
+									</li>
+									<li>
+										<span  style="display:inline-block;float:left;">结束时间：</span>
+										<div id="minTempEndTimeInput" class="uiMain1" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="minTempEndTime" style="width:200px;height:200px;"></div></div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</li>
+				<li style="display: none;">
+					<div class="nav" >
+						<div class="nav1">
+							<div>
+								<div class="statisticsType"></div>
+								<span>统计类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<input id="aridStatisticsChecked1" class="statisticsChecked" type="radio" name="aridStatisticsSelect" value="days/longest" checked/>
+										<label for="aridStatisticsChecked1"></label>
+										<span>最大连续无降雨日</span>
+
+									</li>
+									<li>
+										<input id="aridStatisticsChecked2" class="statisticsChecked" type="radio" name="aridStatisticsSelect" value="days" />
+										<label for="aridStatisticsChecked2"></label>
+										<span>连续无降雨日</span>
+
+									</li>
+
+								</ul>
+							</div>
+
+						</div>
+
+						<div class="nav1">
+							<div>
+								<div class="timeType"></div>
+								<span>时间类型</span>
+							</div>
+							<div class="navUl">
+								<ul>
+									<li>
+										<span  style="display:inline-block;float:left;">起始时间：</span>
+										<div id="aridStartTimeInput" class="uiMain" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="aridStartTime" style="width:200px;height:200px;"></div></div>
+									</li>
+									<li>
+										<span  style="display:inline-block;float:left;">结束时间：</span>
+										<div id="aridEndTimeInput" class="uiMain1" style="float:left;width:80px;height:20px;border:1px solid #39769E;text-align:center;line-height: 20px;"></div>
+										<div class="ui-hover-panel" style="position:absolute;top:23px;left:-25px;display: none;z-index:999">
+											<div class="easyui-calendar" id="aridEndTime" style="width:200px;height:200px;"></div></div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</li>
+
+
+			</div>
+
+
+		</div>
+
+		<!--右侧地图-->
+		<div class="disastrousWeatherRight">
+			<div id="disastrousWeatherMap" style="height:100%;"></div>
+		</div>
+
+	</div>
+</div>
+
+</body>
+
+<link rel="stylesheet" type="text/css" href="../../leaflet/leaflet.css?v=20180206" />
+<script src="js/leaflet-src.js?v=20180206"></script>
+<script src="js/L.TextMarker.js?v=20180206"></script>
+<script src="js/jquery-1.7.1.js?v=20180206"></script>
+<script src="js/date.format.js?v=20180206"></script>
+<script src="js/Aws.js?v=20180206"></script>
+<script src="js/national.js?v=20180206"></script>
+<script src="disastrousWeather.js?v=20180207"></script>
+<script src="../../jquery-easyui-1.4.5/jquery.easyui.min.js?v=20180206"></script>
+<script src="../../jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js?v=20180206"></script>
+
+<script>
+		var disastrousWeather = new DisastrousWeather({});
+		disastrousWeather.initUI();
+		disastrousWeather.handler();
+		
+</script>
+
+</html>

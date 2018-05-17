@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css?v=1.0.62">
+    <link rel="stylesheet" type="text/css" href="css/default.css?v=1.0.62">
+    <link rel="stylesheet" href="css/iconfont.css?v=1.0.62">
+    <link rel="stylesheet" href="jquery-easyui-1.4.5/themes/default/easyui.css?v=1.0.62"/>
+    <link rel="stylesheet" href="css/first.css?v=1.0.62">
+    <link rel="stylesheet" href="css/mt.css?v=1.0.62">
+    <link rel="stylesheet" href="appmodules/intelligentGridPrediction/css/intelligentGridPrediction.css"/>
+    <link rel="stylesheet" href="appmodules/impactForecast/css/impactForecast.css"/>
+    <link rel="stylesheet" href="appmodules/bigDataAnalysis/css/bigDataAnalysis.css"/>
+    <link rel="stylesheet" href="css/logo.css"/>
+</head>
+<style>
+    body{
+        padding: 0px;
+    }
+    #map{
+        position: absolute;
+        top:0px;
+    }
+    .Universal_tool{
+        top:75px;
+    }
+    .searchDiv{
+        position: absolute;
+        top:80px;left: 50px;
+    }
+    .newText{
+        position: absolute;
+        top:115px;left: 50px;
+    }
+    #reminder {
+        position: absolute;
+        left: 60px;
+        top: 80px;
+        /*bottom: 80px;*/
+    }
+
+    #showLat{
+        position: absolute;right:203px;top: 85px;
+    }
+    .footer{
+        position: absolute;
+    }
+    /*.mapBox{*/
+    /*width:100%;*/
+    /*height:100%;*/
+    /*position: absolute;*/
+    /*/!*top:0px;*!/*/
+    /*bottom:0;*/
+    /*left:0;*/
+    /*z-index:1000;*/
+    /*}*/
+    .mapShiXv{
+        width:100%;
+        height:30%;
+        position: fixed;
+        left:0;
+        bottom: 0;display: none;
+        background: red;
+        z-index:1000;
+    }
+    #notice{
+        position: absolute;
+    }
+    html{
+        font-size:100px;
+    }
+    .box{
+        width:2rem;
+        height:3rem;
+        background: red;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body>
+<!--<div class="navTitle" style="min-height:45px;z-index:1000;height:60px;background: #1C2125;position: absolute;top:0;left:0;">-->
+    <!--<div class="logoBox">-->
+        <!--<span class="logoTitle"></span>-->
+        <!--<div class="juzh" style="position:absolute;top:0;left:60px;height: 100%;width: 320px;">-->
+            <!--<table>-->
+                <!--<tr>-->
+                    <!--<td>中央气象台-精细化网格预报V3.0</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;右侧操作tool&ndash;&gt;-->
+    <!--<div class="toolBox">-->
+        <!--<div class="tool">-->
+            <!--<ul>-->
+
+                <!--<li class="tool1" id="intelligentGridPrediction" onclick="shell.application.getModule('intelligentGridPrediction')">-->
+                    <!--<div class="toolPicture1 li1"></div>-->
+                    <!--<span>智能网格预报服务</span>-->
+                <!--</li>-->
+
+                <!--<li class="tool1" id="impactForecast" onclick="shell.application.getModule('impactForecast')">-->
+                    <!--<div class="toolPicture1 li2"></div>-->
+                    <!--<span>影响预报</span>-->
+                <!--</li>-->
+
+                <!--<li class="tool1" id="bigDataAnalysis" onclick="shell.application.getModule('bigDataAnalysis')">-->
+                    <!--<div class="toolPicture1 li3"></div>-->
+                    <!--<span>大数据分析</span>-->
+                <!--</li>-->
+
+                <!--<li class="tool1" id="monitorAnalysis" onclick="shell.application.getModule('monitorAnalysis')">-->
+                    <!--<div class="toolPicture1 li4"></div>-->
+                    <!--<span>监测分析</span>-->
+                <!--</li>-->
+
+                <!--<li class="tool1" id="gridEdit" onclick="shell.application.getModule('gridEdit')">-->
+                    <!--<div class="toolPicture1 li5"></div>-->
+                    <!--<span>格点编辑</span>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="toolHtml2" style="width:98%;height:100%;display:block;position: absolute;top:60px;left:0;z-index:3;background: #22293B;padding-left: 2%;">-->
+    <!--<div class="bigDataAnalysisTitle">-->
+        <!--<div class="bigDataTitleImg">-->
+            <!--<p>智能网格大数据分析</p>-->
+        <!--</div>-->
+        <!--<div class="bigDataTitleUl">-->
+            <!--<ol>-->
+                <!--<li class="bigDataSelect">实况分析</li>-->
+                <!--<li>历史统计</li>-->
+                <!--<li>极值分析</li>-->
+                <!--<li>天气过程</li>-->
+                <!--<li>灾害性天气</li>-->
+                <!--<li>台风大数据</li>-->
+            <!--</ol>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--&lt;!&ndash;实况数据&ndash;&gt;-->
+    <!--<div class="bigDataShiK">-->
+        <!--<div class="bigDataLeft">-->
+            <!--<div class="bigDataRain">-->
+                  <!--<div class="bigRainTitle">降水</div>-->
+                <!--&lt;!&ndash;设置边框的样式&ndash;&gt;-->
+                  <!--<div class="litleLeft"></div>-->
+                  <!--<div class="litleLeft1"></div>-->
+                  <!--<div class="litleTop"></div>-->
+                  <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+                <!--<div class="rainSelect">-->
+                    <!--<div class="selectLi">-->
+                        <!--<ol>-->
+                            <!--<li>-->
+                                <!--<label for="">-->
+                                    <!--<input class="rainChecked" type="radio" name="rainSelect" value="1" checked/><span>1</span>-->
+                                <!--</label>-->
+
+
+                            <!--</li>-->
+                            <!--<li> <label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="rainSelect" value="3"/>-->
+                                <!--<span>3</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+                            <!--<li><label for="">-->
+                                    <!--<input class="rainChecked" type="radio" name="rainSelect" value="6"/>-->
+                                    <!--<span>6</span>-->
+                                <!--</label>-->
+                            <!--</li>-->
+                            <!--<li><label for="">-->
+                                    <!--<input class="rainChecked" type="radio" name="rainSelect"value="12"/>-->
+                                    <!--<span>12</span>-->
+                                    <!--</label>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<label for="">-->
+                                    <!--<input class="rainChecked" type="radio" name="rainSelect"value="24"/>-->
+                                    <!--<span>24</span>-->
+                                 <!--</label>-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                    <!--</div>-->
+                    <!--<div class="rainTable">-->
+                        <!--<table class="rainTable1">-->
+                            <!--<tr>-->
+                                <!--<td>序号</td>-->
+                                <!--<td>站号</td>-->
+                                <!--<td>值</td>-->
+                                <!--<td>是否预警</td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+                        <!--<div class="rainTable21">-->
+                            <!--<table class="rainTable2">-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--<div class="bigDataTemperature">-->
+                <!--<div class="bigRainTitle">温度</div>-->
+                <!--<div class="litleLeft"></div>-->
+                <!--<div class="litleLeft1"></div>-->
+                <!--<div class="litleTop"></div>-->
+                <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+                <!--<div class="temperatureSelect">-->
+                    <!--<div class="selectLi">-->
+                        <!--<ol>-->
+                            <!--<li>-->
+                                <!--<label for="">-->
+                                    <!--<input class="rainChecked" type="radio" name="rainSelect" value="气温" checked/><span>气温</span>-->
+                                <!--</label>-->
+
+
+                            <!--</li>-->
+                            <!--<li> <label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="temperatrueSelect" value="平均温度"/>-->
+                                <!--<span>平均温度</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+                            <!--<li><label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="temperatrueSelect" value="最高温度"/>-->
+                                <!--<span>最高温度</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+                            <!--<li><label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="temperatrueSelect"value="最低温度"/>-->
+                                <!--<span>最低温度</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+
+                        <!--</ol>-->
+                    <!--</div>-->
+                    <!--<div class="temperatureTable">-->
+                        <!--<table class="temperatureTable1">-->
+                            <!--<tr>-->
+                                <!--<td>序号</td>-->
+                                <!--<td>站号</td>-->
+                                <!--<td>值</td>-->
+                                <!--<td>是否预警</td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+                        <!--<div class="temperatureTable21">-->
+                            <!--<table class="temperatureTable2">-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--<div class="bigDataWind">-->
+                <!--<div class="bigRainTitle">风</div>-->
+                <!--<div class="litleLeft"></div>-->
+                <!--<div class="litleLeft1"></div>-->
+                <!--<div class="litleTop"></div>-->
+                <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+                <!--<div class="windSelect">-->
+                    <!--<div class="selectLi">-->
+                        <!--<ol>-->
+                            <!--<li>-->
+                                <!--<label for="">-->
+                                    <!--<input class="rainChecked" type="radio" name="windSelect" value="气温" checked/><span>气温</span>-->
+                                <!--</label>-->
+
+
+                            <!--</li>-->
+                            <!--<li> <label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="windSelect" value="平均气温"/>-->
+                                <!--<span>平均气温</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+                            <!--<li><label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="windSelect" value="最高气温"/>-->
+                                <!--<span>最高气温</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+                            <!--<li><label for="">-->
+                                <!--<input class="rainChecked" type="radio" name="windSelect"value="最低气温"/>-->
+                                <!--<span>最低气温</span>-->
+                            <!--</label>-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                    <!--</div>-->
+                    <!--<div class="windTable">-->
+                        <!--<table class="windTable1">-->
+                            <!--<tr>-->
+                                <!--<td>序号</td>-->
+                                <!--<td>站号</td>-->
+                                <!--<td>值</td>-->
+                                <!--<td>是否预警</td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+                        <!--<div class="windTable21">-->
+                            <!--<table class="windTable2">-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>1</td>-->
+                                    <!--<td>001</td>-->
+                                    <!--<td>39.4mm</td>-->
+                                    <!--<td>是</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="bigDataMid">-->
+            <!--<div class="bigMidMap">-->
+                <!--<div class="seriesCity">-->
+                    <!--<ol>-->
+                        <!--<li class="citySelect"><span class="city citySelectImg"></span><span>全国</span></li>-->
+                        <!--<li><span class="city"></span><span>全国</span></li>-->
+                        <!--<li><span class="city"></span><span>北京</span></li>-->
+                        <!--<li><span class="city"></span><span>天津</span></li>-->
+                        <!--<li><span class="city"></span><span>河北</span></li>-->
+                        <!--<li><span class="city"></span><span>山西</span></li>-->
+                        <!--<li><span class="city" ></span><span>内蒙古</span></li>-->
+                        <!--<li><span class="city"></span><span>辽宁</span></li>-->
+                        <!--<li><span class="city"></span><span>吉林</span></li>-->
+                        <!--<li><span class="city"></span><span>黑龙江</span></li>-->
+                        <!--<li><span class="city"></span><span>上海</span></li>-->
+                        <!--<li><span class="city"></span><span>江苏</span></li>-->
+                        <!--<li><span class="city"></span><span>浙江</span></li>-->
+                        <!--<li><span class="city"></span><span>安徽</span></li>-->
+                        <!--<li><span class="city"></span><span>福建</span></li>-->
+                    <!--</ol>-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="bigMidShiXV">-->
+                <!--<div class="bigRainTitle">时序图</div>-->
+                <!--<div class="litleLeft"></div>-->
+                <!--<div class="litleLeft1"></div>-->
+                <!--<div class="litleTop"></div>-->
+                <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+                <!--<div class="litleMid"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="bigDataRight">-->
+            <!--<div class="bigDataRain1">-->
+                <!--<div class="bigRainTitle">日历图</div>-->
+                <!--<div class="litleLeft"></div>-->
+                <!--<div class="litleLeft1"></div>-->
+                <!--<div class="litleTop"></div>-->
+                <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+
+            <!--</div>-->
+            <!--<div class="bigDataTemperature1">-->
+                <!--<div class="bigRainTitle">历史周期</div>-->
+                <!--<div class="litleLeft"></div>-->
+                <!--<div class="litleLeft1"></div>-->
+                <!--<div class="litleTop"></div>-->
+                <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+
+            <!--</div>-->
+            <!--<div class="bigDataWind1">-->
+                <!--<div class="bigRainTitle1">风气候及距平图</div>-->
+                <!--<div class="litleLeft"></div>-->
+                <!--<div class="litleLeft1"></div>-->
+                <!--<div class="litleTop"></div>-->
+                <!--<div class="litleTop1"></div>-->
+                <!--<div class="litleRight"></div>-->
+                <!--<div class="litleRight1"></div>-->
+                <!--<div class="litleBottom"></div>-->
+                <!--<div class="litleBottom1"></div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="box"></div>
+</body>
+</html>

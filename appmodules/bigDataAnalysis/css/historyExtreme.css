@@ -1,0 +1,1905 @@
+/*实况数据部分*/
+/*实况数据部分*/
+body{
+    overflow: hidden;
+}
+.bigDataShiKCenter{
+    width:100%;
+    position: absolute;
+    top:0px;bottom: 0;
+    left:0;right:0;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+}
+.bigDataLeft,.bigDataRight{
+    position: relative;
+    width:25%;
+    height:100%;
+    float: left;
+}
+.bigDataMid{
+    position: relative;
+    width:50%;
+    height:100%;
+    float: left;
+}
+/*左侧布局*/
+.bigDataMaxTemperature,.bigDataMinTemperature{
+    width:95%;
+    height:47.5%;
+    margin-bottom: 5%;
+    border:1px solid #39769E;
+    position: relative;
+}
+.bigDataRain{
+    width:95%;
+    height:50%;
+    margin-bottom: 5%;
+    border:1px solid #39769E;
+    position: relative;
+    margin-left: 4.5%;
+}
+.bigDataWind,.bigDataWind1{
+    margin-bottom: 0;
+}
+.bigRainTitle,.bigRainTitle1{
+    color: #fff;
+    width: 100px;
+    height:20px;
+    background: url("../image/tableTitle.png") center no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin: -11px auto;
+    font-size: 14px;
+    line-height: 20px;
+}
+.bigRainTitle1{
+    width: 150px;
+}
+.litleLeft,.litleLeft1, .litleRight,.litleRight1{
+    height:10px;
+    border-left:2px solid #4DBAF2;
+    position: absolute;
+}
+.litleLeft{
+    top: 0;left: -1px;
+}
+.litleLeft1{
+    bottom: 0;left: -1px;
+}
+.litleRight{
+    top: 0;right: -1px;
+}
+.litleRight1{
+    bottom: 0;right: -1px;
+}
+.litleTop,.litleTop1,.litleBottom,.litleBottom1{
+    width:20px;
+    border-top:2px solid #4DBAF2;
+    position: absolute;
+}
+.litleTop{
+    top:-1px;left:0;
+}
+.litleTop1{
+    top: -1px; right:0
+}
+
+.litleBottom{
+    bottom: -1px;left: 0px;
+}
+.litleBottom1{
+    bottom: -1px;right: 0px;
+}
+.litleMid{
+    width:40px;
+    border-bottom:2px solid #4DBAF2;
+    position: absolute;
+    bottom: -1px;right:47%;
+}
+
+/*降水里边的样式设计*/
+/*.rainSelect{*/
+/*margin:20px auto;*/
+/*}*/
+
+.selectLi li:hover{
+    cursor: pointer;
+}
+.selectLi{
+    width:100%;
+    font-size: 12px;
+    float: left;
+    margin-top: 12px;
+}
+/*.rainSelect .selectLi ol,.calendarSelect .selectLi ol,.temperatureSelect .selectLi ol,.windSelect .selectLi ol,.historySelect .selectLi ol,.weatherSelect .selectLi ol,.mapShiXvSelect .selectLi ol{*/
+    /*width:100%;*/
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+    /*align-items: flex-end;*/
+    /*height:30px;*/
+    /*float: left;*/
+/*}*/
+
+.selectLi li{
+    width:48%;
+    margin-left: 2%;
+    float: left;
+    color:#3A9CCE;
+    position: relative;
+    /*margin-right: 10px;*/
+}
+.temperatureSelect li,.calendarSelect li,.windSelect li,.historySelect li,.weatherSelect li,.mapShiXvSelect li{
+    /*width:20%;*/
+    float: left;
+    color:#3A9CCE;
+    position: relative;
+}
+.bigDataRight .selectLi li{
+    width:98%;
+    margin-left: 10px;
+}
+.temperatureOlBox{
+    overflow: hidden;
+    width:100%;
+    height:100%;
+}
+
+.calendarSelect li.calendarChecked,.rainSelect li.rainChecked,.windSelect li.windChecked,.temperatureSelect li.temperatureChecked{
+    float: left;
+    color:#F16743;
+}
+.selectLi li input[type="radio"] {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+}
+
+.selectLi li label {
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    background:#3CABE1;
+}
+.selectLi li{
+    cursor: pointer;
+}
+/*设置选中的input的样式*/
+/* + 是兄弟选择器,获取选中后的label元素*/
+.selectLi li input:checked+label {
+    background-color: #F06642;
+}
+.selectLi li input:checked+label+span {
+    color: #F06642;
+}
+.selectLi li input:checked+label::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 8px;
+    top: 0;
+    left: 2px;
+    border: 2px solid #3E323C;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg)
+}
+.rainTable,.temperatureTable,.windTable{
+    width:100%;
+    color: #fff;
+    /*position: absolute;*/
+    /*top:55px;left:0;*/
+    overflow: hidden;
+}
+.rainTable table,.temperatureTable table,.windTable table{
+    width:100%;
+    font-size: 12px;
+}
+.rainTable1,.temperatureTable1,.windTable1{
+    width:100%;
+    height:20px;
+    color: #fff;
+}
+.rainTable21,.temperatureTable21,.windTable21{
+    width:100%;
+    /*height:145px;*/
+    overflow-y: scroll;
+}
+.rainTable21 table,.temperatureTable21 table,.windTable21 table{
+
+}
+.rainTable td,.temperatureTable td,.windTable td{
+    text-align: center;
+    border: 1px solid #323A4C;
+}
+.rainTable1 tr td:nth-child(1),.rainTable2 tr td:nth-child(1),.temperatureTable1 tr td:nth-child(1),.windTable1 tr td:nth-child(1),.temperatureTable2 tr td:nth-child(1),.windTable2 tr td:nth-child(1){
+    width:40px;
+}
+.rainTable1 tr td:nth-child(4),.temperatureTable1 tr td:nth-child(4),.windTable1 tr td:nth-child(4){
+    width:60px;
+}
+.rainTable2 tr td:nth-child(4),.temperatureTable2 tr td:nth-child(4),.windTable2 tr td:nth-child(4){
+    width:52px;
+}
+.rainTable1 tr td:nth-child(3),.rainTable2 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3),.temperatureTable2  tr td:nth-child(3),.windTable2 tr td:nth-child(3){
+    width:65px;
+}
+.rainTable1 tr td:nth-child(5),.rainTable2 tr td:nth-child(5),.temperatureTable1  tr td:nth-child(5),.windTable1 tr td:nth-child(5),.temperatureTable2  tr td:nth-child(5),.windTable2 tr td:nth-child(5){
+    display: none;
+}
+::-webkit-scrollbar{
+    width: 8px;
+}/* 滚动槽 */
+/*::-webkit-scrollbar-track {*/
+/*/!*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*!/*/
+/*border-radius: 5px;*/
+/*}*/
+/* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 */
+::-webkit-scrollbar-thumb
+{
+    /*width:6px;*/
+    border-radius: 8px;
+    /*background: rgba(0,0,0,0.1);*/
+    background:#285376;
+    /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*/
+}
+
+.seriesProvince li{
+    min-width:40px ;
+    float: left;
+    font-size: 12px;
+}
+.seriesProvince li.provinceSelect{
+    min-width:40px;
+    float: left;
+    color:#F06642;
+}
+.seriesProvince .province{
+    display: inline-block;
+    width:10px;
+    height:10px;
+    background: url("../image/cityUnSelect.png") center no-repeat;
+    background-size: cover;
+
+}
+.seriesProvince .provinceSelectImg{
+    display: inline-block;
+    width:10px;
+    height:10px;
+    background: url("../image/citySelect.png") center no-repeat;
+    background-size: cover;
+}
+
+
+
+/*中间地图部分*/
+
+.bigMidMap{
+    width:100%;
+    height:62%;
+    border:1px solid #323A4C;
+    position: relative;
+    float: left;
+    /*margin-bottom: 2.45%;*/
+}
+.bigMidShiXV{
+    width:100%;
+    height:29.5%;
+    position: relative;
+    border:1px solid #39769E;
+    float: left;
+    margin-top: 20px;
+}
+.bigMap{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;top:0;
+    border:1px solid #323A4C;
+}
+.seriesProvince ol{
+    display: inline-block;
+    width:100%;
+    height:auto;
+}
+.seriesProvince ol li{
+    height:16px;
+}
+.seriesProvince li:hover{
+    cursor:pointer;
+}
+.seriesProvince{
+    width:100%;
+    height: auto;
+    /*max-height:47px;*/
+    /*min-height:35px;*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 12px;
+    color: #fff;
+    /*border-top: 1px solid #323A4C;*/
+}
+.seriesProvinceBox{
+    display: inline-block;
+    width: 100%;
+    height:auto;
+}
+
+
+/*查询*/
+.bigDataSearch{
+    position: absolute;
+    left:5%;
+    top: -36px;
+    width: 94.5%;
+    height: 21px;
+    border: 1px solid #3CABE1;
+    border-radius: 10px;
+    overflow: hidden;"
+}
+.bigDataText{
+    display: none;
+    position:absolute;
+    left:5%;
+    top:-14px;
+    width:94.5%;
+    height:auto;
+    max-height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #22293B;
+    z-index:1000;
+    color:#fff;
+    border:1px solid #3CABE1;
+    border-radius: 10px;
+}
+.bigDataText span{
+    display: inline-block;
+    width: 100%;
+    height:20px;
+    font-size: 12px;padding-left: 15px;
+    /*text-align: center;*/
+    line-height: 20px;
+    color: #fff;
+    border-bottom: 1px solid #285376;
+}
+.bigDataText span:nth-child(1){
+    background: #39769E;
+}
+.bigDataSearch input{
+    width:100%;
+    height:21px;
+    text-indent: 10px;
+    background: none;
+    border: 0;
+    color:#fff;
+}
+/*.bigDataSearch */
+.bigDataSearch input:-moz-placeholder {
+    color: #fff;
+}
+.bigDataSearch input::-moz-placeholder {
+    color: #fff;
+}
+.bigDataSearch input::-webkit-input-placeholder {
+    color: #fff;
+}
+.bigDataSearch input:-ms-input-placeholder {
+    color: #fff;
+}
+.bigDataSearch button{
+    width:15px;
+    height:15px;
+    position: absolute;
+    top:3px;
+    right:10px;
+    border:0;
+    background: none;
+    background-image: url(../image/lupa.svg);
+    background-size: cover;
+}
+#calendarChart,#historyChart,#climateChart,#sequenceChart{
+    width: 100%;
+    /*height:185px;*/
+    /*position: absolute;*/
+    /*left:0;right:0;*/
+    /*top:0px;bottom:0;margin:auto;*/
+    /*margin-top: 35px;*/
+}
+
+/*@media (max-height:780px){*/
+    /*/!*实况数据部分*!/*/
+    /*.bigDataShiKCenter{*/
+        /*width:100%;height:535px;*/
+        /*position: absolute;*/
+        /*top:0px;bottom: 0;*/
+        /*left:0;right:0;*/
+        /*margin: auto;*/
+    /*}*/
+    /*.bigDataLeft{*/
+        /*position: absolute;*/
+        /*left:0;*/
+        /*top:0;*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*/!*background: red;*!/*/
+    /*}*/
+    /*.bigDataRight{*/
+        /*position: absolute;*/
+        /*left:75%;*/
+        /*top:0;*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*/!*background: green;*!/*/
+    /*}*/
+    /*.bigDataMid{*/
+        /*position: absolute;*/
+        /*left:25%;*/
+        /*top:0;*/
+        /*width:50%;*/
+        /*height:100%;*/
+        /*/!*background: yellow;*!/*/
+    /*}*/
+    /*.bigMidMap{*/
+        /*width:98%;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*height:230px;*/
+        /*position: absolute;*/
+        /*border:1px solid #323A4C;*/
+        /*/!*top:40px;*!/*/
+        /*left:1%;right:1%;*/
+    /*}*/
+    /*.bigMap{*/
+        /*width:100%;*/
+        /*height:418px;*/
+        /*position: absolute;*/
+        /*left:0;top:0;*/
+        /*border:1px solid #323A4C;*/
+    /*}*/
+    /*.seriesProvince ol{*/
+        /*display: inline-block;*/
+        /*width:100%;*/
+        /*height:auto;*/
+    /*}*/
+    /*.seriesProvince ol li{*/
+        /*height:16px;*/
+    /*}*/
+    /*.seriesProvince li:hover{*/
+        /*cursor:pointer;*/
+    /*}*/
+    /*.seriesProvince{*/
+        /*width:100%;*/
+        /*height: auto;*/
+        /*/!*max-height:47px;*!/*/
+        /*/!*min-height:35px;*!/*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*bottom: 0;*/
+        /*font-size: 12px;*/
+        /*color: #fff;*/
+        /*/!*border-top: 1px solid #323A4C;*!/*/
+    /*}*/
+    /*.seriesProvinceBox{*/
+        /*display: inline-block;*/
+        /*width: 100%;*/
+        /*height:auto;*/
+    /*}*/
+    /*.bigMidShiXV{*/
+        /*width:98%;*/
+        /*height:230px;*/
+        /*position: absolute;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*/!*top:530px;*!/*/
+        /*top:260px;*/
+        /*left:1%;right:1%;*/
+    /*}*/
+    /*.bigDataRain{*/
+        /*width:95%;*/
+        /*height:490px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*top: 0px;*/
+        /*left:5%;right:0;*/
+        /*/!*position: absolute;*!/*/
+    /*}*/
+    /*.bigDataRain1{*/
+        /*width:95%;*/
+        /*height:230px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 20px;*!/*/
+        /*left:5%;right:0;*/
+        /*/!*position: absolute;*!/*/
+    /*}*/
+    /*.bigDataMaxTemperature{*/
+        /*width:95%;*/
+        /*height:230px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:0px;*/
+        /*left:0;right: 5%;*/
+    /*}*/
+    /*.bigDataMinTemperature{*/
+        /*width:95%;*/
+        /*height:230px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:260px;*/
+        /*left:0;right: 5%;*/
+    /*}*/
+    /*.bigDataTemperature1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:250px;*/
+        /*left:5%;right:0;*/
+    /*}*/
+    /*.bigDataWind{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 530px;*!/*/
+        /*top: 510px;*/
+        /*left:0;right:5%;*/
+    /*}*/
+    /*.bigDataWind1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 530px;*!/*/
+        /*top:510px;*/
+        /*left:5%;right:0;*/
+    /*}*/
+    /*.bigRainTitle{*/
+        /*color: #fff;*/
+        /*width: 100px;*/
+        /*height:20px;*/
+        /*background: url("../image/tableTitle.png") center no-repeat;*/
+        /*background-size: cover;*/
+        /*text-align: center;*/
+        /*margin: -11px auto;*/
+        /*/!*font-size: 8px;*!/*/
+        /*font-size: 14px;*/
+        /*line-height: 20px;*/
+    /*}*/
+    /*.bigRainTitle1{*/
+        /*color: #fff;*/
+        /*width: 150px;*/
+        /*height:20px;*/
+        /*background: url("../image/tableTitle.png") center no-repeat;*/
+        /*background-size: cover;*/
+        /*text-align: center;*/
+        /*margin: -11px auto;*/
+        /*/!*font-size: 8px;*!/*/
+        /*font-size: 14px;*/
+        /*line-height: 20px;*/
+    /*}*/
+
+    /*.litleLeft{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;left: -1px;*/
+    /*}*/
+    /*.litleLeft1{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;left: -1px;*/
+    /*}*/
+    /*.litleTop{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top:-1px;*/
+        /*left:0;*/
+    /*}*/
+    /*.litleTop1{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: -1px;*/
+        /*right:0*/
+    /*}*/
+    /*.litleRight{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;right: -1px;*/
+    /*}*/
+    /*.litleRight1{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;right: -1px;*/
+    /*}*/
+    /*.litleBottom{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;left: 0px;*/
+    /*}*/
+    /*.litleBottom1{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right: 0px;*/
+    /*}*/
+    /*.litleMid{*/
+        /*width:40px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right:47%;*/
+    /*}*/
+
+    /*/!*降水里边的样式设计*!/*/
+    /*/!*.rainSelect{*!/*/
+    /*/!*margin:20px auto;*!/*/
+    /*/!*}*!/*/
+    /*.selectLi li:hover{*/
+        /*cursor: pointer;*/
+    /*}*/
+    /*.rainSelect .selectLi,.calendarSelect .selectLi{*/
+        /*width:90%;*/
+        /*height:20px;*/
+        /*margin-left: 5%;*/
+        /*margin-top: 20px;*/
+        /*font-size: 12px;*/
+
+    /*}*/
+    /*.temperatureSelect .selectLi,.windSelect .selectLi,.historySelect .selectLi,.weatherSelect .selectLi,.mapShiXvSelect .selectLi{*/
+        /*width:95%;*/
+        /*height:20px;*/
+        /*margin-left: 5%;*/
+        /*margin-top: 20px;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.rainSelect ol,.temperatureSelect ol,.windSelect ol,.calendarSelect ol,.historySelect ol,.weatherSelect ol,.mapShiXvSelect ol{*/
+        /*display: block;*/
+    /*}*/
+    /*.rainSelect li{*/
+        /*/!*width:50%;*!/*/
+        /*width:100%;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+        /*/!*margin-right: 10px;*!/*/
+    /*}*/
+    /*.temperatureSelect li,.calendarSelect li,.windSelect li,.historySelect li,.weatherSelect li,.mapShiXvSelect li{*/
+        /*width:50%;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+    /*}*/
+    /*/!*.temperatureOlBox{*!/*/
+    /*/!*width:252px;*!/*/
+    /*/!*margin: auto;*!/*/
+    /*/!*}*!/*/
+
+    /*.calendarSelect li.calendarChecked,.rainSelect li.rainChecked,.windSelect li.windChecked,.temperatureSelect li.temperatureChecked{*/
+        /*float: left;*/
+        /*color:#F16743;*/
+    /*}*/
+    /*.selectLi li input[type="radio"] {*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*.selectLi li label {*/
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*top: 3px;*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*background:#3CABE1;*/
+    /*}*/
+    /*.selectLi li{*/
+        /*cursor: pointer;*/
+    /*}*/
+    /*/!*设置选中的input的样式*!/*/
+    /*/!* + 是兄弟选择器,获取选中后的label元素*!/*/
+    /*.selectLi li input:checked+label {*/
+        /*background-color: #F06642;*/
+    /*}*/
+    /*.selectLi li input:checked+label+span {*/
+        /*color: #F06642;*/
+    /*}*/
+    /*.selectLi li input:checked+label::after {*/
+        /*position: absolute;*/
+        /*content: "";*/
+        /*width: 5px;*/
+        /*height: 8px;*/
+        /*top: 0;*/
+        /*left: 2px;*/
+        /*border: 2px solid #3E323C;*/
+        /*border-top: none;*/
+        /*border-left: none;*/
+        /*transform: rotate(45deg)*/
+    /*}*/
+    /*.temperatureTable,.windTable{*/
+        /*width:100%;*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*top:95px;left:0;*/
+        /*overflow: hidden;*/
+    /*}*/
+    /*.rainTable{*/
+        /*width:100%;*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*top:205px;left:0;*/
+        /*overflow: hidden;*/
+    /*}*/
+    /*.rainTable table,.temperatureTable table,.windTable table{*/
+        /*width:100%;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.rainTable1,.temperatureTable1,.windTable1{*/
+        /*width:100%;*/
+        /*height:20px;*/
+        /*color: #fff;*/
+    /*}*/
+    /*.temperatureTable21,.windTable21{*/
+        /*width:100%;*/
+        /*height:114px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+    /*.rainTable21{*/
+        /*width:100%;*/
+        /*height:264px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+    /*.rainTable21 table,.temperatureTable21 table,.windTable21 table{*/
+
+    /*}*/
+    /*.rainTable td,.temperatureTable td,.windTable td{*/
+        /*text-align: center;*/
+        /*border: 1px solid #323A4C;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(1),.rainTable2 tr td:nth-child(1),.temperatureTable1 tr td:nth-child(1),.windTable1 tr td:nth-child(1),.temperatureTable2 tr td:nth-child(1),.windTable2 tr td:nth-child(1){*/
+        /*width:40px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(4),.temperatureTable1 tr td:nth-child(4),.windTable1 tr td:nth-child(4){*/
+        /*width:60px;*/
+    /*}*/
+    /*.rainTable2 tr td:nth-child(4),.temperatureTable2 tr td:nth-child(4),.windTable2 tr td:nth-child(4){*/
+        /*width:52px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(3),.rainTable2 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3),.temperatureTable2  tr td:nth-child(3),.windTable2 tr td:nth-child(3){*/
+        /*width:65px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3){*/
+        /*width:65px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(5),.rainTable2 tr td:nth-child(5),.temperatureTable1  tr td:nth-child(5),.windTable1 tr td:nth-child(5),.temperatureTable2  tr td:nth-child(5),.windTable2 tr td:nth-child(5){*/
+        /*display: none;*/
+    /*}*/
+    /*::-webkit-scrollbar{*/
+        /*width: 8px;*/
+    /*}/!* 滚动槽 *!/*/
+    /*/!*::-webkit-scrollbar-track {*!/*/
+    /*/!!*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*!/!*    /!*border-radius: 5px;*!/*/
+    /*/!*}*!/*/
+    /*/!* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 *!/*/
+    /*::-webkit-scrollbar-thumb*/
+    /*{*/
+        /*/!*width:6px;*!/*/
+        /*border-radius: 8px;*/
+        /*/!*background: rgba(0,0,0,0.1);*!/*/
+        /*background:#285376;*/
+        /*/!*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*!/*/
+    /*}*/
+
+    /*.seriesProvince li{*/
+        /*min-width:40px ;*/
+        /*float: left;*/
+        /*font-size:12px;*/
+    /*}*/
+    /*.seriesProvince li.provinceSelect{*/
+        /*min-width:40px;*/
+        /*float: left;*/
+        /*color:#F06642;*/
+    /*}*/
+    /*.seriesProvince .province{*/
+        /*display: inline-block;*/
+        /*width:10px;*/
+        /*height:10px;*/
+        /*background: url("../image/cityUnSelect.png") center no-repeat;*/
+        /*background-size: cover;*/
+
+    /*}*/
+    /*.seriesProvince .provinceSelectImg{*/
+        /*display: inline-block;*/
+        /*width:10px;*/
+        /*height:10px;*/
+        /*background: url("../image/citySelect.png") center no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+
+    /*/!*查询*!/*/
+    /*.bigDataSearch{*/
+        /*position: absolute;*/
+        /*left:5%;top: -37px;*/
+        /*width: 95%;*/
+        /*height: 21px;*/
+        /*border: 1px solid #3CABE1;*/
+        /*border-radius: 10px;*/
+        /*overflow: hidden;"*/
+    /*}*/
+    /*.bigDataText{*/
+        /*display: none;*/
+        /*position:absolute;*/
+        /*left:5%;top:-14px;*/
+        /*width:95%;*/
+        /*height:auto;*/
+        /*max-height: 200px;*/
+        /*overflow-y: scroll;*/
+        /*overflow-x: hidden;*/
+        /*background: #22293B;*/
+        /*z-index:1000;*/
+        /*color:#fff;*/
+        /*border:1px solid #3CABE1;*/
+        /*border-radius: 10px;*/
+    /*}*/
+    /*.bigDataText span{*/
+        /*display: inline-block;*/
+        /*width: 100%;*/
+        /*height:20px;*/
+        /*font-size: 12px;padding-left: 15px;*/
+        /*/!*text-align: center;*!/*/
+        /*line-height: 20px;*/
+        /*color: #fff;*/
+        /*border-bottom: 1px solid #285376;*/
+    /*}*/
+    /*.bigDataText span:nth-child(1){*/
+        /*background: #39769E;*/
+    /*}*/
+    /*.bigDataSearch input{*/
+        /*width:100%;*/
+        /*height:21px;*/
+        /*text-indent: 10px;*/
+        /*background: none;*/
+        /*border: 0;*/
+        /*color:#fff;*/
+    /*}*/
+    /*/!*.bigDataSearch *!/*/
+    /*.bigDataSearch input:-moz-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input::-moz-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input::-webkit-input-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input:-ms-input-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch button{*/
+        /*width:15px;*/
+        /*height:15px;*/
+        /*position: absolute;*/
+        /*top:3px;*/
+        /*right:10px;*/
+        /*border:0;*/
+        /*background: none;*/
+        /*background-image: url(../image/lupa.svg);*/
+        /*background-size: cover;*/
+    /*}*/
+/*}*/
+/*@media (min-height:781px) and (max-height:1050px){*/
+    /*/!*实况数据部分*!/*/
+    /*.bigDataShiKCenter{*/
+        /*width:100%;height:790px;*/
+        /*position: absolute;*/
+        /*top:0px;bottom: 0;*/
+        /*left:0;right:0;*/
+        /*margin: auto;*/
+    /*}*/
+    /*.bigDataLeft{*/
+        /*position: absolute;*/
+        /*left:0;*/
+        /*top:0;*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*/!*background: red;*!/*/
+    /*}*/
+    /*.bigDataRight{*/
+        /*position: absolute;*/
+        /*left:75%;*/
+        /*top:0;*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*/!*background: green;*!/*/
+    /*}*/
+    /*.bigDataMid{*/
+        /*position: absolute;*/
+        /*left:25%;*/
+        /*top:0;*/
+        /*width:50%;*/
+        /*height:100%;*/
+        /*/!*background: yellow;*!/*/
+    /*}*/
+    /*.bigMidMap{*/
+        /*width:98%;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*height:470px;*/
+        /*position: absolute;*/
+        /*border:1px solid #323A4C;*/
+        /*/!*top:40px;*!/*/
+        /*left:1%;right:1%;*/
+    /*}*/
+    /*.bigMap{*/
+        /*width:100%;*/
+        /*height:418px;*/
+        /*position: absolute;*/
+        /*left:0;top:0;*/
+        /*border:1px solid #323A4C;*/
+    /*}*/
+    /*.seriesProvince ol{*/
+        /*display: inline-block;*/
+        /*width:100%;*/
+        /*height:auto;*/
+    /*}*/
+    /*.seriesProvince ol li{*/
+        /*height:16px;*/
+    /*}*/
+    /*.seriesProvince li:hover{*/
+        /*cursor:pointer;*/
+    /*}*/
+    /*.seriesProvince{*/
+        /*width:100%;*/
+        /*height: auto;*/
+        /*/!*max-height:47px;*!/*/
+        /*/!*min-height:35px;*!/*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*bottom: 0;*/
+        /*font-size: 12px;*/
+        /*color: #fff;*/
+        /*/!*border-top: 1px solid #323A4C;*!/*/
+    /*}*/
+    /*.seriesProvinceBox{*/
+        /*display: inline-block;*/
+        /*width: 100%;*/
+        /*height:auto;*/
+    /*}*/
+    /*.bigMidShiXV{*/
+        /*width:98%;*/
+        /*height:220px;*/
+        /*position: absolute;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*/!*top:530px;*!/*/
+        /*top:510px;*/
+        /*left:1%;right:1%;*/
+    /*}*/
+    /*.bigDataRain{*/
+        /*width:95%;*/
+        /*height:730px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*top: 0px;*/
+        /*left:5%;right:0;*/
+        /*/!*position: absolute;*!/*/
+    /*}*/
+    /*.bigDataRain1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 20px;*!/*/
+        /*left:5%;right:0;*/
+        /*/!*position: absolute;*!/*/
+    /*}*/
+    /*.bigDataMaxTemperature{*/
+        /*width:95%;*/
+        /*height:345px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:0px;*/
+        /*left:0;right: 5%;*/
+    /*}*/
+    /*.bigDataMinTemperature{*/
+        /*width:95%;*/
+        /*height:345px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:385px;*/
+        /*left:0;right: 5%;*/
+    /*}*/
+    /*.bigDataTemperature1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:250px;*/
+        /*left:5%;right:0;*/
+    /*}*/
+    /*.bigDataWind{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 530px;*!/*/
+        /*top: 510px;*/
+        /*left:0;right:5%;*/
+    /*}*/
+    /*.bigDataWind1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 530px;*!/*/
+        /*top:510px;*/
+        /*left:5%;right:0;*/
+    /*}*/
+    /*.bigRainTitle{*/
+        /*color: #fff;*/
+        /*width: 100px;*/
+        /*height:20px;*/
+        /*background: url("../image/tableTitle.png") center no-repeat;*/
+        /*background-size: cover;*/
+        /*text-align: center;*/
+        /*margin: -11px auto;*/
+        /*/!*font-size: 8px;*!/*/
+        /*font-size: 14px;*/
+        /*line-height: 20px;*/
+    /*}*/
+    /*.bigRainTitle1{*/
+        /*color: #fff;*/
+        /*width: 150px;*/
+        /*height:20px;*/
+        /*background: url("../image/tableTitle.png") center no-repeat;*/
+        /*background-size: cover;*/
+        /*text-align: center;*/
+        /*margin: -11px auto;*/
+        /*/!*font-size: 8px;*!/*/
+        /*font-size: 14px;*/
+        /*line-height: 20px;*/
+    /*}*/
+
+    /*.litleLeft{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;left: -1px;*/
+    /*}*/
+    /*.litleLeft1{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;left: -1px;*/
+    /*}*/
+    /*.litleTop{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top:-1px;*/
+        /*left:0;*/
+    /*}*/
+    /*.litleTop1{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: -1px;*/
+        /*right:0*/
+    /*}*/
+    /*.litleRight{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;right: -1px;*/
+    /*}*/
+    /*.litleRight1{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;right: -1px;*/
+    /*}*/
+    /*.litleBottom{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;left: 0px;*/
+    /*}*/
+    /*.litleBottom1{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right: 0px;*/
+    /*}*/
+    /*.litleMid{*/
+        /*width:40px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right:47%;*/
+    /*}*/
+
+    /*/!*降水里边的样式设计*!/*/
+    /*/!*.rainSelect{*!/*/
+    /*/!*margin:20px auto;*!/*/
+    /*/!*}*!/*/
+    /*.selectLi li:hover{*/
+        /*cursor: pointer;*/
+    /*}*/
+    /*.rainSelect .selectLi,.calendarSelect .selectLi{*/
+        /*width:90%;*/
+        /*height:20px;*/
+        /*margin-left: 5%;*/
+        /*margin-top: 20px;*/
+        /*font-size: 12px;*/
+
+    /*}*/
+    /*.temperatureSelect .selectLi,.windSelect .selectLi,.historySelect .selectLi,.weatherSelect .selectLi,.mapShiXvSelect .selectLi{*/
+        /*width:95%;*/
+        /*height:20px;*/
+        /*margin-left: 5%;*/
+        /*margin-top: 20px;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.rainSelect ol,.temperatureSelect ol,.windSelect ol,.calendarSelect ol,.historySelect ol,.weatherSelect ol,.mapShiXvSelect ol{*/
+        /*display: block;*/
+    /*}*/
+    /*.rainSelect li{*/
+        /*/!*width:50%;*!/*/
+        /*width:100%;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+        /*/!*margin-right: 10px;*!/*/
+    /*}*/
+    /*.temperatureSelect li,.calendarSelect li,.windSelect li,.historySelect li,.weatherSelect li,.mapShiXvSelect li{*/
+        /*width:50%;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+    /*}*/
+    /*/!*.temperatureOlBox{*!/*/
+    /*/!*width:252px;*!/*/
+    /*/!*margin: auto;*!/*/
+    /*/!*}*!/*/
+
+    /*.calendarSelect li.calendarChecked,.rainSelect li.rainChecked,.windSelect li.windChecked,.temperatureSelect li.temperatureChecked{*/
+        /*float: left;*/
+        /*color:#F16743;*/
+    /*}*/
+    /*.selectLi li input[type="radio"] {*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*.selectLi li label {*/
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*top: 3px;*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*background:#3CABE1;*/
+    /*}*/
+    /*.selectLi li{*/
+        /*cursor: pointer;*/
+    /*}*/
+    /*/!*设置选中的input的样式*!/*/
+    /*/!* + 是兄弟选择器,获取选中后的label元素*!/*/
+    /*.selectLi li input:checked+label {*/
+        /*background-color: #F06642;*/
+    /*}*/
+    /*.selectLi li input:checked+label+span {*/
+        /*color: #F06642;*/
+    /*}*/
+    /*.selectLi li input:checked+label::after {*/
+        /*position: absolute;*/
+        /*content: "";*/
+        /*width: 5px;*/
+        /*height: 8px;*/
+        /*top: 0;*/
+        /*left: 2px;*/
+        /*border: 2px solid #3E323C;*/
+        /*border-top: none;*/
+        /*border-left: none;*/
+        /*transform: rotate(45deg)*/
+    /*}*/
+    /*.temperatureTable,.windTable{*/
+        /*width:100%;*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*top:95px;left:0;*/
+        /*overflow: hidden;*/
+    /*}*/
+    /*.rainTable{*/
+        /*width:100%;*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*top:205px;left:0;*/
+        /*overflow: hidden;*/
+    /*}*/
+    /*.rainTable table,.temperatureTable table,.windTable table{*/
+        /*width:100%;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.rainTable1,.temperatureTable1,.windTable1{*/
+        /*width:100%;*/
+        /*height:20px;*/
+        /*color: #fff;*/
+    /*}*/
+    /*.temperatureTable21,.windTable21{*/
+        /*width:100%;*/
+        /*height:230px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+    /*.rainTable21{*/
+        /*width:100%;*/
+        /*height:500px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+    /*.rainTable21 table,.temperatureTable21 table,.windTable21 table{*/
+
+    /*}*/
+    /*.rainTable td,.temperatureTable td,.windTable td{*/
+        /*text-align: center;*/
+        /*border: 1px solid #323A4C;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(1),.rainTable2 tr td:nth-child(1),.temperatureTable1 tr td:nth-child(1),.windTable1 tr td:nth-child(1),.temperatureTable2 tr td:nth-child(1),.windTable2 tr td:nth-child(1){*/
+        /*width:40px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(4),.temperatureTable1 tr td:nth-child(4),.windTable1 tr td:nth-child(4){*/
+        /*width:60px;*/
+    /*}*/
+    /*.rainTable2 tr td:nth-child(4),.temperatureTable2 tr td:nth-child(4),.windTable2 tr td:nth-child(4){*/
+        /*width:52px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(3),.rainTable2 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3),.temperatureTable2  tr td:nth-child(3),.windTable2 tr td:nth-child(3){*/
+        /*width:65px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3){*/
+        /*width:65px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(5),.rainTable2 tr td:nth-child(5),.temperatureTable1  tr td:nth-child(5),.windTable1 tr td:nth-child(5),.temperatureTable2  tr td:nth-child(5),.windTable2 tr td:nth-child(5){*/
+        /*display: none;*/
+    /*}*/
+    /*::-webkit-scrollbar{*/
+        /*width: 8px;*/
+    /*}/!* 滚动槽 *!/*/
+    /*/!*::-webkit-scrollbar-track {*!/*/
+    /*/!!*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*!/!*    /!*border-radius: 5px;*!/*/
+    /*/!*}*!/*/
+    /*/!* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 *!/*/
+    /*::-webkit-scrollbar-thumb*/
+    /*{*/
+        /*/!*width:6px;*!/*/
+        /*border-radius: 8px;*/
+        /*/!*background: rgba(0,0,0,0.1);*!/*/
+        /*background:#285376;*/
+        /*/!*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*!/*/
+    /*}*/
+
+    /*.seriesProvince li{*/
+        /*min-width:40px ;*/
+        /*float: left;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.seriesProvince li.provinceSelect{*/
+        /*min-width:40px;*/
+        /*float: left;*/
+        /*color:#F06642;*/
+    /*}*/
+    /*.seriesProvince .province{*/
+        /*display: inline-block;*/
+        /*width:10px;*/
+        /*height:10px;*/
+        /*background: url("../image/cityUnSelect.png") center no-repeat;*/
+        /*background-size: cover;*/
+
+    /*}*/
+    /*.seriesProvince .provinceSelectImg{*/
+        /*display: inline-block;*/
+        /*width:10px;*/
+        /*height:10px;*/
+        /*background: url("../image/citySelect.png") center no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+
+    /*/!*查询*!/*/
+    /*.bigDataSearch{*/
+        /*position: absolute;*/
+        /*left:5%;top: -37px;*/
+        /*width: 95%;*/
+        /*height: 21px;*/
+        /*border: 1px solid #3CABE1;*/
+        /*border-radius: 10px;*/
+        /*overflow: hidden;"*/
+    /*}*/
+    /*.bigDataText{*/
+        /*display: none;*/
+        /*position:absolute;*/
+        /*left:5%;top:-14px;*/
+        /*width:95%;*/
+        /*height:auto;*/
+        /*max-height: 200px;*/
+        /*overflow-y: scroll;*/
+        /*overflow-x: hidden;*/
+        /*background: #22293B;*/
+        /*z-index:1000;*/
+        /*color:#fff;*/
+        /*border:1px solid #3CABE1;*/
+        /*border-radius: 10px;*/
+    /*}*/
+    /*.bigDataText span{*/
+        /*display: inline-block;*/
+        /*width: 100%;*/
+        /*height:20px;*/
+        /*font-size: 12px;padding-left: 15px;*/
+        /*/!*text-align: center;*!/*/
+        /*line-height: 20px;*/
+        /*color: #fff;*/
+        /*border-bottom: 1px solid #285376;*/
+    /*}*/
+    /*.bigDataText span:nth-child(1){*/
+        /*background: #39769E;*/
+    /*}*/
+    /*.bigDataSearch input{*/
+        /*width:100%;*/
+        /*height:21px;*/
+        /*text-indent: 10px;*/
+        /*background: none;*/
+        /*border: 0;*/
+        /*color:#fff;*/
+    /*}*/
+    /*/!*.bigDataSearch *!/*/
+    /*.bigDataSearch input:-moz-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input::-moz-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input::-webkit-input-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input:-ms-input-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch button{*/
+        /*width:15px;*/
+        /*height:15px;*/
+        /*position: absolute;*/
+        /*top:3px;*/
+        /*right:10px;*/
+        /*border:0;*/
+        /*background: none;*/
+        /*background-image: url(../image/lupa.svg);*/
+        /*background-size: cover;*/
+    /*}*/
+/*}*/
+/*@media (min-height:1051px){*/
+    /*/!*实况数据部分*!/*/
+    /*.bigDataShiKCenter{*/
+        /*width:100%;height:790px;*/
+        /*position: absolute;*/
+        /*top:0px;bottom: 0;*/
+        /*left:0;right:0;*/
+        /*margin: auto;*/
+    /*}*/
+    /*.bigDataLeft{*/
+        /*position: absolute;*/
+        /*left:0;*/
+        /*top:0;*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*/!*background: red;*!/*/
+    /*}*/
+    /*.bigDataRight{*/
+        /*position: absolute;*/
+        /*left:75%;*/
+        /*top:0;*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*/!*background: green;*!/*/
+    /*}*/
+    /*.bigDataMid{*/
+        /*position: absolute;*/
+        /*left:25%;*/
+        /*top:0;*/
+        /*width:50%;*/
+        /*height:100%;*/
+        /*/!*background: yellow;*!/*/
+    /*}*/
+    /*.bigMidMap{*/
+        /*width:98%;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*height:470px;*/
+        /*position: absolute;*/
+        /*border:1px solid #323A4C;*/
+        /*/!*top:40px;*!/*/
+        /*left:1%;right:1%;*/
+    /*}*/
+    /*.bigMap{*/
+        /*width:100%;*/
+        /*height:418px;*/
+        /*position: absolute;*/
+        /*left:0;top:0;*/
+        /*border:1px solid #323A4C;*/
+    /*}*/
+    /*.seriesProvince ol{*/
+        /*display: inline-block;*/
+        /*width:100%;*/
+        /*height:auto;*/
+    /*}*/
+    /*.seriesProvince ol li{*/
+        /*height:16px;*/
+    /*}*/
+    /*.seriesProvince li:hover{*/
+        /*cursor:pointer;*/
+    /*}*/
+    /*.seriesProvince{*/
+        /*width:100%;*/
+        /*height: auto;*/
+        /*/!*max-height:47px;*!/*/
+        /*/!*min-height:35px;*!/*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*bottom: 0;*/
+        /*font-size: 12px;*/
+        /*color: #fff;*/
+        /*/!*border-top: 1px solid #323A4C;*!/*/
+    /*}*/
+    /*.seriesProvinceBox{*/
+        /*display: inline-block;*/
+        /*width: 100%;*/
+        /*height:auto;*/
+    /*}*/
+    /*.bigMidShiXV{*/
+        /*width:98%;*/
+        /*height:220px;*/
+        /*position: absolute;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*/!*top:530px;*!/*/
+        /*top:510px;*/
+        /*left:1%;right:1%;*/
+    /*}*/
+    /*.bigDataRain{*/
+        /*width:95%;*/
+        /*height:730px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*top: 0px;*/
+        /*left:5%;right:0;*/
+        /*/!*position: absolute;*!/*/
+    /*}*/
+    /*.bigDataRain1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 20px;*!/*/
+        /*left:5%;right:0;*/
+        /*/!*position: absolute;*!/*/
+    /*}*/
+    /*.bigDataMaxTemperature{*/
+        /*width:95%;*/
+        /*height:345px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:0px;*/
+        /*left:0;right: 5%;*/
+    /*}*/
+    /*.bigDataMinTemperature{*/
+        /*width:95%;*/
+        /*height:345px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:385px;*/
+        /*left:0;right: 5%;*/
+    /*}*/
+    /*.bigDataTemperature1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 280px;*!/*/
+        /*top:250px;*/
+        /*left:5%;right:0;*/
+    /*}*/
+    /*.bigDataWind{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 530px;*!/*/
+        /*top: 510px;*/
+        /*left:0;right:5%;*/
+    /*}*/
+    /*.bigDataWind1{*/
+        /*width:95%;*/
+        /*height:220px;*/
+        /*border:1px solid #39769E;*/
+        /*/!*margin-top: 20px;*!/*/
+        /*position: absolute;*/
+        /*/!*top: 530px;*!/*/
+        /*top:510px;*/
+        /*left:5%;right:0;*/
+    /*}*/
+    /*.bigRainTitle{*/
+        /*color: #fff;*/
+        /*width: 100px;*/
+        /*height:20px;*/
+        /*background: url("../image/tableTitle.png") center no-repeat;*/
+        /*background-size: cover;*/
+        /*text-align: center;*/
+        /*margin: -11px auto;*/
+        /*/!*font-size: 8px;*!/*/
+        /*font-size: 14px;*/
+        /*line-height: 20px;*/
+    /*}*/
+    /*.bigRainTitle1{*/
+        /*color: #fff;*/
+        /*width: 150px;*/
+        /*height:20px;*/
+        /*background: url("../image/tableTitle.png") center no-repeat;*/
+        /*background-size: cover;*/
+        /*text-align: center;*/
+        /*margin: -11px auto;*/
+        /*/!*font-size: 8px;*!/*/
+        /*font-size: 14px;*/
+        /*line-height: 20px;*/
+    /*}*/
+
+    /*.litleLeft{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;left: -1px;*/
+    /*}*/
+    /*.litleLeft1{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;left: -1px;*/
+    /*}*/
+    /*.litleTop{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top:-1px;*/
+        /*left:0;*/
+    /*}*/
+    /*.litleTop1{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: -1px;*/
+        /*right:0*/
+    /*}*/
+    /*.litleRight{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;right: -1px;*/
+    /*}*/
+    /*.litleRight1{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;right: -1px;*/
+    /*}*/
+    /*.litleBottom{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;left: 0px;*/
+    /*}*/
+    /*.litleBottom1{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right: 0px;*/
+    /*}*/
+    /*.litleMid{*/
+        /*width:40px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right:47%;*/
+    /*}*/
+
+    /*/!*降水里边的样式设计*!/*/
+    /*/!*.rainSelect{*!/*/
+    /*/!*margin:20px auto;*!/*/
+    /*/!*}*!/*/
+    /*.selectLi li:hover{*/
+        /*cursor: pointer;*/
+    /*}*/
+    /*.rainSelect .selectLi,.calendarSelect .selectLi{*/
+        /*width:90%;*/
+        /*height:20px;*/
+        /*margin-left: 5%;*/
+        /*margin-top: 20px;*/
+        /*font-size: 12px;*/
+
+    /*}*/
+    /*.temperatureSelect .selectLi,.windSelect .selectLi,.historySelect .selectLi,.weatherSelect .selectLi,.mapShiXvSelect .selectLi{*/
+        /*width:95%;*/
+        /*height:20px;*/
+        /*margin-left: 5%;*/
+        /*margin-top: 20px;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.rainSelect ol,.temperatureSelect ol,.windSelect ol,.calendarSelect ol,.historySelect ol,.weatherSelect ol,.mapShiXvSelect ol{*/
+        /*display: block;*/
+    /*}*/
+    /*.rainSelect li{*/
+        /*/!*width:50%;*!/*/
+        /*width:100%;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+        /*/!*margin-right: 10px;*!/*/
+    /*}*/
+    /*.temperatureSelect li,.calendarSelect li,.windSelect li,.historySelect li,.weatherSelect li,.mapShiXvSelect li{*/
+        /*width:50%;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+    /*}*/
+    /*/!*.temperatureOlBox{*!/*/
+    /*/!*width:252px;*!/*/
+    /*/!*margin: auto;*!/*/
+    /*/!*}*!/*/
+
+    /*.calendarSelect li.calendarChecked,.rainSelect li.rainChecked,.windSelect li.windChecked,.temperatureSelect li.temperatureChecked{*/
+        /*float: left;*/
+        /*color:#F16743;*/
+    /*}*/
+    /*.selectLi li input[type="radio"] {*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*.selectLi li label {*/
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*top: 3px;*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*background:#3CABE1;*/
+    /*}*/
+    /*.selectLi li{*/
+        /*cursor: pointer;*/
+    /*}*/
+    /*/!*设置选中的input的样式*!/*/
+    /*/!* + 是兄弟选择器,获取选中后的label元素*!/*/
+    /*.selectLi li input:checked+label {*/
+        /*background-color: #F06642;*/
+    /*}*/
+    /*.selectLi li input:checked+label+span {*/
+        /*color: #F06642;*/
+    /*}*/
+    /*.selectLi li input:checked+label::after {*/
+        /*position: absolute;*/
+        /*content: "";*/
+        /*width: 5px;*/
+        /*height: 8px;*/
+        /*top: 0;*/
+        /*left: 2px;*/
+        /*border: 2px solid #3E323C;*/
+        /*border-top: none;*/
+        /*border-left: none;*/
+        /*transform: rotate(45deg)*/
+    /*}*/
+    /*.temperatureTable,.windTable{*/
+        /*width:100%;*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*top:95px;left:0;*/
+        /*overflow: hidden;*/
+    /*}*/
+    /*.rainTable{*/
+        /*width:100%;*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*top:205px;left:0;*/
+        /*overflow: hidden;*/
+    /*}*/
+    /*.rainTable table,.temperatureTable table,.windTable table{*/
+        /*width:100%;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.rainTable1,.temperatureTable1,.windTable1{*/
+        /*width:100%;*/
+        /*height:20px;*/
+        /*color: #fff;*/
+    /*}*/
+    /*.temperatureTable21,.windTable21{*/
+        /*width:100%;*/
+        /*height:230px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+    /*.rainTable21{*/
+        /*width:100%;*/
+        /*height:500px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+    /*.rainTable21 table,.temperatureTable21 table,.windTable21 table{*/
+
+    /*}*/
+    /*.rainTable td,.temperatureTable td,.windTable td{*/
+        /*text-align: center;*/
+        /*border: 1px solid #323A4C;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(1),.rainTable2 tr td:nth-child(1),.temperatureTable1 tr td:nth-child(1),.windTable1 tr td:nth-child(1),.temperatureTable2 tr td:nth-child(1),.windTable2 tr td:nth-child(1){*/
+        /*width:40px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(4),.temperatureTable1 tr td:nth-child(4),.windTable1 tr td:nth-child(4){*/
+        /*width:60px;*/
+    /*}*/
+    /*.rainTable2 tr td:nth-child(4),.temperatureTable2 tr td:nth-child(4),.windTable2 tr td:nth-child(4){*/
+        /*width:52px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(3),.rainTable2 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3),.temperatureTable2  tr td:nth-child(3),.windTable2 tr td:nth-child(3){*/
+        /*width:65px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(3),.temperatureTable1  tr td:nth-child(3),.windTable1 tr td:nth-child(3){*/
+        /*width:73px;*/
+    /*}*/
+    /*.rainTable1 tr td:nth-child(5),.rainTable2 tr td:nth-child(5),.temperatureTable1  tr td:nth-child(5),.windTable1 tr td:nth-child(5),.temperatureTable2  tr td:nth-child(5),.windTable2 tr td:nth-child(5){*/
+        /*display: none;*/
+    /*}*/
+    /*::-webkit-scrollbar{*/
+        /*width: 8px;*/
+    /*}/!* 滚动槽 *!/*/
+    /*/!*::-webkit-scrollbar-track {*!/*/
+    /*/!!*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*!/!*    /!*border-radius: 5px;*!/*/
+    /*/!*}*!/*/
+    /*/!* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 *!/*/
+    /*::-webkit-scrollbar-thumb*/
+    /*{*/
+        /*/!*width:6px;*!/*/
+        /*border-radius: 8px;*/
+        /*/!*background: rgba(0,0,0,0.1);*!/*/
+        /*background:#285376;*/
+        /*/!*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*!/*/
+    /*}*/
+
+    /*.seriesProvince li{*/
+        /*min-width:40px ;*/
+        /*float: left;*/
+        /*font-size: 12px;*/
+    /*}*/
+    /*.seriesProvince li.provinceSelect{*/
+        /*min-width:40px;*/
+        /*float: left;*/
+        /*color:#F06642;*/
+    /*}*/
+    /*.seriesProvince .province{*/
+        /*display: inline-block;*/
+        /*width:10px;*/
+        /*height:10px;*/
+        /*background: url("../image/cityUnSelect.png") center no-repeat;*/
+        /*background-size: cover;*/
+
+    /*}*/
+    /*.seriesProvince .provinceSelectImg{*/
+        /*display: inline-block;*/
+        /*width:10px;*/
+        /*height:10px;*/
+        /*background: url("../image/citySelect.png") center no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+
+    /*/!*查询*!/*/
+    /*.bigDataSearch{*/
+        /*position: absolute;*/
+        /*left:5%;top: -37px;*/
+        /*width: 95%;*/
+        /*height: 21px;*/
+        /*border: 1px solid #3CABE1;*/
+        /*border-radius: 10px;*/
+        /*overflow: hidden;"*/
+    /*}*/
+    /*.bigDataText{*/
+        /*display: none;*/
+        /*position:absolute;*/
+        /*left:5%;top:-14px;*/
+        /*width:95%;*/
+        /*height:auto;*/
+        /*max-height: 200px;*/
+        /*overflow-y: scroll;*/
+        /*overflow-x: hidden;*/
+        /*background: #22293B;*/
+        /*z-index:1000;*/
+        /*color:#fff;*/
+        /*border:1px solid #3CABE1;*/
+        /*border-radius: 10px;*/
+    /*}*/
+    /*.bigDataText span{*/
+        /*display: inline-block;*/
+        /*width: 100%;*/
+        /*height:20px;*/
+        /*font-size: 12px;padding-left: 15px;*/
+        /*/!*text-align: center;*!/*/
+        /*line-height: 20px;*/
+        /*color: #fff;*/
+        /*border-bottom: 1px solid #285376;*/
+    /*}*/
+    /*.bigDataText span:nth-child(1){*/
+        /*background: #39769E;*/
+    /*}*/
+    /*.bigDataSearch input{*/
+        /*width:100%;*/
+        /*height:21px;*/
+        /*text-indent: 10px;*/
+        /*background: none;*/
+        /*border: 0;*/
+        /*color:#fff;*/
+    /*}*/
+    /*/!*.bigDataSearch *!/*/
+    /*.bigDataSearch input:-moz-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input::-moz-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input::-webkit-input-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch input:-ms-input-placeholder {*/
+        /*color: #fff;*/
+    /*}*/
+    /*.bigDataSearch button{*/
+        /*width:15px;*/
+        /*height:15px;*/
+        /*position: absolute;*/
+        /*top:3px;*/
+        /*right:10px;*/
+        /*border:0;*/
+        /*background: none;*/
+        /*background-image: url(../image/lupa.svg);*/
+        /*background-size: cover;*/
+    /*}*/
+/*}*/

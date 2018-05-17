@@ -1,0 +1,1359 @@
+html,body{
+    float: left;
+    /*background: url(images/banner.jpg) no-repeat;*/
+    background-size: cover;
+    font-family: "微软雅黑";
+
+}
+a{
+    /*font-family: "微软雅黑";*/
+}
+html{
+    position: relative;
+    overflow:hidden;
+}
+/*map部分*/
+html,body,#map{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.palette_control{
+    z-index:999;
+}
+#tip{
+    position:absolute;
+    bottom:10px;
+    z-index:1000;
+}
+
+/*footer部分*/
+.footer{
+    width: 100%;
+    height:50px;
+    /*background: #344052;*/
+    background: rgba(51, 51, 51, 0.5);
+    position: absolute;
+    left: 0;
+    bottom:0px;
+    z-index:1000;
+}
+footer{
+    width: 80%;
+    height: 38px;
+    position: absolute;
+    bottom: 2px;
+    margin-left: 10%;
+    border: 1px solid #999;
+    z-index: 999;
+
+}
+.vues{
+    width: 100%;
+    position: relative;
+    /*background: #000;*/
+}
+#all{
+    width: 100%;
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:flex;
+    display:-ms-flex;
+    position: relative;
+}
+.mellDay{
+    background: transparent;
+    -webkit-box-flex: 1;
+    flex: 1;
+    position: relative;
+    background: #f5f5f5;
+    opacity: 0.8;
+    display: flex;
+    flex-flow: row;
+}
+.messDay{
+    display: block;
+    width: 100%;
+    height: 30px;
+    /*background: #000;*/
+    color: #fff;
+    opacity: 1;
+    font-size: 14px;
+    line-height: 30px;
+    border-left: 1px solid #fff;
+    flex: 1;
+}
+.messDay:hover{
+    opacity: 1;
+}
+.messDay p{
+    /*width: 20px;*/
+    height: 10px;
+    float: left;
+}
+#pointer{
+    width: 130px;
+    height: 22px;
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: -10px;
+    background: #F5F5F5;
+    border-radius: 4px;
+    line-height: 22px;
+    font-size: 15px;
+    box-shadow: 0px 1px 3px 0px;
+}
+#pointer a{
+    margin:0 5px;
+    float: right;
+}
+#pointer b{
+    float: left;
+    margin:0 10px;
+    line-height: 22px;
+    height: 22px;
+}
+#pointer i{
+    /*width: 0;*/
+    /*height: 0;*/
+    /*display: block;*/
+    /*border-left: 8px solid transparent;*/
+    /*border-right: 8px solid transparent;*/
+    /*border-bottom: 8px solid transparent;*/
+    /*border-top: 8px solid #F5F5F5;*/
+    /*margin:21px auto 0;*/
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 8px solid #f5f5f5;
+    border-right: 8px solid #f5f5f5;
+    border-bottom: 8px solid #f5f5f5;
+    border-top: 8px solid #f5f5f5;
+    margin: 9px auto 0px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.lineMv{
+    position: absolute;
+    width: 100%;
+
+    cursor: pointer;
+    z-index: 999;
+}
+#line{
+    background: red;
+    height: 5px;
+    display: none;
+}
+#time{
+    position: absolute;
+    top: -28px;
+    display: none;
+}
+#time span{
+    width: 50px;
+    height: 20px;
+    background: red;
+    display: block;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    padding: 0 5px;
+}
+#time b{
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid red;
+    margin: 0 auto;
+}
+#mvAction{
+    width: 80px;
+    height: 35px;
+    position: absolute;
+    left: -105px;
+    top: -19px;
+}
+#action{
+    position: absolute;
+    top: 20px;
+}
+#action div{
+    background: #fff;
+    border-radius: 50%;
+}
+#action i{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: url(../images/action.svg);
+    background-size: cover;
+}
+#stop{
+    float: left;
+    display: none;
+    position: absolute;
+    top: 20px;
+}
+#stop div{
+    background: #fff;
+    border-radius: 50%;
+}
+#stop i{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: url(../images/stop.svg);
+    background-size: cover;
+}
+.mellDay n{
+    display: block;
+    width: 1px;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    background: #fff;
+}
+.messDay .dayName{
+    float: right;
+    display: block;
+    padding-right: 10px;
+    line-height: 30px;
+    color: #fff;
+}
+#qzLine{
+    width: 4px;
+    height: 10px;
+    background: orange;
+    position: absolute;
+    top: -2px;
+    z-index: 9999;
+    margin-left: -2px;
+    display: none;
+}
+#clickLine{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#goBack{
+    position: absolute;
+    right: -60px;
+    top: 2px;
+}
+#go i{
+    width: 15px;
+    height: 15px;
+    margin: 3px;
+    display: block;
+    background: url(../images/go.svg);
+    background-size: 100%;
+}
+#back i{
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin: 3px;
+    background: url(../images/back.svg);
+    background-size: 100%;
+}
+#goBack div{
+    background: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    border: 3px solid deepskyblue;
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+}
+#goBack p{
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+#go{
+    margin-left: 10px;
+}
+#mvAction #back{
+    position: absolute;
+    right: -12px;
+    top: 20px;
+}
+#mvAction p{
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+#brol{
+    border: 3px solid deepskyblue;
+    background: #fff;
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    padding: 4px;
+    margin: 0 auto;
+}
+.pDay{
+    height: 22px;
+    line-height: 22px;
+    display: block;
+    position: absolute;
+    top: 0;
+    line-height: normal;
+    margin: 0;
+    left: 50px;
+}
+footer #all .mellDay span:first-child{
+    background: red;
+}
+.ybLine{
+    height: 20px;
+    position: absolute;
+    top: -28px;
+    width: 120px;
+    color: #fff;
+    left: -100px;
+    display: none;
+}
+.ybLine p{
+    background: cornflowerblue;
+    text-align: center;
+    margin: 0;
+    line-height: 22px;
+    font-size: 14px;
+}
+.ybLine i{
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-top: 6px solid cornflowerblue;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    display: block;
+    float: right;
+    margin-right: 12px;
+}
+.bbb{
+    height: 10px;
+    float: left;
+    border-right: 1px solid #000;
+    flex: 1;
+}
+.bcc{
+    height: 10px;
+    float: left;
+    border-right: 1px solid #000;
+    width: 10.25px;
+}
+.bdd{
+    height: 10px;
+    float: left;
+    border-right: 1px solid #000;
+    width: 15.375px;
+}
+#dateStyle{
+    width: 100%;
+    display: flex;
+}
+#leftOne{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    width: 53px;
+    height: 10px;
+    z-index: 99999;
+    opacity: 1;
+    display: none;
+}
+#rightOne{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #000;
+    width: 53px;
+    height: 10px;
+    z-index: 999;
+    opacity: 1;
+    display: none;
+}
+.messDay:first-child{
+    border: 0;
+}
+#svoFeel{
+    position: absolute;
+    left: 10px;
+    top: 20%;
+    z-index: 999;
+}
+#svoFeel div{
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+    background: greenyellow;
+}
+
+.red{
+    background: red;
+}
+.redMellDay{
+    background: red;
+}
+/*搜索*/
+.searchDiv{
+    width:360px;height: 30px;
+    border-radius: 20px;
+    border: 1px solid #92674E;
+    background: #fff;
+    position: absolute;
+    top:20px;left: 50px;
+    background-image: url(../leaflet/images/lupa.svg);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    box-shadow: 5px;
+    text-indent: 26px;
+    z-index:999;
+    color: #000;
+    overflow: hidden;
+    display: none;
+}
+.searchDiv span{
+    text-indent: 0px;
+    display: inline-block;
+    width: auto;
+    color: #000;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    line-height: 30px;
+    /*color: blue;*/
+}
+.searchDiv span:hover{
+    cursor: pointer;
+
+}
+#search{
+    width:90%;height:30px;
+    border: 0px;
+    font-size: 12px;
+    line-height: 24px;
+}
+input#search:focus{
+    outline: none;
+}
+.newText{
+    width: 300px;height: auto;
+    margin-left: 30px;
+    max-height:460px ;
+    overflow: hidden;
+    position: absolute;
+    top:55px;left: 50px;
+    z-index:1000;
+    background: rgba(51, 51, 51, 0.3);
+}
+.newText span{
+    display: inline-block;
+    width: 85%;
+    padding:3px  10px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-right: 0;
+    line-height: 20px;
+    /*color: #000;*/
+    margin-bottom: 5px;
+    color:#fff;
+}
+.newText span:hover{
+    cursor: pointer;
+    background:rgba(238,238,238,0.2);
+}
+
+/*时序图*/
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.content{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position:relative;
+    float: left;
+    z-index: 1;
+}
+#mapDiv{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+.nav{
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    width: 120px;
+    height: auto;
+    z-index: 999;
+    background: rgba(77, 71, 70, 0.4);
+}
+.navList{
+    width: 100%;
+    line-height: 35px;
+    color: #fff;
+    font-size: 14px;
+    float: left;
+}
+.navList:hover{
+    cursor: pointer;
+}
+.navList span:nth-child(1){
+    margin-left: 1em;
+    margin-right:0.5em;
+    font-size: 14px;
+}
+.options{
+    width: auto;
+    height: 45px;
+    position: absolute;
+    left: 20px;
+    bottom: 150px;
+    z-index: 999;
+    background:rgba(77, 71, 70, 0.4);
+    color: #fff;
+}
+.optionBox{
+    width: 0;
+    height: 45px;
+    float: left;
+    visibility: hidden;
+}
+.option{
+    width:225px;
+    height: 100%;
+    text-align: center;
+    line-height: 45px;
+    font-size: 25px;
+    float: left;
+}
+.option span{
+    display:inline-block;
+    width: 45px;
+    height: 100%;
+}
+.icon-fanhui{
+    width: 20px;
+    height:45px;
+    float: left;
+    font-size: 25px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+.icon-go1{
+    width: 20px;
+    height:45px;
+    float: left;
+    font-size: 25px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+.notice{
+    width: 70px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+    left: 20px;
+    bottom: 125px;
+    background: #fff;
+    z-index: 999;
+    border-radius: 5px;
+    display: none;
+}
+.register-login{
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background:rgba(77, 71, 70, 0.4);
+}
+.register{
+    padding-left: 0.7em;
+}
+.palette_control {
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+}
+.Universal_tool{
+    position: fixed;
+    top: 20px;
+    right: 10px;
+}
+#latlng{
+    background: rgba(51, 51, 51, 0.3);
+    padding:3px 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+#notice{
+    position: fixed;
+    bottom: 113px;
+    left:3%;
+    font-size: 14px;
+    z-index: 999;
+    color: #fff;
+    width: auto;
+    background: rgba(51, 51, 51, 0.3);
+    padding:3px 10px;
+    border-radius: 10px;
+}
+#recordName1{
+    dispaly:none;
+}
+a.xs{
+    color: #000;
+}
+
+
+/* web */
+#timeBar{
+    width: 100%;
+    height: 65px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+}
+ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    white-space:nowrap;
+}
+#timeBar li{
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+}
+#timeBar li div{
+    height: 65px;
+    display: inline-block;
+    text-align: center;
+    line-height: 95px;
+    color: #fff;
+}
+.esDay:nth-child(odd){
+    background: rgba(255,255,255,0.3);
+}
+.esDay:nth-child(even){
+    background: rgba(0,0,0,0.7);
+}
+#inp{
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    bottom: 75px;
+    z-index: 9999;
+    border-bottom: 3px solid #fff;
+}
+#inp p{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 21px;
+}
+#inp div{
+    width: 0;
+    height: 0;
+    border-top: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    bottom: -23px;
+    left: 25px;
+}
+#scorlSep{
+    position: absolute;
+    top: 0;
+}
+.dayZet{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 0;
+}
+.dayZet .esDay{
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+}
+#buton div{
+    width: 100px;
+    height: 100px;
+    background: cadetblue;
+    float: left;
+    margin: 10px;
+}
+#web{
+    width: 100%;
+    height: 65px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+.colse{
+    display: none;
+}
+.colse b{
+    width: 100%;
+    height: 100%;
+    background: url(../images/colse1.png) no-repeat center;
+    background-size: cover;
+    display: block;
+}
+.goStart{
+    position: absolute;
+    left: 10px;
+    top:15px;
+    z-index: 100000;
+    width: 30px;
+    height: 30px;
+    background: url(../images/go.png);
+    background-size: cover;
+}
+#pause{
+    background: url(../images/pause.png);
+    background-size: cover;
+}
+.Universal_tool04 ul{
+    margin-left: 0;
+}
+#reminder {
+    z-index: 1000;
+    position: absolute;
+    left: 60px;
+    top: 20px;
+    font-size: 14px;
+    background: rgba(51, 51, 51, 0.3);
+    padding: 3px 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+.Universal_tool{
+    background:rgba(255, 255,255,.5);
+}
+.index_menu_left{
+    overflow: hidden;
+}
+
+#timeBar #right{
+    text-align: right;
+}
+/*.forecast {*/
+    /*width: 17px;*/
+    /*height: 23px;*/
+    /*padding-left: 7px;*/
+    /*padding-top: 5px;*/
+    /*background: url(../images/forecast.png) center no-repeat;*/
+/*}*/
+
+/*.forecast:hover{*/
+    /*width: 17px;*/
+    /*height: 23px;*/
+    /*padding-left: 7px;*/
+    /*padding-top: 5px;*/
+    /*background: url(../images/forecastHover.png) center no-repeat;*/
+/*}*/
+
+.apiImg .close{
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 9999;
+    background: #7C7676;
+}
+.apiImg .close b {
+    width: 100%;
+    height: 100%;
+    background: url(../images/colse1.png) no-repeat center;
+    background-size: cover;
+    display: block;
+    font-weight: 700;
+}
+.buttonApi{
+    border: 1px solid deepskyblue;
+}
+#timeBar #right{
+    text-align: right;
+}
+#imgBox a{
+    display: inline-block;
+    width:100%;
+    height: 100%;
+}
+#imgBox a img{
+    display: inline-block;
+    width:100%;
+    height: 100%;
+}
+/*截图的四个点的样式*/
+.re-rectangle-handle-0{
+    width: 15px;
+    height: 15px;
+    background: url("../images/move2.png") 1px 1px no-repeat;
+    background-size:cover;
+    border-radius: 50%;
+    z-index:1000;
+    cursor: move;
+}
+
+.re-rectangle-handle-1{
+    width: 12px;
+    height: 12px;
+    background: #3388FF;
+    border: 1px solid blue;
+    z-index:1000;
+    cursor: ne-resize;
+}
+.re-rectangle-handle-2{
+    width: 12px;
+    height: 12px;
+    background: #3388FF;
+    border: 1px solid blue;
+    z-index:1000;
+    cursor: nw-resize;
+}
+.re-rectangle-handle-3{
+    width: 12px;
+    height: 12px;
+    background: #3388FF;
+    border: 1px solid blue;
+    z-index:1000;
+    cursor: sw-resize;
+}
+.re-rectangle-handle-4{
+    width: 12px;
+    height: 12px;
+    background: #3388FF;
+    border: 1px solid blue;
+    z-index:1000;
+    cursor: se-resize;
+}
+.api{
+    padding-left:11px;
+    width:17px;
+    height:23px;
+    padding-top:5px;
+    background:url(../images/Universal_tool06.png) center no-repeat;
+}
+.api:hover{background:url(../images/Universal_tool06_s.png) center no-repeat}
+
+/*接口api的说明*/
+.descApi{
+    padding-left:11px;
+    width:17px;
+    height:23px;
+    padding-top:5px;
+    background:url(../images/api.png) center no-repeat;
+}
+.descApi:hover{background:url(../images/apiHover.png) center no-repeat}
+
+/*解决实况固定FLEX方案*/
+#flexNone{
+    flex: none;
+}
+.divide{
+    width: 2px;
+    height: 15px;
+    background: yellow;
+    position: absolute;
+    top: -2px;
+}
+
+
+
+/*/!*修改左侧样式*!/*/
+/*.index_down_left{*/
+    /*/!*background: rgba(0,0,0,0.4);*!/*/
+/*}*/
+/*.index_menu_left {*/
+    /*width: 22px;*/
+    /*height: 30px;*/
+    /*margin-left: 8px;*/
+    /*line-height: 30px;*/
+    /*text-align: center;*/
+    /*color: #fff;*/
+    /*font-weight: 700;*/
+    /*font-size: 12px;*/
+    /*cursor: pointer;*/
+    /*background: rgba(0,0,0,0.4);*/
+/*}*/
+/*.index_menu_left:hover{*/
+    /*border:0px solid #fff;*/
+    /*background: #9D0300;*/
+/*}*/
+/*.select{*/
+    /*background: #9D0300;*/
+    /*border: 0;*/
+/*}*/
+/*.index_menu_left span{*/
+    /*display: none;*/
+/*}*/
+/*#navpanelList1{*/
+    /*width:100%;*/
+    /*margin-left: 0;*/
+    /*margin-top: 5px;*/
+    /*background: none;*/
+/*}*/
+/*.navpanelList{*/
+    /*text-align: center;*/
+    /*line-height: 21px;*/
+/*}*/
+/*.index_menu_righ_list{*/
+    /*width:22px;*/
+/*}*/
+/*.index_menu_right{*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*border: 0;*/
+    /*background: rgba(0,0,0,0.4);*/
+/*}*/
+/*.change{*/
+    /*margin-left: 8px;*/
+    /*top:140px;*/
+/*}*/
+/*.list_title input,.list_title label,.list_title span{*/
+    /*display: none;*/
+/*}*/
+/*.index_menu_left{*/
+    /*border: 0;*/
+/*}*/
+
+#navpanelList2 {
+   width:100%;
+ line-height: 21px;
+  margin-left: 13px;
+    margin-top: -53px;
+}
+/*#navpanelList3 {*/
+    /*width:100%;*/
+    /*line-height: 21px;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*background: none;*/
+/*}*/
+/*#navpanelList4 {*/
+    /*width:100%;*/
+    /*line-height: 21px;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*background: none;*/
+/*}*/
+
+/*点击出点的样式设置*/
+.picValueClick .bgImage{
+    display: inline-block;
+    width:10px;height:10px;
+    margin-left: 5px;
+    color:#Fff;
+}
+.picValueClick .bgImage p{
+    display:inline-block;
+    width:10px;height:10px;
+    background: url("../images/next.png");
+    background-size: cover;
+}
+.picValueClick{
+    display: inline-block;position:absolute;
+    bottom:0px;left:8px;width:100px;
+    /*background:#7E0308;*/
+}
+.picValueClick:hover{
+    background: red;
+}
+#pickValueMarker{
+    width:12px;height:12px;position: relative;
+}
+#pickValueMarker .point{
+    display:inline-block; width: 10px;height: 10px;border-radius: 50%;border: 2px solid red;background:rgba(13,14,13,0.5);
+}
+#pickValueMarker .pickValue_popup{
+    position: absolute;
+    top:-120px;left:7px;
+    height:65px;padding-left:12px;
+    padding-right: 28px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    background: rgba(157,3,0,.5);
+}
+.pickValue_popup .line{
+    display: block;height:120px;
+    border-left: 2px solid red;
+    position:absolute;top:1px;left:-1px
+
+}
+.pickValue_popup span:nth-child(2){
+    display: block;width:70px;
+    /*background:#7E0308;*/
+    margin-bottom: 1px;
+}
+.pickValue_popup span:nth-child(3){
+    display:inline-block;font-family: 微软雅黑;font-weight: bold;
+    /*background:#7E0308;*/
+}
+.pickValueClose{
+     position: absolute;top:0;right:0;
+     width:18px;height:18px;
+    /*background: #7E0308;*/
+
+ }
+.pickValueClose p{
+    display: inline-block;
+    width:15px;height:15px;
+    margin-left: 1px;
+    background: url("../images/colse.png");
+    background-size: cover;
+}
+#navpanelList2 {
+    width:100%;
+    line-height: 21px;
+    margin-left: 13px;
+    margin-top: -53px;
+}
+/*修改左侧样式*/
+.index_menu_left{
+    margin-left: 0;
+}
+.index_menu_right{
+    margin-left: 0;
+}
+#navMore{
+    background: rgba(157,3,0,.5);
+}
+
+#navMore:hover{
+    background: rgba(157,3,0,.8);
+}
+
+#leftNavTool{
+    width:0;
+    height:500px;
+    background: #4D4D4D;
+    position: relative;
+    top:60px;
+    overflow: hidden;
+    z-index:1000;
+}
+.liSelect{
+    background: rgba(157,3,0,.8);
+}
+.liPage_liSelect{
+    background: rgba(157,3,0,.8);
+}
+
+ul,ol{padding-left:0;list-style-type:none;}
+
+.fr{float:left;padding-left: 5px;}
+.rel{position: relative;}
+.abs{position: absolute;}
+.main-wraper{
+    width:53px;height:20px;
+    margin-bottom: 5px;
+}
+.switchBox{}
+.switch_box_l{
+    /*width: 9px;height: 21px;*/
+    /*background: url(../images/switch_box_l.gif) no-repeat;*/
+}
+.switch_box_r{
+    /*width: 9px;height: 21px;*/
+    /*background: url(../images/switch_box_r.gif) no-repeat;*/
+}
+.switch_box_c{
+    /*height: 21px;*/
+    /*background: url(../images/switch_box_c.gif) repeat-x;*/
+}
+.switchBtn{
+    width:20px;height: 20px;
+    line-height:20px;
+    text-align:center;
+    color:#fff;
+    font-family:'Microsoft YaHei';
+    /*background: url(../images/btnSwitch_c.gif) repeat-x;*/
+    top: 0px;left: 0px;
+    cursor: pointer;
+    z-index: 999;
+    background: #4D4D4D;
+    border-radius: 10px;
+}
+.switchBox .swichTxt{
+   display: inline-block;
+    width:16px;
+    height: 20px;
+    line-height:22px;
+    text-align:center;
+    font-family:'Microsoft YaHei';
+    color: #797e81;
+    text-decoration: none;
+}
+.switchBtn-l{
+    width: 8px;height: 20px;
+    line-height:20px;
+    text-align:center;
+    color:#fff;
+    font-family:'Microsoft YaHei';
+    /*background: url(../images/btnSwitch_l.gif) no-repeat;*/
+    position:absolute;
+    top: 0px;left: -6px;
+    cursor: pointer;
+}
+.switchBtn-r{
+    width: 8px;height: 20px;
+    line-height:20px;
+    text-align:center;
+    color:#fff;
+    font-family:'Microsoft YaHei';
+    /*background: url(../images/btnSwitch_r.gif) no-repeat;*/
+    position:absolute;
+    top: 0px;right: -6px;
+    cursor: pointer;
+}
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0; height: 0;
+}
+.clearfix:before, .clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0; height: 0;
+}
+.clearfix:after { clear: both }
+.clearfix { zoom: 1 }
+/*topbar*/
+.topbar{
+    /*background:#ceeeff;*/
+    background: #BBBBBB;
+    /*padding:2px 0px;*/
+    border-radius:18px;
+    margin-top:0px;
+}
+.topbar .tit{
+    color: #00578F;
+    font-size: 14px;
+    font-weight: bold;
+}
+::-webkit-scrollbar{
+    width: 5px;height:5px;
+}/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(180,206,216,1);
+    /*border-radius: 5px;*/
+}
+/* <a href="https://www.baidu.com/s?wd=%E6%BB%9A%E5%8A%A8%E6%9D%A1&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLnhnsPhubmWTvPAmzPyDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTsnHT1rj03rjmLrHTvnHRsn0" target="_blank" class="baidu-highlight">滚动条</a>滑块 */
+::-webkit-scrollbar-thumb
+{
+    /*width:6px;*/
+    /*background: rgba(0,0,0,0.1);*/
+    background:#9CA9B4;
+    /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);*/
+}
+
+.listPageClose{
+    position:absolute;
+    top:0;right:0;
+    width:25px;height:25px;
+    z-index:1000;
+    background: rgba(157,3,0,.8);
+}
+.listPageClose .close{
+    width:100%;height:100%;
+    background: url("../images/colse.png") no-repeat;
+    background-size: cover;
+}
+
+/*站点的格点要素样式设计*/
+.stationLis{
+    position: fixed;
+    right:0;
+    bottom:140px;
+    width:auto;
+    height:20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    z-index: 999;
+    cursor:pointer;
+}
+
+.stationEle{
+    width:45px;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    float: left;
+}
+
+/*.stationEle:hover{*/
+    /*background: rgba(0,0,0,.1);*/
+/*}*/
+
+.stationEleSelect{
+    background: #D51829;
+}
+.staionPonit{
+    text-align: center;
+    line-height: 16px;
+    color:  #fff;
+    border-radius: 8px;
+}
+.staionPonit1{
+    background: url('../images/plne.png.png') center no-repeat;
+    background-size: cover;
+}
+.staionPonit2 {
+    background: url(../images/population1.png) center no-repeat;
+    background-size: cover;
+}
+.list_title{
+    font-size:14px;
+}
+/*无值时搜索框 可以显示城市地址进行选择*/
+#initSearch div.close p{
+    display:inline-block;
+    width:20px;height:20px;
+    background: url(../images/colse.png);
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#initSearch{
+    position: absolute;
+    top:111px;
+    left:59px;
+    width:384px;
+    /*height:auto;*/
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    z-index:999999;
+    overflow: hidden;
+    display: none;
+}
+#initSearch a:visited,#initSearch a{
+    color:#55ADF0;
+}
+#initSearch .cityList a{
+    font-size: 40px;
+}
+#initSearch ul{
+    position: static;
+}
+#initSearch .titleCity .titleList,#initSearch .spellCity .spell,#initSearch .showCity .cityList{
+    color:#55ADF0;
+    margin: 0;
+    padding: 10px 12px;
+    overflow: hidden;
+}
+
+#initSearch .titleList li,#initSearch .spellCity li{
+    line-height: 20px;
+    text-align: center;
+    float: left;
+    font-size: 12px;
+}
+/*,.cityList li*/
+#initSearch .titleList li{
+    width:60px;
+}
+#initSearch .spellCity li{
+    width:30px;
+}
+
+#initSearch .cityList li{
+    width:100%;
+}
+#initSearch .titleList li span:nth-child(2),#initSearch .city span:nth-child(2){
+    display: none;
+}
+#initSearch .cityList li  a{
+    display: inline-block;
+}
+#initSearch .showCity{
+    height:300px;
+    overflow-y: scroll;
+}
+#initSearch .aList,#initSearch .cityBox{
+    float: left;
+    margin-bottom: 20px;
+}
+#initSearch .aList{
+    display: inline-block;
+    width:40px;
+    height:40px;
+    line-height: 40px;
+
+}
+#initSearch .cityBox{
+    width: 300px;
+    text-align: center;
+    line-height: 20px;
+    overflow: hidden;
+}
+#initSearch .city{
+    width:40px;
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    font-size: 12px;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* word-wrap: break-word; */
+    white-space: nowrap;
+}
+#initSearch .titleList li:hover,#initSearch .spell li:hover,#initSearch .city:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,217 @@
+﻿/*
+    CSS书写顺序
+1.位置属性(position, top, right, z-index, display, float等)
+2.大小(width, height, padding, margin)
+3.文字系列(font, line-height, letter-spacing, color- text-align等)
+4.背景(background, border等)
+5.其他(animation, transition等)
+*/
+/*顶部导航*/
+div, table, ul, li, img {
+  list-style: none;
+  border: 0;
+}
+
+#headerContainer {
+  height: 62px;
+  width: 100%;
+  /***导航菜单样式	***/
+}
+#headerContainer #header {
+  height: 62px;
+  width: 99%;
+  /*  background:url("../images/bg.png") no-repeat  center;*/
+  position: absolute;
+  top: 0;
+  z-index: 199;
+  left: 0.5%;
+}
+#headerContainer #logo {
+  float: left;
+  height: 62px;
+  width: 254px;
+  background: url("../images/logo2.png") no-repeat left center;
+  outline: none;
+}
+#headerContainer .search {
+  position: absolute;
+  top: 20px;
+  left: 75%;
+  height: 25px;
+  width: 20%;
+  padding-left: 10px;
+  border: 1px solid #ededed;
+  z-index: 200;
+  background: url("../index/images/searchline.png") no-repeat 90% center, url("../index/images/search.png") no-repeat 97% center;
+}
+#headerContainer #navMenu {
+  z-index: 8999;
+  float: left;
+  height: 62px;
+  right: 10px;
+  position: absolute;
+  top: 0;
+  width: 79%;
+}
+#headerContainer #navMenu .root {
+  height: 62px;
+  padding-top: 0;
+  line-height: 62px;
+}
+.root > li {
+  position: relative;
+  float: left;
+  width: 8.3%;
+  height: 62px;
+  padding: 0;
+  margin: 0;
+  background: url("../images/fenge.png") no-repeat right center;
+}
+.root > li:last-child {
+  background: none;
+}
+.root > li:hover > a {
+  color: #474747;
+  /*background:#ffffff;*/
+  background: url("../index/images/tops.png") no-repeat center;
+}
+.root > li > a {
+  position: absolute;
+  /*hover添加背景，使遮住两边的分割线（li的背景图片）*/
+  left: -2px;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*下拉菜单的样式*/
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid #dadada;
+}
+.dropdown-menu > li {
+  position: relative;
+  width: 219px;
+  height: 31px;
+  padding: 0;
+  margin: 0;
+  line-height: 31px;
+  background: none;
+}
+.dropdown-menu > li > a {
+  display: block;
+  padding-left: 25px;
+  color: #000;
+  font-weight: normal;
+  border-bottom: 1px dotted #dadada;
+  font-size: 14px;
+}
+.dropdown-menu > li > a:hover {
+  color: #1365ab;
+  background: #ededed;
+}
+.wodry {
+  display: inline-block;
+  width: 100%;
+  color: #ff8500;
+}
+/*2、3级菜单的定位 */
+#navMenu {
+  /*2、3级菜单的显示触发 */
+  /*有子菜单的2级菜单，右边框标识 */
+}
+#navMenu .menu2 {
+  top: 62px;
+  left: -2px;
+  z-index: 2;
+}
+#navMenu .menu3 {
+  top: 0;
+  /*二级菜单的长度 + 二级菜单右边框的宽度 */
+  left: 219px;
+}
+#navMenu li:hover > .menu2,
+#navMenu li:hover > .menu3 {
+  display: block;
+}
+#navMenu .menu2 > li.existsub:hover {
+  width: 216px;
+  border-right: 3px solid #1a96dd;
+}
+#nptLike {
+  position: absolute;
+  height: 30px;
+  top: 62px;
+  right: 0;
+  cursor: pointer;
+}
+#nptLike .like-image {
+  float: left;
+  background-color: #eee;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px 0 0 3px;
+}
+#nptLike .like-image:hover {
+  background-color: #ddd;
+  background-image: linear-gradient(#eee, #ddd);
+  border-color: #ccc;
+}
+#nptLike .like-image span {
+  display: block;
+  height: 24px;
+  width: 20px;
+  margin: 3px 10px;
+  background: url("../images/like.png");
+  background-size: cover;
+}
+#nptLike .like-count {
+  float: left;
+  height: 30px;
+  padding: 0px 7px;
+  line-height: 30px;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#nptLike .like-count:hover {
+  color: #4078c0;
+}
+@media screen and (max-width: 1080px) {
+  .root > li {
+    width: 8%;
+  }
+  .root > li > a {
+    width: 71px;
+    font-size: 12px;
+  }
+  #headerContainer #logo {
+    background-size: 90%;
+    width: 164px;
+  }
+  .noticeList {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .root > li {
+    width: 60px;
+  }
+  .root > li > a {
+    width: 65px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #header {
+    width: 1260px;
+  }
+}

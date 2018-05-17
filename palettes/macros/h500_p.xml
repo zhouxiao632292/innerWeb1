@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<palette>
+  <entry value="500" rgba="165,8,209,127"/>
+  <entry value="508" rgba="137,0,212,127"/>
+  <entry value="516" rgba="26,62,255,127"/>
+  <entry value="524" rgba="0,158,255,127"/>
+  <entry value="532" rgba="0,201,201,127"/>
+  <entry value="540" rgba="0,209,138,127"/>
+  <entry value="548" rgba="1,221,1,127"/>
+  <entry value="552" rgba="162,232,48,127"/>
+  <entry value="560" rgba="255,255,255,0"/>
+</palette>

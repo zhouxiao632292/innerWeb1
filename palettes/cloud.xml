@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette>
+		<entry rgba="228,228,228,0" value="0"  visible="true"/>
+		<entry rgba="218,218,218,255" value="10" visible="true"/>
+		<entry rgba="208,208,208,255" value="20" visible="true"/>
+		<entry rgba="198,198,198,255" value="30" visible="true"/>
+		<entry rgba="188,188,188,255" value="40" visible="true"/>
+		<entry rgba="178,178,178,255" value="50" visible="true"/>
+		<entry  rgba="168,168,168,255" value="60" visible="true"/>
+		<entry  rgba="158,158,158,255" value="70" visible="true"/>
+		<entry  rgba="148,148,148,255" value="80" visible="true"/>
+		<entry  rgba="138,138,138,255" value="90" visible="true"/>
+		<entry  rgba="128,128,128,255" value="100" visible="true"/>
+</palette>

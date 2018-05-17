@@ -1,0 +1,1525 @@
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.disastrousWeather{
+    width:100%;
+    position: absolute;
+    top:0px;bottom: 0;
+    left:0;right:0;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+.disastrousWeatherCenter{
+    /*padding:3px;*/
+    width:100%;
+    height:100%;
+    /*position: absolute;*/
+    /*top:60px;bottom: 0;*/
+    /*left:0;right:0;*/
+    /*margin: auto;*/
+    position: relative;
+    color:#fff;
+    border:1px solid #323A4C;
+    box-sizing: border-box;
+    background:#22293B;
+}
+/*蓝色边框*/
+.litleLeft{
+    /*width:4px;*/
+    height:10px;
+    border-left:2px solid #4DBAF2;
+    position: absolute;
+    top: 0;left: -1px;
+}
+.litleLeft1{
+    /*width:4px;*/
+    height:10px;
+    border-left:2px solid #4DBAF2;
+    position: absolute;
+    bottom: 0;left: -1px;
+}
+.litleTop{
+    width:20px;
+    border-top:2px solid #4DBAF2;
+    position: absolute;
+    top:-1px;
+    left:0;
+}
+.litleTop1{
+    width:20px;
+    border-top:2px solid #4DBAF2;
+    position: absolute;
+    top: -1px;
+    right:0
+}
+.litleRight{
+    height:10px;
+    border-left:2px solid #4DBAF2;
+    position: absolute;
+    top: 0;right: -1px;
+}
+.litleRight1{
+    height:10px;
+    border-left:2px solid #4DBAF2;
+    position: absolute;
+    bottom: 0;right: -1px;
+}
+.litleBottom{
+    width:20px;
+    border-bottom:2px solid #4DBAF2;
+    position: absolute;
+    bottom: -1px;left: 0px;
+}
+.litleBottom1{
+    width:20px;
+    border-bottom:2px solid #4DBAF2;
+    position: absolute;
+    bottom: -1px;right: 0px;
+}
+/*操作面板*/
+.disastrousWeatherLeft{
+    width:242px;height:100%;
+    float: left;
+    position: relative;
+}
+.disastrousWeatherRight{
+    height:100%;
+    float: left;
+    /*background: green;*/
+    /*position: relative;*/
+}
+.navTitle{
+    width:100%;
+    height:30px;
+    border-bottom: 1px solid #39769E;
+}
+.navTitle ul{
+    display: inline-block;
+    margin-left: 20px;
+}
+.navTitle ul li{
+    float: left;
+    width:auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 28px;
+    color:#3A9CCE;
+    /*border: 1px solid #39769E;*/
+    /*border-bottom: 0;*/
+    /*border-radius: 5px 5px 0 0;*/
+}
+.navTitle ul li.active{
+    color:#F16743;
+    line-height: 29px;
+    border: 1px solid #39769E;
+    border-bottom: 1px solid #22293B;
+}
+/*展示页面的高度*/
+.liPage{
+    width:100%;
+    /*height:758px;*/
+    border:1px solid #39769E;
+    border-top: 0;
+}
+.liPage-top{
+    width:100%;
+    height:556px;
+    float: left;
+}
+.liPage li.show {display: block;}
+
+.nav{
+    display: inline-block;
+    width:240px;
+    height:auto;
+    border:1px solid #323A4C;
+    border-left:0;
+    margin: auto 0;
+    overflow: hidden;
+    margin-top: 20%;
+}
+
+.nav1{
+    width:100%;
+    height:auto;
+    float: left;
+}
+.nav1 div:nth-child(1){
+    /*width:100%;*/
+    height: 21px;
+    border-bottom: 1px solid #323A4C;
+}
+.nav1 div:nth-child(1) span{
+    display: inline-block;
+    /*float: left;*/
+    margin-left:5px;
+}
+.navUl{
+    width:100%;
+    height:auto;
+    border-bottom: 1px solid #323A4C;
+    padding: 5px 0 5px 25px;
+}
+.navUl ul{
+    display: inline-block;
+}
+.navUl ul li{
+    display: inline-block;
+    width:90%;
+    height:20px;
+    float: left;
+    color:#3A9CCE;
+    position: relative;
+}
+.nav1:nth-child(3) .navUl ul li{
+    width:100%;
+}
+.nav1:nth-child(2) .navUl ul li{
+    width:100%;
+    margin-bottom: 5px;
+}
+/*.nav1:nth-child(2) .navUl ul li span:nth-child(1){*/
+/*display: inline-block;*/
+/*float: left;*/
+/*}*/
+.disastrousWeatherType{
+    display: inline-block;
+    float: left;
+    width:20px;
+    height:20px;
+    background: url("../image/disastrousWeather.png") no-repeat;
+    background-size: cover;
+}
+.timeType {
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url("../image/timeType.png") no-repeat;
+    background-size: cover;
+}
+.statisticsType{
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url("../image/statisticsType.png") no-repeat;
+    background-size: cover;
+}
+.lowTemperature{
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url("../image/lowTemperature.png") no-repeat;
+    background-size: cover;
+}
+.lowTemperature1{
+    background: url("../image/disastrousWeather1.png") no-repeat;
+    background-size: cover;
+}
+.lowTemperature2{
+    background: url("../image/disastrousWeather2.png") no-repeat;
+    background-size: cover;
+}
+.lowTemperature3{
+    background: url("../image/disastrousWeather3.png") no-repeat;
+    background-size: cover;
+}
+/*修改radio默认样式*/
+.navUl li input[type="radio"] {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+}
+
+.navUl li label {
+    position: absolute;
+    left: 0px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background:#3CABE1;
+
+}
+/*设置选中的input的样式*/
+/* + 是兄弟选择器,获取选中后的label元素*/
+.navUl li input:checked+label {
+    background-color: #F06642;
+}
+.navUl li input:checked+label+span {
+    color: #F06642;
+}
+.navUl li input:checked+label::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 8px;
+    top: 0;
+    left: 2px;
+    border: 2px solid #3E323C;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg)
+}
+/*右侧显示面板*/
+#disastrousWeatherChart{
+    width:100%;
+    height:100%;
+}
+#timeAxis{
+    width:100%;
+    height:60px;
+    position:absolute;
+    bottom: 10px;right:0;
+    background: #000;
+}
+.timeParse{
+    width:970px;
+    height:100%;
+    margin: 0 auto;
+    /*background: red;*/
+    position: relative;
+}
+.timeParse span{
+    display: inline-block;
+    width:auto;
+    line-height: 25px;
+    float: left;
+
+}
+.timeScaleBox{
+    display: inline-block;
+    width:900px;
+    float: left;
+    height:30px;
+    margin-top: 5px;
+    background:#323A4C;
+    z-index:3;
+}
+.pre{
+    width:30px;
+    height:30px;
+    float: left;
+    background: url("../image/pre.png") center no-repeat;
+    border-right:1px solid #000;
+}
+.next{
+    width:30px;
+    height:30px;
+    float: right;
+    background: url("../image/next.png") center no-repeat;
+    border-left:1px solid #000;
+}
+.timeScale{
+    position: absolute;
+    left:101px;
+    width:836px;
+    height:100%;
+    margin:0 auto;
+}
+.timeScaleCopy{
+    position: absolute;
+    left:101px;
+    width:836px;
+    height:100%;
+    margin:0 auto;
+}
+.scalebox{
+    width:794px;
+    height:5px;
+    background:#3CABE1;
+    position: absolute;
+    left:21px;top:12px;
+    /*right:0;*/
+    /*bottom: 0;*/
+    /*margin:12px auto;*/
+}
+.scale{
+    height:100%;
+    position: relative;
+}
+.scaleCopy{
+    width:130px;
+    height:5px;
+    background:#F16743;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:4;
+}
+.scaleLitle{
+    width:12px;
+    height:18px;
+    position: relative;
+    top:-5px;
+    border-left:1px solid #5B616A;
+    float: left;
+}
+.scaleLitle:last-child{
+    width:0px;
+}
+.pointerPre{
+    width:5px;
+    height:15px;
+    background: url("../image/pointer.png") center no-repeat;
+    position: absolute;
+    left:-2px;
+    top:-4px;
+    cursor: pointer;
+    z-index:4;
+}
+.pointerNext{
+    width:5px;
+    height:15px;
+    background: url("../image/pointer.png") center no-repeat;
+    position: absolute;
+    left:128px;
+    top:-4px;
+    cursor: pointer;
+    z-index:4;
+
+}
+.calendar-title span{
+    text-align: center;
+}
+/*@media (max-height:780px) {*/
+    /*ul,li{*/
+        /*padding: 0;*/
+        /*margin: 0;*/
+        /*list-style: none;*/
+    /*}*/
+    /*.disastrousWeatherCenter{*/
+        /*padding:3px;*/
+        /*width:100%;height:535px;*/
+        /*position: absolute;*/
+        /*top:0px;bottom: 0;*/
+        /*left:0;right:0;*/
+        /*margin: auto;*/
+        /*color:#fff;*/
+    /*border:1px solid #323A4C;*/
+        /*box-sizing: border-box;*/
+        /*background:#22293B;*/
+    /*}*/
+    /*/!*蓝色边框*!/*/
+    /*.litleLeft{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;left: -1px;*/
+    /*}*/
+    /*.litleLeft1{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;left: -1px;*/
+    /*}*/
+    /*.litleTop{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top:-1px;*/
+        /*left:0;*/
+    /*}*/
+    /*.litleTop1{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: -1px;*/
+        /*right:0*/
+    /*}*/
+    /*.litleRight{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;right: -1px;*/
+    /*}*/
+    /*.litleRight1{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;right: -1px;*/
+    /*}*/
+    /*.litleBottom{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;left: 0px;*/
+    /*}*/
+    /*.litleBottom1{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right: 0px;*/
+    /*}*/
+    /*/!*操作面板*!/*/
+    /*.disastrousWeatherLeft{*/
+        /*width:242px;height:100%;*/
+        /*float: left;*/
+        /*position: relative;*/
+    /*}*/
+    /*.disastrousWeatherRight{*/
+        /*height:100%;*/
+        /*float: left;*/
+        /*/!*background: green;*!/*/
+        /*/!*position: relative;*!/*/
+    /*}*/
+    /*.navTitle{*/
+        /*width:100%;*/
+        /*height:30px;*/
+        /*border-bottom: 1px solid #39769E;*/
+    /*}*/
+    /*.navTitle ul{*/
+        /*display: inline-block;*/
+        /*margin-left: 20px;*/
+    /*}*/
+    /*.navTitle ul li{*/
+        /*float: left;*/
+        /*width:auto;*/
+        /*padding-left: 10px;*/
+        /*padding-right: 10px;*/
+        /*line-height: 28px;*/
+        /*color:#3A9CCE;*/
+        /*/!*border: 1px solid #39769E;*!/*/
+        /*/!*border-bottom: 0;*!/*/
+        /*/!*border-radius: 5px 5px 0 0;*!/*/
+    /*}*/
+    /*.navTitle ul li.active{*/
+        /*color:#F16743;*/
+        /*line-height: 29px;*/
+        /*border: 1px solid #39769E;*/
+        /*border-bottom: 1px solid #22293B;*/
+    /*}*/
+    /*/!*展示页面的高度*!/*/
+    /*.liPage{*/
+        /*width:100%;*/
+        /*/!*height:758px;*!/*/
+        /*border:1px solid #39769E;*/
+        /*border-top: 0;*/
+    /*}*/
+    /*.liPage-top{*/
+        /*width:100%;*/
+        /*height:556px;*/
+        /*float: left;*/
+    /*}*/
+    /*.liPage li.show {display: block;}*/
+
+    /*.nav{*/
+        /*display: inline-block;*/
+        /*width:240px;*/
+        /*height:auto;*/
+        /*border:1px solid #323A4C;*/
+        /*border-left:0;*/
+        /*margin: auto 0;*/
+        /*overflow: hidden;*/
+        /*margin-top: 20%;*/
+    /*}*/
+
+    /*.nav1{*/
+        /*width:100%;*/
+        /*height:auto;*/
+        /*float: left;*/
+    /*}*/
+    /*.nav1 div:nth-child(1){*/
+        /*/!*width:100%;*!/*/
+        /*height: 21px;*/
+        /*border-bottom: 1px solid #323A4C;*/
+    /*}*/
+    /*.nav1 div:nth-child(1) span{*/
+        /*display: inline-block;*/
+        /*/!*float: left;*!/*/
+        /*margin-left:5px;*/
+    /*}*/
+    /*.navUl{*/
+        /*width:100%;*/
+        /*height:auto;*/
+        /*border-bottom: 1px solid #323A4C;*/
+        /*padding: 5px 0 5px 25px;*/
+    /*}*/
+    /*.navUl ul{*/
+        /*display: inline-block;*/
+    /*}*/
+    /*.navUl ul li{*/
+        /*display: inline-block;*/
+        /*width:90%;*/
+        /*height:20px;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+    /*}*/
+    /*.nav1:nth-child(3) .navUl ul li{*/
+        /*width:100%;*/
+    /*}*/
+    /*.nav1:nth-child(2) .navUl ul li{*/
+        /*width:100%;*/
+        /*margin-bottom: 5px;*/
+    /*}*/
+    /*/!*.nav1:nth-child(2) .navUl ul li span:nth-child(1){*!/*/
+    /*/!*display: inline-block;*!/*/
+    /*/!*float: left;*!/*/
+    /*/!*}*!/*/
+    /*.disastrousWeatherType{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width:20px;*/
+        /*height:20px;*/
+        /*background: url("../image/disastrousWeather.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.timeType {*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/timeType.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.statisticsType{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/statisticsType.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/lowTemperature.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature1{*/
+        /*background: url("../image/disastrousWeather1.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature2{*/
+        /*background: url("../image/disastrousWeather2.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature3{*/
+        /*background: url("../image/disastrousWeather3.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*/!*修改radio默认样式*!/*/
+    /*.navUl li input[type="radio"] {*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*.navUl li label {*/
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*top: 4px;*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*background:#3CABE1;*/
+
+    /*}*/
+    /*/!*设置选中的input的样式*!/*/
+    /*/!* + 是兄弟选择器,获取选中后的label元素*!/*/
+    /*.navUl li input:checked+label {*/
+        /*background-color: #F06642;*/
+    /*}*/
+    /*.navUl li input:checked+label+span {*/
+        /*color: #F06642;*/
+    /*}*/
+    /*.navUl li input:checked+label::after {*/
+        /*position: absolute;*/
+        /*content: "";*/
+        /*width: 5px;*/
+        /*height: 8px;*/
+        /*top: 0;*/
+        /*left: 2px;*/
+        /*border: 2px solid #3E323C;*/
+        /*border-top: none;*/
+        /*border-left: none;*/
+        /*transform: rotate(45deg)*/
+    /*}*/
+    /*/!*右侧显示面板*!/*/
+    /*#disastrousWeatherChart{*/
+        /*width:100%;*/
+        /*height:100%;*/
+    /*}*/
+    /*#timeAxis{*/
+        /*width:100%;*/
+        /*height:60px;*/
+        /*position:absolute;*/
+        /*bottom: 10px;right:0;*/
+        /*background: #000;*/
+    /*}*/
+    /*.timeParse{*/
+        /*width:970px;*/
+        /*height:100%;*/
+        /*margin: 0 auto;*/
+        /*/!*background: red;*!/*/
+        /*position: relative;*/
+    /*}*/
+    /*.timeParse span{*/
+        /*display: inline-block;*/
+        /*width:auto;*/
+        /*line-height: 25px;*/
+        /*float: left;*/
+
+    /*}*/
+    /*.timeScaleBox{*/
+        /*display: inline-block;*/
+        /*width:900px;*/
+        /*float: left;*/
+        /*height:30px;*/
+        /*margin-top: 5px;*/
+        /*background:#323A4C;*/
+        /*z-index:3;*/
+    /*}*/
+    /*.pre{*/
+        /*width:30px;*/
+        /*height:30px;*/
+        /*float: left;*/
+        /*background: url("../image/pre.png") center no-repeat;*/
+        /*border-right:1px solid #000;*/
+    /*}*/
+    /*.next{*/
+        /*width:30px;*/
+        /*height:30px;*/
+        /*float: right;*/
+        /*background: url("../image/next.png") center no-repeat;*/
+        /*border-left:1px solid #000;*/
+    /*}*/
+    /*.timeScale{*/
+        /*position: absolute;*/
+        /*left:101px;*/
+        /*width:836px;*/
+        /*height:100%;*/
+        /*margin:0 auto;*/
+    /*}*/
+    /*.timeScaleCopy{*/
+        /*position: absolute;*/
+        /*left:101px;*/
+        /*width:836px;*/
+        /*height:100%;*/
+        /*margin:0 auto;*/
+    /*}*/
+    /*.scalebox{*/
+        /*width:794px;*/
+        /*height:5px;*/
+        /*background:#3CABE1;*/
+        /*position: absolute;*/
+        /*left:21px;top:12px;*/
+        /*/!*right:0;*!/*/
+        /*/!*bottom: 0;*!/*/
+        /*/!*margin:12px auto;*!/*/
+    /*}*/
+    /*.scale{*/
+        /*height:100%;*/
+        /*position: relative;*/
+    /*}*/
+    /*.scaleCopy{*/
+        /*width:130px;*/
+        /*height:5px;*/
+        /*background:#F16743;*/
+        /*position:absolute;*/
+        /*top:0;*/
+        /*left:0;*/
+        /*z-index:4;*/
+    /*}*/
+    /*.scaleLitle{*/
+        /*width:12px;*/
+        /*height:18px;*/
+        /*position: relative;*/
+        /*top:-5px;*/
+        /*border-left:1px solid #5B616A;*/
+        /*float: left;*/
+    /*}*/
+    /*.scaleLitle:last-child{*/
+        /*width:0px;*/
+    /*}*/
+    /*.pointerPre{*/
+        /*width:5px;*/
+        /*height:15px;*/
+        /*background: url("../image/pointer.png") center no-repeat;*/
+        /*position: absolute;*/
+        /*left:-2px;*/
+        /*top:-4px;*/
+        /*cursor: pointer;*/
+        /*z-index:4;*/
+    /*}*/
+    /*.pointerNext{*/
+        /*width:5px;*/
+        /*height:15px;*/
+        /*background: url("../image/pointer.png") center no-repeat;*/
+        /*position: absolute;*/
+        /*left:128px;*/
+        /*top:-4px;*/
+        /*cursor: pointer;*/
+        /*z-index:4;*/
+
+    /*}*/
+    /*.calendar-title span{*/
+        /*text-align: center;*/
+    /*}*/
+/*}*/
+/*@media (min-height:781px) and (max-height:1050px) {*/
+    /*ul,li{*/
+        /*padding: 0;*/
+        /*margin: 0;*/
+        /*list-style: none;*/
+    /*}*/
+    /*.disastrousWeatherCenter{*/
+        /*padding:3px;*/
+        /*width:100%;height:790px;*/
+        /*position: absolute;*/
+        /*top:0px;bottom: 0;*/
+        /*left:0;right:0;*/
+        /*margin: auto;*/
+        /*color:#fff;*/
+    /*border:1px solid #323A4C;*/
+        /*box-sizing: border-box;*/
+        /*background:#22293B;*/
+    /*}*/
+    /*/!*蓝色边框*!/*/
+    /*.litleLeft{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;left: -1px;*/
+    /*}*/
+    /*.litleLeft1{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;left: -1px;*/
+    /*}*/
+    /*.litleTop{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top:-1px;*/
+        /*left:0;*/
+    /*}*/
+    /*.litleTop1{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: -1px;*/
+        /*right:0*/
+    /*}*/
+    /*.litleRight{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;right: -1px;*/
+    /*}*/
+    /*.litleRight1{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;right: -1px;*/
+    /*}*/
+    /*.litleBottom{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;left: 0px;*/
+    /*}*/
+    /*.litleBottom1{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right: 0px;*/
+    /*}*/
+    /*/!*操作面板*!/*/
+    /*.disastrousWeatherLeft{*/
+        /*width:242px;height:100%;*/
+        /*float: left;*/
+        /*position: relative;*/
+    /*}*/
+    /*.disastrousWeatherRight{*/
+        /*height:100%;*/
+        /*float: left;*/
+        /*/!*background: green;*!/*/
+        /*/!*position: relative;*!/*/
+    /*}*/
+    /*.navTitle{*/
+        /*width:100%;*/
+        /*height:30px;*/
+        /*border-bottom: 1px solid #39769E;*/
+    /*}*/
+    /*.navTitle ul{*/
+        /*display: inline-block;*/
+        /*margin-left: 20px;*/
+    /*}*/
+    /*.navTitle ul li{*/
+        /*float: left;*/
+        /*width:auto;*/
+        /*padding-left: 10px;*/
+        /*padding-right: 10px;*/
+        /*line-height: 28px;*/
+        /*color:#3A9CCE;*/
+        /*/!*border: 1px solid #39769E;*!/*/
+        /*/!*border-bottom: 0;*!/*/
+        /*/!*border-radius: 5px 5px 0 0;*!/*/
+    /*}*/
+    /*.navTitle ul li.active{*/
+        /*color:#F16743;*/
+        /*line-height: 29px;*/
+        /*border: 1px solid #39769E;*/
+        /*border-bottom: 1px solid #22293B;*/
+    /*}*/
+    /*/!*展示页面的高度*!/*/
+    /*.liPage{*/
+        /*width:100%;*/
+        /*/!*height:758px;*!/*/
+        /*border:1px solid #39769E;*/
+        /*border-top: 0;*/
+    /*}*/
+    /*.liPage-top{*/
+        /*width:100%;*/
+        /*height:556px;*/
+        /*float: left;*/
+    /*}*/
+    /*.liPage li.show {display: block;}*/
+
+    /*.nav{*/
+        /*display: inline-block;*/
+        /*width:240px;*/
+        /*height:auto;*/
+        /*border:1px solid #323A4C;*/
+        /*border-left:0;*/
+        /*margin: auto 0;*/
+        /*overflow: hidden;*/
+        /*margin-top: 20%;*/
+    /*}*/
+
+    /*.nav1{*/
+        /*width:100%;*/
+        /*height:auto;*/
+        /*float: left;*/
+    /*}*/
+    /*.nav1 div:nth-child(1){*/
+        /*/!*width:100%;*!/*/
+        /*height: 21px;*/
+        /*border-bottom: 1px solid #323A4C;*/
+    /*}*/
+    /*.nav1 div:nth-child(1) span{*/
+        /*display: inline-block;*/
+        /*/!*float: left;*!/*/
+        /*margin-left:5px;*/
+    /*}*/
+    /*.navUl{*/
+        /*width:100%;*/
+        /*height:auto;*/
+        /*border-bottom: 1px solid #323A4C;*/
+        /*padding: 5px 0 5px 25px;*/
+    /*}*/
+    /*.navUl ul{*/
+        /*display: inline-block;*/
+    /*}*/
+    /*.navUl ul li{*/
+        /*display: inline-block;*/
+        /*width:90%;*/
+        /*height:20px;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+    /*}*/
+    /*.nav1:nth-child(3) .navUl ul li{*/
+        /*width:100%;*/
+    /*}*/
+    /*.nav1:nth-child(2) .navUl ul li{*/
+        /*width:100%;*/
+        /*margin-bottom: 5px;*/
+    /*}*/
+    /*/!*.nav1:nth-child(2) .navUl ul li span:nth-child(1){*!/*/
+    /*/!*display: inline-block;*!/*/
+    /*/!*float: left;*!/*/
+    /*/!*}*!/*/
+    /*.disastrousWeatherType{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width:20px;*/
+        /*height:20px;*/
+        /*background: url("../image/disastrousWeather.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.timeType {*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/timeType.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.statisticsType{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/statisticsType.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/lowTemperature.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature1{*/
+        /*background: url("../image/disastrousWeather1.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature2{*/
+        /*background: url("../image/disastrousWeather2.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature3{*/
+        /*background: url("../image/disastrousWeather3.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*/!*修改radio默认样式*!/*/
+    /*.navUl li input[type="radio"] {*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*.navUl li label {*/
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*top: 4px;*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*background:#3CABE1;*/
+
+    /*}*/
+    /*/!*设置选中的input的样式*!/*/
+    /*/!* + 是兄弟选择器,获取选中后的label元素*!/*/
+    /*.navUl li input:checked+label {*/
+        /*background-color: #F06642;*/
+    /*}*/
+    /*.navUl li input:checked+label+span {*/
+        /*color: #F06642;*/
+    /*}*/
+    /*.navUl li input:checked+label::after {*/
+        /*position: absolute;*/
+        /*content: "";*/
+        /*width: 5px;*/
+        /*height: 8px;*/
+        /*top: 0;*/
+        /*left: 2px;*/
+        /*border: 2px solid #3E323C;*/
+        /*border-top: none;*/
+        /*border-left: none;*/
+        /*transform: rotate(45deg)*/
+    /*}*/
+    /*/!*右侧显示面板*!/*/
+    /*#disastrousWeatherChart{*/
+        /*width:100%;*/
+        /*height:100%;*/
+    /*}*/
+    /*#timeAxis{*/
+        /*width:100%;*/
+        /*height:60px;*/
+        /*position:absolute;*/
+        /*bottom: 10px;right:0;*/
+        /*background: #000;*/
+    /*}*/
+    /*.timeParse{*/
+        /*width:970px;*/
+        /*height:100%;*/
+        /*margin: 0 auto;*/
+        /*/!*background: red;*!/*/
+        /*position: relative;*/
+    /*}*/
+    /*.timeParse span{*/
+        /*display: inline-block;*/
+        /*width:auto;*/
+        /*line-height: 25px;*/
+        /*float: left;*/
+
+    /*}*/
+    /*.timeScaleBox{*/
+        /*display: inline-block;*/
+        /*width:900px;*/
+        /*float: left;*/
+        /*height:30px;*/
+        /*margin-top: 5px;*/
+        /*background:#323A4C;*/
+        /*z-index:3;*/
+    /*}*/
+    /*.pre{*/
+        /*width:30px;*/
+        /*height:30px;*/
+        /*float: left;*/
+        /*background: url("../image/pre.png") center no-repeat;*/
+        /*border-right:1px solid #000;*/
+    /*}*/
+    /*.next{*/
+        /*width:30px;*/
+        /*height:30px;*/
+        /*float: right;*/
+        /*background: url("../image/next.png") center no-repeat;*/
+        /*border-left:1px solid #000;*/
+    /*}*/
+    /*.timeScale{*/
+        /*position: absolute;*/
+        /*left:101px;*/
+        /*width:836px;*/
+        /*height:100%;*/
+        /*margin:0 auto;*/
+    /*}*/
+    /*.timeScaleCopy{*/
+        /*position: absolute;*/
+        /*left:101px;*/
+        /*width:836px;*/
+        /*height:100%;*/
+        /*margin:0 auto;*/
+    /*}*/
+    /*.scalebox{*/
+        /*width:794px;*/
+        /*height:5px;*/
+        /*background:#3CABE1;*/
+        /*position: absolute;*/
+        /*left:21px;top:12px;*/
+        /*/!*right:0;*!/*/
+        /*/!*bottom: 0;*!/*/
+        /*/!*margin:12px auto;*!/*/
+    /*}*/
+    /*.scale{*/
+        /*height:100%;*/
+        /*position: relative;*/
+    /*}*/
+    /*.scaleCopy{*/
+        /*width:130px;*/
+        /*height:5px;*/
+        /*background:#F16743;*/
+        /*position:absolute;*/
+        /*top:0;*/
+        /*left:0;*/
+        /*z-index:4;*/
+    /*}*/
+    /*.scaleLitle{*/
+        /*width:12px;*/
+        /*height:18px;*/
+        /*position: relative;*/
+        /*top:-5px;*/
+        /*border-left:1px solid #5B616A;*/
+        /*float: left;*/
+    /*}*/
+    /*.scaleLitle:last-child{*/
+        /*width:0px;*/
+    /*}*/
+    /*.pointerPre{*/
+        /*width:5px;*/
+        /*height:15px;*/
+        /*background: url("../image/pointer.png") center no-repeat;*/
+        /*position: absolute;*/
+        /*left:-2px;*/
+        /*top:-4px;*/
+        /*cursor: pointer;*/
+        /*z-index:4;*/
+    /*}*/
+    /*.pointerNext{*/
+        /*width:5px;*/
+        /*height:15px;*/
+        /*background: url("../image/pointer.png") center no-repeat;*/
+        /*position: absolute;*/
+        /*left:128px;*/
+        /*top:-4px;*/
+        /*cursor: pointer;*/
+        /*z-index:4;*/
+
+    /*}*/
+    /*.calendar-title span{*/
+        /*text-align: center;*/
+    /*}*/
+/*}*/
+/*@media (min-height:1051px) {*/
+    /*ul,li{*/
+        /*padding: 0;*/
+        /*margin: 0;*/
+        /*list-style: none;*/
+    /*}*/
+    /*.disastrousWeatherCenter{*/
+        /*padding:3px;*/
+        /*width:100%;height:790px;*/
+        /*position: absolute;*/
+        /*top:0px;bottom: 0;*/
+        /*left:0;right:0;*/
+        /*margin: auto;*/
+        /*color:#fff;*/
+    /*border:1px solid #323A4C;*/
+        /*box-sizing: border-box;*/
+        /*background:#22293B;*/
+    /*}*/
+    /*/!*蓝色边框*!/*/
+    /*.litleLeft{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;left: -1px;*/
+    /*}*/
+    /*.litleLeft1{*/
+        /*/!*width:4px;*!/*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;left: -1px;*/
+    /*}*/
+    /*.litleTop{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top:-1px;*/
+        /*left:0;*/
+    /*}*/
+    /*.litleTop1{*/
+        /*width:20px;*/
+        /*border-top:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: -1px;*/
+        /*right:0*/
+    /*}*/
+    /*.litleRight{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*top: 0;right: -1px;*/
+    /*}*/
+    /*.litleRight1{*/
+        /*height:10px;*/
+        /*border-left:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: 0;right: -1px;*/
+    /*}*/
+    /*.litleBottom{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;left: 0px;*/
+    /*}*/
+    /*.litleBottom1{*/
+        /*width:20px;*/
+        /*border-bottom:2px solid #4DBAF2;*/
+        /*position: absolute;*/
+        /*bottom: -1px;right: 0px;*/
+    /*}*/
+    /*/!*操作面板*!/*/
+    /*.disastrousWeatherLeft{*/
+        /*width:242px;height:100%;*/
+        /*float: left;*/
+        /*position: relative;*/
+    /*}*/
+    /*.disastrousWeatherRight{*/
+        /*height:100%;*/
+        /*float: left;*/
+        /*/!*background: green;*!/*/
+        /*/!*position: relative;*!/*/
+    /*}*/
+    /*.navTitle{*/
+        /*width:100%;*/
+        /*height:30px;*/
+        /*border-bottom: 1px solid #39769E;*/
+    /*}*/
+    /*.navTitle ul{*/
+        /*display: inline-block;*/
+        /*margin-left: 20px;*/
+    /*}*/
+    /*.navTitle ul li{*/
+        /*float: left;*/
+        /*width:auto;*/
+        /*padding-left: 10px;*/
+        /*padding-right: 10px;*/
+        /*line-height: 28px;*/
+        /*color:#3A9CCE;*/
+        /*/!*border: 1px solid #39769E;*!/*/
+        /*/!*border-bottom: 0;*!/*/
+        /*/!*border-radius: 5px 5px 0 0;*!/*/
+    /*}*/
+    /*.navTitle ul li.active{*/
+        /*color:#F16743;*/
+        /*line-height: 29px;*/
+        /*border: 1px solid #39769E;*/
+        /*border-bottom: 1px solid #22293B;*/
+    /*}*/
+    /*/!*展示页面的高度*!/*/
+    /*.liPage{*/
+        /*width:100%;*/
+        /*/!*height:758px;*!/*/
+        /*border:1px solid #39769E;*/
+        /*border-top: 0;*/
+    /*}*/
+    /*.liPage-top{*/
+        /*width:100%;*/
+        /*height:556px;*/
+        /*float: left;*/
+    /*}*/
+    /*.liPage li.show {display: block;}*/
+
+    /*.nav{*/
+        /*display: inline-block;*/
+        /*width:240px;*/
+        /*height:auto;*/
+        /*border:1px solid #323A4C;*/
+        /*border-left:0;*/
+        /*margin: auto 0;*/
+        /*overflow: hidden;*/
+        /*margin-top: 20%;*/
+    /*}*/
+
+    /*.nav1{*/
+        /*width:100%;*/
+        /*height:auto;*/
+        /*float: left;*/
+    /*}*/
+    /*.nav1 div:nth-child(1){*/
+        /*/!*width:100%;*!/*/
+        /*height: 21px;*/
+        /*border-bottom: 1px solid #323A4C;*/
+    /*}*/
+    /*.nav1 div:nth-child(1) span{*/
+        /*display: inline-block;*/
+        /*/!*float: left;*!/*/
+        /*margin-left:5px;*/
+    /*}*/
+    /*.navUl{*/
+        /*width:100%;*/
+        /*height:auto;*/
+        /*border-bottom: 1px solid #323A4C;*/
+        /*padding: 5px 0 5px 25px;*/
+    /*}*/
+    /*.navUl ul{*/
+        /*display: inline-block;*/
+    /*}*/
+    /*.navUl ul li{*/
+        /*display: inline-block;*/
+        /*width:90%;*/
+        /*height:20px;*/
+        /*float: left;*/
+        /*color:#3A9CCE;*/
+        /*position: relative;*/
+    /*}*/
+    /*.nav1:nth-child(3) .navUl ul li{*/
+        /*width:100%;*/
+    /*}*/
+    /*.nav1:nth-child(2) .navUl ul li{*/
+        /*width:100%;*/
+        /*margin-bottom: 5px;*/
+    /*}*/
+    /*/!*.nav1:nth-child(2) .navUl ul li span:nth-child(1){*!/*/
+    /*/!*display: inline-block;*!/*/
+    /*/!*float: left;*!/*/
+    /*/!*}*!/*/
+    /*.disastrousWeatherType{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width:20px;*/
+        /*height:20px;*/
+        /*background: url("../image/disastrousWeather.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.timeType {*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/timeType.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.statisticsType{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/statisticsType.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature{*/
+        /*display: inline-block;*/
+        /*float: left;*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*background: url("../image/lowTemperature.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature1{*/
+        /*background: url("../image/disastrousWeather1.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature2{*/
+        /*background: url("../image/disastrousWeather2.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*.lowTemperature3{*/
+        /*background: url("../image/disastrousWeather3.png") no-repeat;*/
+        /*background-size: cover;*/
+    /*}*/
+    /*/!*修改radio默认样式*!/*/
+    /*.navUl li input[type="radio"] {*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*.navUl li label {*/
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*top: 4px;*/
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*background:#3CABE1;*/
+
+    /*}*/
+    /*/!*设置选中的input的样式*!/*/
+    /*/!* + 是兄弟选择器,获取选中后的label元素*!/*/
+    /*.navUl li input:checked+label {*/
+        /*background-color: #F06642;*/
+    /*}*/
+    /*.navUl li input:checked+label+span {*/
+        /*color: #F06642;*/
+    /*}*/
+    /*.navUl li input:checked+label::after {*/
+        /*position: absolute;*/
+        /*content: "";*/
+        /*width: 5px;*/
+        /*height: 8px;*/
+        /*top: 0;*/
+        /*left: 2px;*/
+        /*border: 2px solid #3E323C;*/
+        /*border-top: none;*/
+        /*border-left: none;*/
+        /*transform: rotate(45deg)*/
+    /*}*/
+    /*/!*右侧显示面板*!/*/
+    /*#disastrousWeatherChart{*/
+        /*width:100%;*/
+        /*height:100%;*/
+    /*}*/
+    /*#timeAxis{*/
+        /*width:100%;*/
+        /*height:60px;*/
+        /*position:absolute;*/
+        /*bottom: 10px;right:0;*/
+        /*background: #000;*/
+    /*}*/
+    /*.timeParse{*/
+        /*width:970px;*/
+        /*height:100%;*/
+        /*margin: 0 auto;*/
+        /*/!*background: red;*!/*/
+        /*position: relative;*/
+    /*}*/
+    /*.timeParse span{*/
+        /*display: inline-block;*/
+        /*width:auto;*/
+        /*line-height: 25px;*/
+        /*float: left;*/
+
+    /*}*/
+    /*.timeScaleBox{*/
+        /*display: inline-block;*/
+        /*width:900px;*/
+        /*float: left;*/
+        /*height:30px;*/
+        /*margin-top: 5px;*/
+        /*background:#323A4C;*/
+        /*z-index:3;*/
+    /*}*/
+    /*.pre{*/
+        /*width:30px;*/
+        /*height:30px;*/
+        /*float: left;*/
+        /*background: url("../image/pre.png") center no-repeat;*/
+        /*border-right:1px solid #000;*/
+    /*}*/
+    /*.next{*/
+        /*width:30px;*/
+        /*height:30px;*/
+        /*float: right;*/
+        /*background: url("../image/next.png") center no-repeat;*/
+        /*border-left:1px solid #000;*/
+    /*}*/
+    /*.timeScale{*/
+        /*position: absolute;*/
+        /*left:101px;*/
+        /*width:836px;*/
+        /*height:100%;*/
+        /*margin:0 auto;*/
+    /*}*/
+    /*.timeScaleCopy{*/
+        /*position: absolute;*/
+        /*left:101px;*/
+        /*width:836px;*/
+        /*height:100%;*/
+        /*margin:0 auto;*/
+    /*}*/
+    /*.scalebox{*/
+        /*width:794px;*/
+        /*height:5px;*/
+        /*background:#3CABE1;*/
+        /*position: absolute;*/
+        /*left:21px;top:12px;*/
+        /*/!*right:0;*!/*/
+        /*/!*bottom: 0;*!/*/
+        /*/!*margin:12px auto;*!/*/
+    /*}*/
+    /*.scale{*/
+        /*height:100%;*/
+        /*position: relative;*/
+    /*}*/
+    /*.scaleCopy{*/
+        /*width:130px;*/
+        /*height:5px;*/
+        /*background:#F16743;*/
+        /*position:absolute;*/
+        /*top:0;*/
+        /*left:0;*/
+        /*z-index:4;*/
+    /*}*/
+    /*.scaleLitle{*/
+        /*width:12px;*/
+        /*height:18px;*/
+        /*position: relative;*/
+        /*top:-5px;*/
+        /*border-left:1px solid #5B616A;*/
+        /*float: left;*/
+    /*}*/
+    /*.scaleLitle:last-child{*/
+        /*width:0px;*/
+    /*}*/
+    /*.pointerPre{*/
+        /*width:5px;*/
+        /*height:15px;*/
+        /*background: url("../image/pointer.png") center no-repeat;*/
+        /*position: absolute;*/
+        /*left:-2px;*/
+        /*top:-4px;*/
+        /*cursor: pointer;*/
+        /*z-index:4;*/
+    /*}*/
+    /*.pointerNext{*/
+        /*width:5px;*/
+        /*height:15px;*/
+        /*background: url("../image/pointer.png") center no-repeat;*/
+        /*position: absolute;*/
+        /*left:128px;*/
+        /*top:-4px;*/
+        /*cursor: pointer;*/
+        /*z-index:4;*/
+
+    /*}*/
+    /*.calendar-title span{*/
+        /*text-align: center;*/
+    /*}*/
+/*}*/

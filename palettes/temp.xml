@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette>
+<entry rgba="0,0,255,255" value="-40" visible="true"/>
+<entry rgba="0,1,255,255" value="-39"/>
+<entry rgba="0,2,255,255" value="-38"/>
+<entry rgba="0,3,255,255" value="-37"/>
+<entry rgba="0,4,255,255" value="-36"/>
+<entry rgba="0,5,255,255" value="-35"/>
+<entry rgba="0,6,255,255" value="-34"/>
+<entry rgba="0,7,255,255" value="-33"/>
+<entry rgba="0,8,255,255" value="-32"/>
+<entry rgba="0,9,255,255" value="-31"/>
+<entry rgba="0,0,255,255" value="-30" visible="true"/>
+<entry rgba="0,10,255,255" value="-29"/>
+<entry rgba="0,20,255,255" value="-28"/>
+<entry rgba="0,45,255,255" value="-27"/>
+<entry rgba="0,69,255,255" value="-26"/>
+<entry rgba="0,85,255,255" value="-25"/>
+<entry rgba="0,101,255,255" value="-24"/>
+<entry rgba="0,117,255,255" value="-23"/>
+<entry rgba="0,134,255,255" value="-22"/>
+<entry rgba="0,150,255,255" value="-21"/>
+<entry rgba="0,166,255,255" value="-20" visible="true"/>
+<entry rgba="0,184,255,255" value="-19"/>
+<entry rgba="0,203,255,255" value="-18"/>
+<entry rgba="0,216,255,255" value="-17"/>
+<entry rgba="0,235,255,255" value="-16"/>
+<entry rgba="0,245,251,255" value="-15"/>
+<entry rgba="0,255,247,255" value="-14"/>
+<entry rgba="0,255,231,255" value="-13"/>
+<entry rgba="0,255,214,255" value="-12"/>
+<entry rgba="0,255,197,255" value="-11"/>
+<entry rgba="0,255,181,255" value="-10" visible="true"/>
+<entry rgba="0,255,164,255" value="-9"/>
+<entry rgba="0,255,148,255" value="-8"/>
+<entry rgba="0,255,131,255" value="-7"/>
+<entry rgba="0,255,115,255" value="-6"/>
+<entry rgba="0,255,98,255" value="-5"/>
+<entry rgba="0,255,82,255" value="-4"/>
+<entry rgba="0,255,61,255" value="-3"/>
+<entry rgba="0,255,41,255" value="-2"/>
+<entry rgba="0,255,24,255" value="-1"/>
+<entry rgba="0,255,8,255" value="0" visible="true"/>
+<entry rgba="8,255,4,255" value="1"/>
+<entry rgba="16,255,0,255" value="2"/>
+<entry rgba="32,255,0,255" value="3"/>
+<entry rgba="49,255,0,255" value="4"/>
+<entry rgba="65,255,0,255" value="5"/>
+<entry rgba="82,255,0,255" value="6"/>
+<entry rgba="98,255,0,255" value="7"/>
+<entry rgba="115,255,0,255" value="8"/>
+<entry rgba="131,255,0,255" value="9"/>
+<entry rgba="148,255,0,255" value="10" visible="true"/>
+<entry rgba="164,255,0,255" value="11"/>
+<entry rgba="181,255,0,255" value="12"/>
+<entry rgba="201,255,0,255" value="13"/>
+<entry rgba="222,255,0,255" value="14"/>
+<entry rgba="238,255,0,255" value="15"/>
+<entry rgba="255,255,0,255" value="16"/>
+<entry rgba="255,243,0,255" value="17"/>
+<entry rgba="255,231,0,255" value="18"/>
+<entry rgba="255,213,0,255" value="19"/>
+<entry rgba="255,195,0,255" value="20" visible="true"/>
+<entry rgba="255,178,0,255" value="21"/>
+<entry rgba="255,162,0,255" value="22"/>
+<entry rgba="255,146,0,255" value="23"/>
+<entry rgba="255,130,0,255" value="24"/>
+<entry rgba="255,115,0,255" value="25"/>
+<entry rgba="255,97,0,255" value="26"/>
+<entry rgba="255,81,0,255" value="27"/>
+<entry rgba="255,65,0,255" value="28"/>
+<entry rgba="255,55,0,255" value="29"/>
+<entry rgba="255,44,0,255" value="30" visible="true"/>
+<entry rgba="255,38,0,255" value="31"/>
+<entry rgba="255,32,0,255" value="32"/>
+<entry rgba="255,28,0,255" value="33"/>
+<entry rgba="255,24,0,255" value="34"/>
+<entry rgba="255,20,0,255" value="35"/>
+<entry rgba="255,19,0,255" value="36"/>
+<entry rgba="255,18,0,255" value="37"/>
+<entry rgba="255,17,0,255" value="38"/>
+<entry rgba="255,16,0,255" value="39"/>
+<entry rgba="255,15,0,255" value="40" visible="true"/>
+<entry rgba="255,14,0,255" value="41"/>
+<entry rgba="255,13,0,255" value="42"/>
+<entry rgba="255,12,0,255" value="43"/>
+<entry rgba="255,11,0,255" value="44"/>
+<entry rgba="255,10,0,255" value="45" visible="true"/>
+</palette>

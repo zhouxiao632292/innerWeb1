@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../leaflet/leaflet.css?v=1.0.31">
+	<link rel="stylesheet" type="text/css" href="../../css/default.css?v=1.0.31">
+	<link rel="stylesheet" href="../../css/iconfont.css?v=1.0.31">
+	<link rel="stylesheet" href="../../jquery-easyui-1.4.5/themes/default/easyui.css?v=1.0.31"/>
+	<link rel="stylesheet" href="../../css/first.css?v=1.0.31">
+	<link rel="stylesheet" href="../../css/mt.css?v=1.0.31">
+	<!--<link rel="stylesheet" href="../../appmodules/intelligentGridPrediction/css/intelligentGridPrediction.css"/>-->
+	<link rel="stylesheet" href="css/impactForecast.css?v=1.0.31"/>
+</head>
+<style>
+	body{
+		padding: 0px;
+		/*margin-top: -60px;*/
+
+		/*overflow: hidden*/
+	}
+	#map{
+		position: absolute;
+		top:0px;
+	}
+	.Universal_tool{
+		top:75px;
+	}
+	.searchDiv{
+		position: absolute;
+		top:80px;left: 59px;
+	}
+	.newText{
+		position: absolute;
+		top:115px;left: 50px;
+	}
+	#reminder {
+		position: absolute;
+		left: 60px;
+		top: 80px;
+		/*bottom: 80px;*/
+	}
+
+	#showLat{
+		position: absolute;right:203px;top: 85px;
+	}
+	.footer{
+		position: absolute;
+	}
+	/*.mapBox{*/
+	/*width:100%;*/
+	/*height:100%;*/
+	/*position: absolute;*/
+	/*/!*top:0px;*!/*/
+	/*bottom:0;*/
+	/*left:0;*/
+	/*z-index:1000;*/
+	/*}*/
+	.mapShiXv{
+		width:100%;
+		height:30%;
+		position: fixed;
+		left:0;
+		bottom: 0;display: none;
+		background: red;
+		z-index:1000;
+	}
+	#notice{
+		position: absolute;
+	}
+
+</style>
+<body>
+
+<div id="map">
+	<span id="showLat" style="font-size: 13px;position: fixed;right:203px;top: 85px;z-index: 1100;">
+	<span id="latlng"></span>
+</span>
+</div>
+<!--温馨提示-->
+		<span id="reminder">
+         温馨提示：本栏目推荐使用Google Chrome、Mozilla Firefox、IE11浏览器以便获得更快更安全的页面响应速度
+    </span>
+<!--搜索-->
+<div class="searchDiv">
+	<input type="search" id="search" name="search" autocomplete="off" data-placeholder="SEARCH" placeholder="搜索地名或经纬度如(116.4,39.9)" value="" />
+	<span>搜索</span>
+</div>
+<div class="newText"></div>
+
+<!--城市列表地址选择-->
+<div id="initSearch">
+	<!--<div class="close" style="width:20px;height:20px;border-radius:50%;position: absolute;top:0;right:0;background: rgba(157,3,0,.5);overflow:hidden;">-->
+		<!--<p></p>-->
+	<!--</div>-->
+	<div class="titleCity">
+		<ul class="titleList">
+
+		</ul>
+	</div>
+	<hr/>
+	<div class="spellCity">
+		<ul class="spell">
+			<li><a href=""></a></li>
+		</ul>
+	</div>
+	<hr/>
+	<div class="showCity">
+		<div class="cityList">
+
+		</div>
+	</div>
+
+</div>
+
+<!--工具箱-->
+<div class="Universal_tool">
+	<div class="Universal_tool04" title="地图切换">
+		<ul id="sevMap" style="display: none;">
+			<li id="map1" class="icon-Universal_tool4_1" title="影像"></li>
+			<li id="map2" class="icon-Universal_tool4_3" title="行政图"></li>
+			<li id="map3" class="icon-Universal_tool4_2" title="地形图"></li>
+			<li id="map4" class="icon-Universal_tool4_4" title="自定义图片"></li>
+		</ul>
+	</div>
+	<div class="Universal_tool05" title="范围快速定位"></div>
+	<div class="api" title="出图"></div>
+	<div class="descApi" title="服务API" style="display:none;"></div>
+	<div class="forecast" title="影响预报" style="display:none;"></div>
+
+
+</div>
+<div id="tip">
+	<span id="zoom"></span>
+</div>
+<div id="leftNavTool"></div>
+<div id="leftNav" class="index_down_left floatL">
+
+</div>
+<!--&lt;!&ndash;网页说明&ndash;&gt;-->
+<!--<div class="main_title1" style="width:280px;position: absolute;top: 50px;left:0;right:0;buttom:0;margin:0 auto;z-index: 999;">-->
+<!--<div class="main_title">智能网格预报V3.0</div>-->
+<!--</div>-->
+
+<!--发布时间及说明-->
+<div id="notice">
+	<div id="recordName1" ></div>
+	<!--<a href="http://10.1.64.146/npt/channel/downs.shtml?channelId=44302" target="_blank"><div id="recordName" style="text-decoration:underline;color: #fff;padding: 5px 0px;font-weight:微软雅黑"></div></a>-->
+	<a href="#" target="" ><div id="recordName" style="color: #fff;padding: 5px 0px;font-weight:微软雅黑"></div></a>
+	<div id="recordTime" >2017-03-16&nbsp;&nbsp;08时发布</div>
+</div>
+<!--没有数据时的数据说明-->
+<div class="popup">
+	<div class="popup_inner"></div>
+</div>
+
+
+<!--弹窗选择要素时效-->
+<div class="selectElementBox" style="display: block;width:13px;height:610px;padding: 10px;background:#616F87;z-index:3000;position: absolute;top: 110px;right:0px;padding-left: 0;padding-right: 0">
+	<div class="closeForecast boxShow"></div>
+	<div class="BOX" style="float:left;height: 540px;padding-top: 5px;margin-right: 10px;">
+		
+	</div>
+</div>
+
+<div class="palette_control">
+	<canvas id='palette_canvas' > </canvas>
+</div>
+<div class="apiBox" style="background:rgba(51, 51, 51, 0.5);padding: 10px 10px;display:none;;z-index: 1000;position:absolute;top: 120px;right:10px;width:352px;height:auto;">
+	<div class="apiImg" style="width: 350px;height: 80px;background: #fff;font-size: 12px;">
+
+	</div>
+	<!--<div id="imgBox" style="width:350px;height:222px;border: 1px solid #eee;"></div>-->
+</div>
+<!--时间轴部分-->
+<div class="footer">
+	<footer>
+		<div class="vues">
+			<div id="all">
+				<div class="lineMv">
+						<span id="pointer">
+							<a class="xs"></a>
+							<b></b>
+							<i></i>
+						</span>
+					<div id="line11"></div>
+					<div id="clickLine"></div>
+				</div>
+				<div id="leftOne"></div>
+				<div id="rightOne"></div>
+			</div>
+		</div>
+		<div id="dateStyle"></div>
+		<div id="time">
+			<span></span>
+			<b></b>
+		</div>
+		<div id="mvAction">
+			<div id="action">
+				<div><i></i></div>
+				<!--<p>播放</p>-->
+			</div>
+			<div id="stop">
+				<div><i></i></div>
+				<!--<P>暂停</P>-->
+			</div>
+			<div id="back">
+				<div id="brol">
+					<i></i>
+				</div>
+				<!--<P>上一个</P>-->
+			</div>
+		</div>
+		<div id="goBack">
+			<div id="go">
+				<i></i>
+			</div>
+			<!--<p>下一个</p>-->
+		</div>
+		<div id="qzLine">
+			<div class="ybLine">
+				<p>实况预报分界线</p>
+				<i></i>
+			</div>
+		</div>
+	</footer>
+	<div id="web">
+		<div id="inp"><P></P><div></div></div>
+		<div id="timeBar">
+			<i class="goStart"></i>
+			<div id="scorlSep">
+				<ul id="parst"></ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--时序图-->
+<div id="hoverPic" class="zhankai">
+	<!--<div class="colse"><b></b></div>-->
+	<div class="iconBox">
+		<div class="closeEchart quX1"></div>
+	</div>
+
+	<div class="chartBox">
+		<div id="nover" class="chart">
+		</div>
+	</div>
+</div>
+
+</body>
+<script src="../../lib/dependencies.js?v=1.0.32"></script>
+<script src="../../jquery-easyui-1.4.5/jquery.easyui.min.js?v=1.0.32"></script>
+<script src="../../lib/proj4.js" type="text/javascript" ></script>
+<script src="../../lib/proj4leaflet.js" type="text/javascript" ></script>
+<script src="../../lib/date.format.js" type="text/javascript" ></script>
+<script src="../../lib/all.js?v=1.0.32"></script>
+
+<script src="../../lib/jxhui.js?v=1.0.32"></script>
+<script src="../../portal/shell/application.js?v=1.0.32"></script>
+
+<script src="gif.worker.js?v=1.0.31"></script>
+<script src="../../data.js?v=1.0.31"></script>
+<script src="../../rangeData.js?v=1.0.31"></script>
+<script src="../../elementData.js?v=1.0.31"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=iD2gwtGfo1p98lPenidUyx8h"></script>
+
+
+<script src="impactForecast.js?v=1.0.31"></script>
+<!--<script src="../../appmodules/bigDataAnalysis/bigDataAnalysis.js?v=1.0.62"></script>-->
+<!--<script src="../../appmodules/monitorAnalysis/monitorAnalysis.js?v=1.0.62"></script>-->
+<!--<script src="../../appmodules/gridEdit/gridEdit.js?v=1.0.62"></script>-->
+<!--<script src="portal/main.js?v=1.0.62"></script>-->
+<script>
+	var epsg=4326;
+	var tdt = getTianDiTu(epsg,"satellite");
+	var nmcLayer = L.tileLayer(tdt.map,tdt.options);
+	var tileLayer = L.layerGroup([nmcLayer]);
+	L.Map.mergeOptions({zoomAnimation:false});
+	shell.application = new shell.Application({serverIpPort:'10.28.16.193',defaultLayer:{crs: L.CRS.EPSG4326,tileLayer:tileLayer}});
+
+	shell.application.StyleRoot="/innerWeb/";
+	var styleRoot="/innerWeb/";
+	var map = shell.application.map;
+	map.options.wheelPxPerZoomLevel = 120;
+
+	var geoc = new BMap.Geocoder();
+	var curT=new Date();
+	var curZoom=map.getZoom();
+	var mapClick;
+	var mapFlag=false;
+	var forecastRule="d310";  //(d310:逐3小时10天预报,d1139:前1天逐1小时后续逐3小时9天预报,d1337:前3天逐1小时后续逐3小时7天预报)
+
+	var path = "http://10.28.16.193/nwfddata/nwfd";
+	var handlerPath = "http://10.28.16.193/WebHandler";
+
+	var currentVectorTileLayer = null;
+	var currentLargeImageLayer = null;
+	var currentStreamLayer=null;
+	var currentRainImageLayer=null;
+	var currentTemperatureImageLayer=null;
+	var basemap = new npt.Basemap();
+	basemap.addTo(map);
+	var latCan = getParam('lat');
+	var lngCan = getParam('lng');
+	var startTime;
+	var newDate = new Date;
+	var Tm = newDate.getHours();
+	var mapClickFlag=true;
+	var mapMouseFlag = true;
+	var currentLatLng;
+	var firstFlag=true;
+	var newMap = new Map();
+	var reRectangle;
+	var liveTm = moment(newDate).subtract(30,"minutes").toDate().getHours();
+	var pickFlag=true;  //判断是否触发地图的click事件
+	var closeFlag=true;//判断是否关闭提示信息
+	var mouseFlag=true;
+	var newLujing=false;
+	var mapId=1;
+	var geojsonLayer;
+	var toolClick="impactForecast";
+	var toolFlag=true;
+	var eleKey;
+	var pickValueMarker = null;
+	var pickValueMarkerFlag = false;
+	//	var isLogin=false;
+	function getParam(paramName) {
+		paramValue = "";
+		paramValue = "";
+		isFound = false;
+		if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+			arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
+			i = 0;
+			while (i < arrSource.length && !isFound) {
+				if (arrSource[i].indexOf("=") > 0) {
+					if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+						paramValue = arrSource[i].split("=")[1];
+						isFound = true;
+					}
+				}
+				i++;
+			}
+		}
+		return paramValue;
+	}
+	shell.application.getModule("impactForecast");
+</script>
+</html>

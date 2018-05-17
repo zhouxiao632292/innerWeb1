@@ -1,0 +1,66 @@
+.bigDataAnalysisTitle{
+    float: left;
+    width: 100%;
+    height:30px;
+    box-sizing: border-box;
+    margin-left: 2%;
+    margin-top: 20px;
+}
+.bigDataTitleImg{
+    float: left;
+    width:175px;
+    height:100%;
+    color:#fff;
+    /*margin-top: 65px;*/
+    background: url("../image/bigDataName.png") center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.bigDataTitleImg p{
+    width:100%;
+    height:auto;
+    color:#fff;
+    margin-top: 8px;
+    margin-left: 5px;
+    background:#313131;
+    font-size: 12px;
+    text-align: center;
+}
+.bigDataTitleUl{
+    width:auto;
+    height: 100%;
+    color:#Fff;
+    font-size: 14px;
+    float: left;display: block;
+}
+.bigDataTitleUl li:hover{
+    cursor:pointer;
+}
+.bigDataAnalysisTitle ol{
+    margin-left: 100px;
+}
+.bigDataAnalysisTitle li{
+    float: left;
+    width: 120px;
+    height:30px;
+    margin-right: 10px;
+background: url("../image/liUnSelect.png") center no-repeat;
+    background-size: cover;
+    text-align: center;
+    line-height: 30px;
+}
+.bigDataAnalysisTitle li.bigDataSelect{
+    background: url("../image/liSelect.png") center no-repeat;
+    background-size: cover;
+}
+.bigDataShiK{
+    position: absolute;
+    top: 50px;
+    left: 2%;
+    right: 1.8%;
+    /*bottom:0;*/
+    width:96%;
+    height:100%;
+    margin: auto;
+    /*border:1px solid #eee;*/
+}

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/default.css?v=1.0.30">
+	<link rel="stylesheet" href="css/meteorologicalProcess.css?v=1.0.30"/>
+</head>
+<style>
+	body{
+		padding: 0px;
+		/*overflow: hidden;*/
+		/*background: #22293B;*/
+	}
+</style>
+<script>
+//		var livePath = "http://10.10.31.24:1024";
+		var livePath = "http://10.1.64.146/awsdsi";
+		var innerPath = "http://10.1.64.146";
+</script>
+<body>
+<div class="meteorologicalProcessCenter">
+	<div class="navTitle">
+		<ul>
+			<li class="active"><span>梅雨</span></li>
+			<li ><span>高温</span></li>
+			<li ><span>低温</span></li>
+		</ul>
+	</div>
+	<div class="liPage">
+		<div class="liPage-top">
+			<div class="liPage-left">
+				<ul>
+					<li>
+						<input id="statisticsChecked1" type="radio" name="statisticsSelect" value="rain" checked/>
+						<label for="statisticsChecked1"></label>
+						<span>降水</span>
+					</li>
+					<!--<li>
+						<input id="statisticsChecked2" type="radio" name="statisticsSelect" value="rain1"/>
+						<label for="statisticsChecked2"></label>
+						<span>降水排序</span>
+					</li>-->
+				</ul>
+			</div>
+			<div id="meteorologicalProcessMap"></div>
+		</div>
+		<div class="liPage-bottom">
+			<div class="bigDataRain">
+				<!--<div class="bigRainTitle">梅雨</div>-->
+				<!--&lt;!&ndash;设置边框的样式&ndash;&gt;-->
+				<!--<div class="litleLeft"></div>-->
+				<!--<div class="litleLeft1"></div>-->
+				<!--<div class="litleTop"></div>-->
+				<!--<div class="litleTop1"></div>-->
+				<!--<div class="litleRight"></div>-->
+				<!--<div class="litleRight1"></div>-->
+				<!--<div class="litleBottom"></div>-->
+				<!--<div class="litleBottom1"></div>-->
+				<!--<div class="litleMid"></div>-->
+				<div class="rainSelect">
+					<div class="rainTable">
+						<table class="rainTable1">
+							<tr>
+								<td>序号</td>
+								<td>起止时间</td>
+								<td>暴雨站数<br>(>=50mm)</td>
+								<td>暴雨站数<br>(>=100mm)</td>
+								<td>暴雨站数<br>(>=250mm)</td>
+								<td>暴雨站次</td>
+								<td>平均暴雨站数</td>
+								<td>单日最大暴雨站数</td>
+								<td>平均强度</td>
+								<td>单日最大平均强度</td>
+								<td>单站最大累积雨量</td>
+								<td>单日单站最大雨量</td>
+								<td>极端站点数</td>
+							</tr>
+						</table>
+						<div class="rainTable21">
+							<table class="rainTable2" id="rain">
+								<!--<tr>-->
+									<!--<td>序号</td>-->
+									<!--<td>起止时间</td>-->
+									<!--<td>暴雨站数>=50mm</td>-->
+									<!--<td>暴雨站数>=100mm</td>-->
+									<!--<td>暴雨站数>=250mm</td>-->
+									<!--<td>暴雨站次</td>-->
+									<!--<td>平均暴雨站数</td>-->
+									<!--<td>单日最大暴雨站数</td>-->
+									<!--<td>平均强度</td>-->
+									<!--<td>单日最大平均强度</td>-->
+									<!--<td>单日单站最大雨量</td>-->
+									<!--<td>单日单站最大雨量</td>-->
+									<!--<td>极端站点数</td>-->
+								<!--</tr>-->
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+
+<link rel="stylesheet" type="text/css" href="../../leaflet/leaflet.css?v=1.0.30">
+<script src="../../lib/dependencies.js?v=1.0.30"></script>
+<script src="js/Aws.js?v=1.0.30"></script>
+<script src="js/national.js?v=1.0.30"></script>
+<script src="meteorologicalProcess.js?v=1.0.30"></script>
+<script>
+		//	随屏幕设置本页面的高度以及宽度	  
+    var width=$(".meteorologicalProcessCenter").width();
+	 var heightCenter=$(".meteorologicalProcessCenter").height();
+	  $(".liPage").css({width:(width-2)});
+    $(".navTitle").css({width:(width-1)});
+	  $(".bigDataRain").css({width:(width-3)});
+	  $("#meteorologicalProcessMap").css({width:(width-203)});
+    var heightBody=$("body").height();
+	  $(".meteorologicalProcessCenter").css({top:(-(heightBody-heightCenter)/2)});
+	  $(".navTitle li").die().live("click",function(){
+		  	$(".navTitle li").removeClass("active");
+		  	$(this).addClass("active");
+	  });
+		
+		var meteorologicalProcess = new MeteorologicalProcess({});
+		meteorologicalProcess.initUI();
+		meteorologicalProcess.handler();
+		
+</script>
+
+
+</html>

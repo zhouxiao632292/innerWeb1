@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<palette>
+	<entry rgba="255,255,255,255" value="0" visible="true"/>
+	<entry rgba="173,255,47,255" value="40" visible="true"/>
+	<entry rgba="238,180,34,255" value="60" visible="true"/>
+	<entry rgba="255,60,60,255" value="80" visible="true"/>
+	<!--<entry rgba="53,206,245,255" value="100" visible="true"/>-->
+</palette>

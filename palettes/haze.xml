@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<palette>
+	<entry rgba="219,201,2,255" value="1" label="1-轻度霾" visible="true"/>
+	<entry rgba="169,112,0,255" value="2" label="2-中度霾" visible="true"/>
+	<entry rgba="126,0,34,255" value="3" label="3-重度霾" visible="true"/>
+	<entry rgba="255,60,60,255" value="4" label="4-严重霾" visible="true"/>
+</palette>
