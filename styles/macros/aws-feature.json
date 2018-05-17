@@ -1,0 +1,71 @@
+{
+	renderStyle:["origin"],
+	"palette":"grid",
+	"point" :{
+		renderer:"canvas",
+		"geometry":{
+			color:'rgb(255,0,0)',
+			radius:4,
+			visible:false
+		},
+		"label": {
+			visible:true,
+			width:150,
+			labels:
+			[
+			    {offset:{x:18,y:20},drawtype:"text",font:"14px serif",color:"blue",visible:true,field:"rain",invalid:9999},
+			    {offset:{x:-16,y:22},drawtype:"text",font:"14px serif",color:"red",visible:true,field:"temperature",invalid:9999},
+			    {offset:{x:-26,y:-4},drawtype:"text",font:"14px serif",color:"purple",visible:true,field:"relativehumidity",invalid:9999},
+			    
+			    {drawtype:"image",font:"24px fontello",color:"blue", offset:{x:0,y:0},angle:{type:'deg',field:'windDirection'},
+			        visible:true,
+			       src: {type:'icon',field:'windSpeed',icontype:'wind'},invalid:9999 
+			    },
+			    {offset:{x:45,y:-20},charCount:6,drawtype:"text",font:"14px serif",color:"red",visible:false,field:"stationId",invalid:"99999"},
+			    {offset:{x:45,y:-20},charCount:6,drawtype:"text",font:"14px serif",color:"red",visible:false,field:"stationName"}
+			]	
+		}
+	},				
+	"polygon":{
+	            geometry:{
+	            	      smooth:true,
+	                      weight:1,stroke:true,dashArray:[3],color:"white",fillColor :{"field":"minValue"},
+	                        /*
+							function getColor(feature){
+							
+							var d = parseFloat(feature.properties['积水深度']);
+							
+							   if(d>5.0) {
+									return "red";
+								}else if(d>4.0) {
+									return "blue";
+								}else if(d>3.0) {
+									return "green";
+								}else if(d>2.0){
+									return "pink";									
+								}else {
+									return 'yellow';
+								}
+							},*/
+							fillOpacity: 0.8
+						},
+				label:{
+					drawtype:"text",
+					font:"18px serif",
+					color:"blue",
+					visible:function(feature,zoom){
+					if(zoom>10) {return true;}
+					return false;
+					// var d = parseFloat(feature.properties['积水深度']);
+					// if(d>0 && zoom>10) {
+					// 	return true;
+					// }
+					// return false;
+				},
+				field:function field(d){
+				   		return d.properties['积水深度'];
+				   }}	
+				}
+				
+	}
+

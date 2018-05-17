@@ -1,0 +1,113 @@
+{
+		"renderStyle":['origin'],
+		"palette":"wave",
+		"palettetype":"fix",
+		"point": {
+		  "visible":false,
+		         renderer:'canvas',		     
+	    		 "geometry":{
+	    		 	display:"point",
+ 	    		 	type:function(feature,zoom) {
+ 	    		 			if(zoom>8) {
+ 	    		 				return 'roundRect';
+ 	    		 			}else {
+ 	    		 				//return 'rect';
+ 	    		 			}
+ 	    		 		},
+ 	    		 	size:function(feature,zoom) {
+ 		    		 		if(zoom>8) {
+ 		    		 			return {width:27,height:12,radius:5};
+ 		    		 		}else {
+ 		    		 			return 4;
+ 		    		 		}
+ 	    		 		},
+	    		 	"visible":function(feature,zoom) {
+	    		 		if(zoom>8) {
+	    		 			return true;
+	    		 		}
+	    		 		 return true;
+	    		 		}
+	    		 	},
+	    		 "label":{
+	    		 	font:'10px serif',
+	    		 	charCount:3,
+	    		 	visible: function(feature,zoom) {
+	    		 		if(zoom>7) {
+	    		 			return true;
+	    		 		}
+	    		 		//return true;	    		 		
+	    		 	}
+				,
+				invalid:"9999"
+
+	    		 }
+	    	},
+		"polygon":{	
+				'visible':false,
+				renderer:'canvas',			 
+		         "geometry": {smooth:false,weight:1,stroke:false,color:"blue",fillColor :{"field":"minValue"},//'rgba(255,0,0,255)',
+
+					/*function getColor(feature){
+					
+					var d = parseFloat(feature.properties['minValue']);
+					//console.log(d);
+					   if(d>30.0) {
+							return "red";
+						}else if(d>20.0) {
+							return "blue";
+						}else if(d>10.0) {
+							return "green";
+						}else if(d>0.0){
+							return "pink";									
+						}else {
+							return 'yellow';
+						}
+					},*/
+					fillOpacity: 0.5},
+				   "label":{drawtype:"text",font:"12px serif",color:"black",visible:false,field:function field(d){
+				   		return d.properties['minValue']+','+ d.properties['maxValue'];
+				   }}	
+
+				},
+		"polyline":{
+			"renderer":"canvas",
+			'visible':false,
+			"geometry":{
+				smooth:true,
+				visible:false,
+				color:'rgba(0,255,0,80)'/*function(feature){
+					var d = parseFloat(feature.properties.value);
+					//console.log(d);
+					   if(d>30.0) {
+							return "red";
+						}else if(d>20.0) {
+							return "blue";
+						}else if(d>10.0) {
+							return "green";
+						}else if(d>0.0){
+							return "yellow";									
+						}else {
+							return 'red';
+						}
+				}*/,
+				lineWidth:2,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'18px serif',
+				color:'blue',
+				visible:true
+				   /*function(feature,zoom) {
+					if(zoom>1) {
+						return true;
+					}else {
+						return true;
+					}*/
+					// if(feature.properties.value>4) {
+					// 	return true;
+					// }
+					// return false;
+				//}
+			}
+		}
+}

@@ -1,0 +1,112 @@
+{
+	renderStyle:["origin"],
+	"palette":"grid",
+	"point" :{
+		"renderer":"canvas",
+		"geometry":{
+			color:'rgb(255,0,0)',
+			radius:4,
+			visible:true/*function(f,zoom){
+				  var level = parseInt(f.properties['stationLevel']);
+				  if(level===1){
+				  	return true;
+				  }else if(level===2 && zoom >5){
+				  	return true;
+				  }else if(level===3 && zoom >6) {
+				  	return true;
+				  }else if(level===4 && zoom >7) {
+				  	return true;
+				  }else if(zoom >8) {
+				  	return true;
+				  }
+				  	return false;
+				}*/
+		},
+		"label": {
+			visible:true,
+			labels:
+			[
+			    {offset:{x:-30,y:-10},drawtype:"text",font:"14px serif",color:"red",visible:true,field:"value",invalid:9999},
+			    {offset:{x:10,y:-10},drawtype:"text",font:"14px serif",color:"blue",visible:true,field:"stationId"},
+			   //  {drawtype:"image",font:"20px fontello",color:"blue", offset:{x:12,y:12},angle:{type:'deg',field:'windDirection'},
+			   //      visible:function(feature,zoom) {
+			   //      	if(zoom>1) {
+			   //      		return true;
+			   //      	}
+			   //      	return true;
+			   //      },
+			   //     src: {type:'icon',field:'windSpeed',icontype:'wind'} //"images/wind9.png"
+			   // },
+			]	
+		}
+	},				
+	"polygon":{
+				visible:false,
+	            geometry:{
+	            	      smooth:false,
+	                      weight:1,stroke:false,dashArray:[3],color:"white",fillColor :{"field":"minValue"},
+	                        /*
+							function getColor(feature){
+							
+							var d = parseFloat(feature.properties['积水深度']);
+							
+							   if(d>5.0) {
+									return "red";
+								}else if(d>4.0) {
+									return "blue";
+								}else if(d>3.0) {
+									return "green";
+								}else if(d>2.0){
+									return "pink";									
+								}else {
+									return 'yellow';
+								}
+							},*/
+							fillOpacity: 0.8
+						}
+
+				},
+
+		"polyline":{
+			"renderer":"canvas",
+			'visible':false,
+			"geometry":{
+				smooth:true,
+				// visible:true,
+				color:'rgb(0,255,0)'/*function(feature){
+					var d = parseFloat(feature.properties.value);
+					//console.log(d);
+					   if(d>30.0) {
+							return "red";
+						}else if(d>20.0) {
+							return "blue";
+						}else if(d>10.0) {
+							return "green";
+						}else if(d>0.0){
+							return "yellow";									
+						}else {
+							return 'red';
+						}
+				}*/,
+				lineWidth:2,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'20px serif',
+				color:'blue',
+				visible:function(feature,zoom) {
+					if(zoom>1) {
+						return true;
+					}else {
+						return false;
+					}
+					// if(feature.properties.value>4) {
+					// 	return true;
+					// }
+					// return false;
+				}
+			}
+		}		
+				
+	}
+

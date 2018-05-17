@@ -1,0 +1,84 @@
+{
+	renderStyle:["origin"],
+	"palette":"grid",
+	"point" :{
+		renderer:"canvas",
+		"geometry":{
+			color:'rgb(255,0,0)',
+			radius:4,			
+			visible:false/*function(f,zoom){
+				  var level = parseInt(f.properties['stationLevel']);
+				  if(level===1){
+				  	return true;
+				  }else if(level===2 && zoom >5){
+				  	return true;
+				  }else if(level===3 && zoom >6) {
+				  	return true;
+				  }else if(level===4 && zoom >7) {
+				  	return true;
+				  }else if(zoom >8) {
+				  	return true;
+				  }
+				  	return false;
+				}*/
+		},
+		"label": {
+			visible:true,
+			width:80,
+			labels:
+			[
+			    {offset:{x:-30,y:10},drawtype:"text",font:"16px serif",color:"red",visible:true,field:"temperature",invalid:9999},
+			    {offset:{x:-30,y:-10},drawtype:"text",font:"16px serif",color:"blue",visible:true,field:"dewPointDiff",invalid:9999},
+			    {offset:{x:20,y:10},drawtype:"text",font:"16px serif",color:"blue",visible:true,field:"height",invalid:9999},
+			    {offset:{x:20,y:-10},drawtype:"text",font:"16px serif",color:"blue",visible:true,field:"stationId",invalid:"99999"},
+				
+			    {drawtype:"image",font:"24px fontello",color:"blue", offset:{x:0,y:0},angle:{type:'deg',field:'windDirection'},
+			        visible:true,
+			       src: {type:'icon',field:'windSpeed',icontype:'wind'} //"images/wind9.png"
+			   }
+			]	
+		}
+	},				
+	"polygon":{
+	            geometry:{
+	            	      smooth:false,
+	                      weight:1,stroke:true,dashArray:[3],color:"white",fillColor :{"field":"minValue"},
+	                        /*
+							function getColor(feature){
+							
+							var d = parseFloat(feature.properties['积水深度']);
+							
+							   if(d>5.0) {
+									return "red";
+								}else if(d>4.0) {
+									return "blue";
+								}else if(d>3.0) {
+									return "green";
+								}else if(d>2.0){
+									return "pink";									
+								}else {
+									return 'yellow';
+								}
+							},*/
+							fillOpacity: 0.8
+						},
+				label:{
+					drawtype:"text",
+					font:"18px serif",
+					color:"blue",
+					visible:function(feature,zoom){
+					if(zoom>10) {return true;}
+					return false;
+					// var d = parseFloat(feature.properties['积水深度']);
+					// if(d>0 && zoom>10) {
+					// 	return true;
+					// }
+					// return false;
+				},
+				field:function field(d){
+				   		return d.properties['积水深度'];
+				   }}	
+				}
+				
+	}
+

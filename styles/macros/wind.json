@@ -1,0 +1,64 @@
+{
+		"renderStyle":['origin'],
+		"palette":"macros/wind",
+		"palettetype":"fix",
+		"point": {
+	    		 "geometry":{
+	    		 	display:"wind",
+	    		 	"visible":true
+	    		 },
+	    		 "label":{
+	    		 	charCount:2,
+	    		 	font:'28px fontello',	    		 
+	    		 	visible:function(feature,zoom) {
+	    		 		return true;
+	    		 	},
+	    		 	color:"black",
+	    		 	invalid:9999
+	    		 }
+	    		 
+	    	},
+		"polygon":{
+		         "visible":true,
+		         renderer:'canvas',
+		         "geometry": {smooth:true,weight:1,stroke:true,color:"white",fillColor :{"field":"minValue"},//'rgba(255,0,0,255)',
+
+					fillOpacity: 0.5},
+				   "label":{drawtype:"text",font:"12px serif",color:"black",visible:false,field:function field(d){
+				   		return d.properties['minValue']+','+ d.properties['maxValue'];
+				   }}	
+
+				},
+		"polyline":{
+		    "visible":false,
+			renderer:'canvas',	
+			"geometry":{
+				smooth:false,
+				// visible:true,
+				color:'rgb(255,0,0)',
+				lineWidth:1,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'20px serif',
+				color:'red',
+				visible:false 
+			}
+		},
+		"segment":{
+			"visible":false,
+			"renderer":"webgl",
+			"geometry":{
+				smooth:false,
+				// visible:true,
+				color:'rgb(0,0,255)',
+				lineWidth:1,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'20px serif',
+				color:'red',
+				visible:false 
+			}
+		}
+}

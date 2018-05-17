@@ -1,0 +1,68 @@
+{
+
+		"renderStyle":['origin'],
+		"palette":"wind",
+                "palettetype":"fix",
+		"point": {			     
+	    		 "geometry":{
+				   display:"point",
+				   type:"wind",
+	    		 	"visible":true /*function(feature,zoom) {
+	    		 		if(zoom>2) {
+	    		 			return true;
+	    		 		}
+	    		 		return false;
+	    		 		}*/
+	    		 	},
+	    		 "label":{
+	    		 	charCount:2,
+	    		 	font:'28px fontello',	    		 
+	    		 	visible:false/*function(feature,zoom) {
+	    		 		if(zoom>5) {
+	    		 			return true;
+	    		 		}
+	    		 		return false;
+	    		 	}*/
+	    		 }
+	    	},
+		"polygon":{
+		         "geometry": {weight:1,stroke:true,color:"white",fillColor :{"field":"minValue"},//'rgba(255,0,0,255)',
+
+					fillOpacity: 0.5},
+				   "label":{drawtype:"text",font:"12px serif",color:"black",visible:false,field:function field(d){
+				   		return d.properties['minValue']+','+ d.properties['maxValue'];
+				   }}	
+
+				},
+		"polyline":{
+			"renderer":"webgl",
+			"geometry":{
+				smooth:false,
+				// visible:true,
+				color:'rgb(255,0,0)',
+				lineWidth:1,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'20px serif',
+				color:'red',
+				visible:false 
+			}
+		},
+		"segment":{
+			"visible":false,
+			"renderer":"webgl",
+			"geometry":{
+				smooth:false,
+				// visible:true,
+				color:'rgb(0,0,255)',
+				lineWidth:1,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'20px serif',
+				color:'red',
+				visible:false 
+			}
+		}
+}

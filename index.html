@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/logo.css?v=20180206"/>
+	</head>
+	<style>
+		body{
+			padding: 0px;
+		}
+	</style>
+	
+	<body>
+	<!--title-->
+	<div class="navTitle" style="min-height:45px;z-index:1000;width:100%;height:60px;background: #1C2125;position: absolute;top:0;left:0;">
+		<div class="logoBox">
+			<span class="logoTitle"></span>
+			<div class="juzh" style="position:absolute;top:0;left:60px;height: 100%;width: 420px;">
+				<table>
+					<tr>
+						<td>智能网格预报服务一体化平台V3.0（MOAP）</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+		<!--右侧操作tool-->
+		<div class="toolBox">
+			<div class="tool">
+				<ul>
+
+					<li class="tool1" id="intelligentGridPrediction" onclick="portal.getModule('intelligentGridPrediction')">
+						<div class="toolPicture1 li1 li_s"></div>
+						<span>智能网格预报服务</span>
+					</li>
+					
+					
+					<li class="tool1" style="display:none;" id="monitorAnalysis" onclick="portal.getModule('monitorAnalysis')">
+						<div class="toolPicture1 li2"></div>
+						<span>监测分析</span>
+					</li>
+					
+					<li class="tool1" id="bigDataAnalysis" onclick="portal.getModule('bigDataAnalysis')">
+						<div class="toolPicture1 li3"></div>
+						<span>大数据分析</span>
+					</li>
+					
+					<li class="tool1" id="gridEdit" onclick="portal.getModule('gridEdit')">
+						<div class="toolPicture1 li4"></div>
+						<span>交互分析</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 主体内容 -->
+	<div id="main" style="width: 100%;">
+		<iframe id="iframeMain" src="" style="overflow-x:auto; overflow-y:hidden;width:100%; position: absolute; top:0px; height:100%;" frameborder="0" scrolling="auto"></iframe>
+	</div>
+	
+	</body>
+
+	<script>
+		document.onreadystatechange = subSomething;//当页面加载状态改变的时候执行这个方法.
+
+		function subSomething()
+		{
+			if(document.readyState == "complete"){
+				setTimeout('$("#explain").css("display","none")',10000);
+				setTimeout('$("#search").css("display","inline-block")',10000);
+				if(!$('#autocompleter-1').hasClass('autocompleter-closed')){
+					$('#autocompleter-1').addClass('autocompleter-closed');
+				}
+				setTimeout('checkVersion()',1000);
+
+
+			} //当页面加载状态
+
+		}
+		//判断浏览器版本
+		function checkVersion(){
+			var brow=$.browser;
+			var bInfo="";
+			var time=$("#recordTime").text();
+			if(brow.msie) {
+				bInfo="Microsoft Internet Explorer "+brow.version;
+				if(parseInt(brow.version)<10){
+					//downBrower();
+					setTimeout('downBrower()',1000);
+				}
+
+			}
+			var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+			if(brow.mozilla&&userAgent.indexOf("Trident") == -1) {
+				bInfo="Mozilla Firefox "+brow.version;
+				if(parseInt(brow.version)<42){
+					setTimeout('downBrower()',1000);
+				}
+			}
+
+		}
+		function downBrower(){
+			window.location.href="download.html";
+		}
+
+	</script>
+	
+	<script src="lib/dependencies.js?v=20180206"></script>
+	<script>
+		$(".tool1").on("click",function(){
+			var index=$(this).index();
+			var url="url('./images/li"+(index+1)+"_s.png')"
+			$(".toolPicture1").removeClass("li_s").removeAttr("style", "background");
+
+			$(this).children(".toolPicture1").addClass("li_s");
+			$(".li_s").css({"background":url});
+		})
+		var mobile=isMobile();
+		if(mobile){
+			$(".navTitle").css({display:"none"})
+		}
+		function isMobile() {
+			var sUserAgent = navigator.userAgent.toLowerCase(),
+					bIsIpad = sUserAgent.match(/ipad/i) == "ipad",
+					bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os",
+					bIsMidp = sUserAgent.match(/midp/i) == "midp",
+					bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4",
+					bIsUc = sUserAgent.match(/ucweb/i) == "ucweb",
+					bIsAndroid = sUserAgent.match(/android/i) == "android",
+					bIsCE = sUserAgent.match(/windows ce/i) == "windows ce",
+					bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile",
+					bIsWebview = sUserAgent.match(/webview/i) == "webview";
+			return (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM);
+		}
+//        var lat=UrlSearch("lat");
+//		var lng = UrlSearch("lng");
+//		function UrlSearch(name) {
+//			var str = location.href; //取得整个地址栏
+//
+//			var num = str.indexOf("?");
+//			if(num!=-1){
+//				str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+//				if(str!=""){
+//					var arr = str.split("&"); //各个参数放到数组里
+//					var obj ={};
+//					for (var i = 0; i < arr.length; i++) {
+//						obj[arr[i].split("=")[0]] = arr[i].split("=")[1];
+//					}
+//					return obj[name]
+//				}
+//			}else{
+//				name="";
+//				return name;
+//			}
+//
+//
+//		}
+		var lat=getParam("lat");
+		var lng = getParam("lng");
+		function getParam(paramName) {
+			var paramValue = "";
+			isFound = false;
+			if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+				arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
+				i = 0;
+				while (i < arrSource.length && !isFound) {
+					if (arrSource[i].indexOf("=") > 0) {
+						if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+							paramValue = arrSource[i].split("=")[1];
+							isFound = true;
+						}
+					}
+					i++;
+				}
+			}
+			return paramValue;
+		}
+	</script>
+	<script src="portal/main.js?v=20180206"></script>
+
+
+</html>
+

@@ -1,0 +1,97 @@
+{
+		"renderStyle":['origin'],
+		"palette":"macros/rain03",
+		"palettetype":"fix",
+		"point": {	
+		         renderer:'canvas',		     
+	    		 "geometry":{
+	    		 	display:"point",
+	    		 	"visible":function(feature,zoom) {
+	    		 		if(zoom>5) {
+	    		 			return true;
+	    		 		}else{
+	    		 			return false;
+	    		 		}
+	    		 	}
+	    		 },
+	    		 "label":{
+	    		 	font:'10px serif',
+	    		 	charCount:5,
+	    		 	visible:function(feature,zoom) {
+	    		 		if(zoom>5) {
+	    		 			return true;
+	    		 		}else{
+	    		 			return false;
+	    		 		}
+	    		 	},
+	    		 	color:"blue"
+	    		 }
+	    	},
+		"polygon":{	
+				'visible':true,
+				renderer:'canvas',			 
+		         "geometry": {smooth:true,weight:1,stroke:false,color:"blue",fillColor :{"field":"minValue"},//'rgba(255,0,0,255)',
+
+					/*function getColor(feature){
+					
+					var d = parseFloat(feature.properties['minValue']);
+					//console.log(d);
+					   if(d>30.0) {
+							return "red";
+						}else if(d>20.0) {
+							return "blue";
+						}else if(d>10.0) {
+							return "green";
+						}else if(d>0.0){
+							return "pink";									
+						}else {
+							return 'yellow';
+						}
+					},*/
+					fillOpacity: 0.5},
+				   "label":{drawtype:"text",font:"12px serif",color:"black",visible:false,field:function field(d){
+				   		return d.properties['minValue']+','+ d.properties['maxValue'];
+				   }}	
+
+				},
+		"polyline":{
+			"renderer":"canvas",
+			'visible':false,
+			"geometry":{
+				smooth:true,
+				// visible:true,
+				color:'rgba(0,255,0,80)'/*function(feature){
+					var d = parseFloat(feature.properties.value);
+					//console.log(d);
+					   if(d>30.0) {
+							return "red";
+						}else if(d>20.0) {
+							return "blue";
+						}else if(d>10.0) {
+							return "green";
+						}else if(d>0.0){
+							return "yellow";									
+						}else {
+							return 'red';
+						}
+				}*/,
+				lineWidth:2,
+				// dashArray:[10,3]
+			},
+			"label":{
+				font:'16px serif',
+				color:'blue',
+				visible:function(feature,zoom) {
+					if(zoom>1) {
+						return true;
+					}else {
+						return false;
+					}
+					// if(feature.properties.value>4) {
+					// 	return true;
+					// }
+					// return false;
+				}
+			}
+		}
+}

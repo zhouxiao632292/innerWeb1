@@ -1,0 +1,160 @@
+{
+	renderStyle:["origin"],
+	"palette":"macros/temp",
+    "showPalette": false,
+  "palettetype":'fix',
+	"point" :{
+		"renderer":'canvas',
+		"geometry":{
+		  display:"point",
+//		  type:"roundRect",
+		  "type":function(feature,zoom) {
+//return 'rect';
+if(zoom>0) {
+return 'roundRect';
+}else {
+//return 'rect';
+}
+},
+size:function(feature,zoom) {
+
+//return 10;
+if(zoom>0) {
+return {width:18,height:18};
+}else {
+return 4;
+}
+},
+//			fillColor:'blue',
+//		fillColor:function(feature){
+//					var d = parseFloat(feature.properties.value);
+//					//console.log(d);
+//					   if(d>30.0) {
+//							return "red";
+//						}else if(d>20.0) {
+//							return "blue";
+//						}else if(d>10.0) {
+//							return "green";
+//						}else if(d>0.0){
+//							return "yellow";
+//						}else {
+//							return 'red';
+//						}
+//				},
+//fillColor :{"field":"value"},
+
+//		  width:27,height:16,
+//			radius:20,
+			visible:true
+		},
+		"label": {
+			visible:true /*function(f,zoom){
+				   if(zoom >5) {
+				  	return true;
+				  }
+				  	return false;
+				}*/,
+//			width:150,
+//fillColor:"blue",
+			labels:
+			[
+//			   {drawtype:"image",font:"14px fontello",color:"blue", offset:{x:-10,y:80},
+//			        visible:true,
+//			       src: {type:'icon',field:'highCloudState',icontype:'highCloud'},invalid:9999
+//			   },
+//			   {drawtype:"image",font:"14px fontello",color:"blue", offset:{x:-10,y:60},
+//			        visible:true,
+//			       src: {type:'icon',field:'middleCloudState',icontype:'midCloud'},invalid:9999
+//			   },
+//			   {drawtype:"image",font:"14px fontello",color:"black", offset:{x:-10,y:40},
+//			        visible:true,
+//			       src: {type:'icon',field:'totalCloudCover',icontype:'totalClouds'},invalid:9999
+//			   },
+//			   {drawtype:"image",font:"14px fontello",color:"red", offset:{x:-10,y:20},
+//			        visible:true,
+//			       src: {type:'icon',field:'lowCloudState',icontype:'lowCloud'},invalid:9999
+//			   },
+//			   {offset:{x:-10,y:0},charCount:2,drawtype:"text",font:"14px serif",color:"green",visible:false,field:"lowCloudQuantity",invalid:9999},
+//			   {offset:{x:-10,y:0},charCount:2,drawtype:"text",font:"14px serif",color:"green",visible:false,field:"lowCloudHigh",invalid:9999},
+//			   {drawtype:"image",font:"24px fontello",color:"blue", offset:{x:-10,y:40},angle:{type:'deg',field:'windDirection'},
+//			        visible:true,
+//			       src: {type:'icon',field:'windSpeed',icontype:'wind'},invalid:9999
+//			   },
+//
+//			   {offset:{x:-25,y:80},charCount:2,drawtype:"text",font:"14px serif",color:"green",visible:false,field:"changeTemperature24h",invalid:9999},
+//			   {offset:{x:-25,y:60},charCount:6,drawtype:"text",font:"14px serif",color:"blue",visible:true,field:"temperature",invalid:9999},
+//			   {drawtype:"image",font:"14px fontello",color:"blue", offset:{x:-50,y:40},
+//			        visible:true,
+//			       src: {type:'icon',field:'presentWeather',icontype:'presentWeather'},invalid:9999
+//			   },
+//			    {offset:{x:-25,y:20},charCount:6,drawtype:"text",font:"14px serif",color:"red",visible:true,field:"visibility",invalid:9999},
+//			    {offset:{x:-25,y:0},charCount:6,drawtype:"text",font:"14px serif",color:"red",visible:true,field:"dewPoint",invalid:9999},
+//
+//
+//				{offset:{x:25,y:80},charCount:6,drawtype:"text",font:"14px serif",color:"green",visible:false,field:"changeToPress24h",invalid:9999},
+//				{offset:{x:60,y:60},charCount:6,drawtype:"text",font:"14px serif",color:"green",visible:true,field:"slp",invalid:9999},
+//				{offset:{x:25,y:40},charCount:4,drawtype:"text",font:"14px serif",color:"blue",visible:true,field:"changeToPress3h",invalid:9999},
+//				{drawtype:"image",font:"14px fontello",color:"red", charCount:2, offset:{x:25,y:20},
+//			        visible:false,
+//			       src: {type:'icon',field:'pastWeather1',icontype:'pastWeather'},invalid:9999
+//			    },
+//			    {drawtype:"image",font:"14px fontello",color:"blue", charCount:2, offset:{x:25,y:0},
+//			        visible:false,
+//			       src: "images/population1.png",invalid:9999
+//			    },
+//			    {offset:{x:45,y:0},charCount:4,drawtype:"text",font:"14px serif",color:"blue",visible:false,field:"preclipitation6h",invalid:9999},
+//				{offset:{x:45,y:-20},charCount:6,drawtype:"text",font:"14px serif",color:"red",visible:false,field:"stationId",invalid:99999}
+
+				{offset:{x:-8,y:7},charCount:20,drawtype:"image",font:"`16px serif",color:"#fff",visible:true,field:function(feature){
+				return feature.properties.population+"°C"
+				},src:"../../images/population1.png",invalid:99999},
+//			   {offset:{x:-20,y:-4},charCount:20,drawtype:"text",font:"`16px serif",color:"#fff",visible:true,field:function(feature){
+//				return feature.properties.population
+//				},invalid:99999}
+
+			]	
+		}
+	},				
+	"polygon":{
+	            geometry:{
+	            	      smooth:false,
+	                      weight:1,stroke:true,dashArray:[3],color:"white",fillColor :{"field":"minValue"},
+	                        /*
+							function getColor(feature){
+							
+							var d = parseFloat(feature.properties['积水深度']);
+							
+							   if(d>5.0) {
+									return "red";
+								}else if(d>4.0) {
+									return "blue";
+								}else if(d>3.0) {
+									return "green";
+								}else if(d>2.0){
+									return "pink";									
+								}else {
+									return 'yellow';
+								}
+							},*/
+							fillOpacity: 0.8
+						},
+				label:{
+					drawtype:"text",
+					font:"18px serif",
+					color:"blue",
+					visible:function(feature,zoom){
+					if(zoom>10) {return true;}
+					return false;
+					// var d = parseFloat(feature.properties['积水深度']);
+					// if(d>0 && zoom>10) {
+					// 	return true;
+					// }
+					// return false;
+				},
+				field:function field(d){
+				   		return d.properties['积水深度'];
+				   }}	
+				}
+				
+	}
+
